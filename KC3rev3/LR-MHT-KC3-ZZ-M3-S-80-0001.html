@@ -1,0 +1,1689 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Model Checker Report</title>
+    <style type="text/css">
+        /*  Name-agnostic definitions.
+ *  These definitions are just a copy of the definitions further below given a generic name.
+ *  This allows publishers to make a reference to "the page's default font" without having to
+ *  update hundreds of custom pages/styles to match the new name.
+ */
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-style: normal;
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-style: normal;
+            font-weight: 700;
+        }
+
+
+        /*  Generic "Artifakt" definitions.
+         *  An attempt will be made to map styles to appropriate font-faces when these are used.
+         *  See the definitions below if you wish to use a specific font.
+         */
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-style: normal;
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-style: normal;
+            font-weight: 700;
+        }
+
+
+        /*  "Artifakt Legend" definitions.
+         *   These definitions are for the "Artifakt Legend" series of font faces.
+         */
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendLight.svg#ArtifaktLegendLight') format('svg');
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendRegular.svg#ArtifaktLegendRegular') format('svg');
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendMedium.svg#ArtifaktLegendMedium') format('svg');
+            font-weight: 700;
+        }
+
+
+        /*  "Artifakt Element" definitions.
+         *   These definitions are for the "Artifakt Element" series of font faces.
+         */
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-weight: 700;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-italic.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementItalic.svg#ArtifaktElementItalic') format('svg');
+            font-style: italic;
+            font-weight: 400;
+        }
+    </style>
+    <style type="text/css">
+        body {
+            font: 100%/1.4 ADSK-Default, Verdana, Arial, Helvetica, sans-serif;
+            background: #f1f1f1;
+            margin: 0;
+            padding: 0;
+            color: #000;
+        }
+
+        h1, h2, h3, h4, h5, h6, p {
+            margin-top: 0; /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+            margin-bottom: 0;
+            padding-right: 0;
+            padding-left: 0; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+        }
+
+        h1, h3 {
+            color: white;
+        }
+
+        h1 {
+            font-family: "Artifakt Legend", Arial, sans-serif;
+            font-size: 1.5em;
+            margin: 0px;
+        }
+
+        a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+            border: none;
+        }
+
+        /* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+        a:link {
+            color: #414958;
+        }
+
+        a:visited {
+            color: #4E5869;
+        }
+
+        a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+            text-decoration: none;
+        }
+
+        /* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */
+        .container {
+            width: 100%;
+            max-width: 1260px; /* a max-width may be desirable to keep this layout from getting too wide on a large monitor. This keeps line length more readable. IE6 does not respect this declaration. */
+            min-width: 780px; /* a min-width may be desirable to keep this layout from getting too narrow. This keeps line length more readable in the side columns. IE6 does not respect this declaration. */
+            background: #f1f1f1;
+            margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
+        }
+
+        /* ~~the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo~~ */
+        .header {
+            background-color: #3b4453;
+            border-bottom: 1px black;
+            padding: 15px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .configContainer {
+            padding: 25px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+		
+		.imageContainer{
+		    width: 125px;
+			height: 125px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.checksetImage{
+		    max-width: 100%;
+			height: auto;
+		}
+
+        .resultData {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .tabBar {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 0 25px;
+        }
+
+        .tabItem {
+            margin-right: 15px;
+            background: #f9f9f9;
+            font-family: "Artifakt Element", Arial, sans-serif;
+            padding: 15px;
+            color: #bb7a14;
+        }
+
+        .tabItem a, .tabItem a:visited {
+            text-decoration: none;
+            color: #bb7a14;
+        }
+
+        .tabItemActive {
+            margin-right: 15px;
+            padding: 15px;
+            background: white;
+            font-family: "Artifakt Element", Arial, sans-serif;
+            color: #bb7a14;
+        }
+
+        .tabItemActive a, .tabItemActive a:visited {
+            text-decoration: none;
+            color: #bb7a14;
+        }
+
+        .portalStandardText {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: lighter;
+        }
+
+        .portalHeadlineText {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .portal {
+            background: white;
+            margin: 0 25px 25px 25px;
+            padding: 15px;
+        }
+
+        .treeElement {
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+
+        .checkResult {
+            border: 1px black solid;
+            padding: 15px;
+            margin-top: 15px;
+            margin-left: 25px;
+            display: grid;
+            justify-content: flex-start;
+            grid-template-columns: auto 1fr;
+        }
+
+        .itemList {
+            width: 100%;
+        }
+
+        .itemList th {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: bold;
+            background: #f1f1f1;
+            padding: 0 10px;
+        }
+
+        .configData {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-column-gap: 15px;
+            margin-left: 15px
+        }
+
+        .passRate{
+            font-family: "Artifakt Legend", Arial, sans-serif;
+            font-weight: bold;
+            font-size: 4.5em;
+        }
+        .structureHeading{
+            display: flex;
+        }
+
+        .structureBreakdown{
+            flex: auto;
+            flex-grow: 0;
+            white-space: nowrap;
+            margin-left: 15px;
+        }
+
+        .structureHeadingText{
+            flex-grow: 1;
+        }
+
+        .overallShown{
+            display: grid;
+            grid-template-rows: auto auto auto;
+            margin: 0 25px;
+        }
+        .overallHidden{
+            display: none;
+        }
+
+        .resultLow {
+            color: rgb(221, 34, 34);
+        }
+
+        .resultHigh {
+            color: rgb(135, 188, 64);
+        }
+
+        .resultMedium {
+            color: rgb(250, 162, 77);
+        }
+
+        .tableScroll{
+            overflow: auto;
+            max-height: 350px;
+            margin-top: 15px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_ModelChecker_24.png" width="24" height="24" style="margin-right: 15px" alt="Autodesk Model Checker for Revit"/>
+        <h1>Autodesk Model Checker for Revit</h1>
+    </div>
+    <div class="configContainer">
+        <div class="imageContainer">
+		    <img src="T:\TEMP_BIM LEAD\MDS Logo.PNG" class="checksetImage" 
+			onerror="this.src = 'https://www.biminteroperabilitytools.com/modelchecker/reports/HeroImage_ModelChecker.png';" 
+			alt="Checkset Image"/>
+		</div>
+        <div class="configData">
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Title</span><span class="portalStandardText">BIM Model Audit</span>
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Date</span><span class="portalStandardText">martes, 14 de septiembre de 2021</span>
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Author</span><span class="portalStandardText">MV-BIM / MDS</span>
+            <span class="portalHeadlineText">Description</span><span
+                class="portalStandardText">Series of checks to review modeling best practices and integrity</span>
+        </div>
+    </div>
+    <div class="tabBar">
+        <div class="tabItemActive"><a href="LR-MHT-KC3-ZZ-M3-S-80-0001.html">LR-MHT-KC3-ZZ-M3-S-80-0001</a></div>
+    </div>
+    <div class="portal">
+        <div class="resultData">
+            <div class="overallShown">
+    <span class="passRate resultMedium" style="text-align: center">75%</span>
+</div>
+<div style="display: grid; grid-template-columns: auto auto; grid-column-gap: 15px; margin-left: 15px">
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Check Summary</span><span
+        class="portalStandardText">47 Checks, 3 <Span Foreground="#FAA24D">(75%)</Span> Pass, 1 Fail, 42 Count/List, <Span Foreground="#DD2222">1 Errors</Span></span>
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Report Date</span><span
+        class="portalStandardText">miércoles, 29 de septiembre de 2021 - 15:46:14</span>
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Revit Filepath</span><span
+        class="portalStandardText">H:\01_TECNICO_MVB-INT\01_PROJECTS\190820_Lots Road\Package 1\KC3\01_WIP\06_BIM Documents\02_BIM Audit Report\01_BIM Model Audit\03\01_Revit Models\LR-MHT-KC3-ZZ-M3-S-80-0001.rvt</span>
+    <span class="portalHeadlineText">Checkset File</span><span
+        class="portalStandardText">H:\01_TECNICO_MVB-INT\03_LIBRARIES\BIM INTEROPERABILITY TOOLS\BIM Model Audit.xml</span>
+</div>
+        </div>
+    </div>
+    <div class="portal" style="margin-top: 15px">
+        <div>
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">BIM Model Audit</div>
+        <div class="structureBreakdown">47 Checks, 3 <Span Foreground="#FAA24D">(75%)</Span> Pass, 1 Fail, 42 Count/List, <Span Foreground="#DD2222">1 Errors</Span></div>
+    </div>
+    <div class="portalStandardText"></div>
+    <div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Model Performance</div>
+        <div class="structureBreakdown">7 Checks, 6 Count/List, <Span Foreground="#DD2222">1 Errors</Span></div>
+    </div>
+    <div class="portalStandardText">Checks in this section help monitor the result of actions taken over the course of a model’s development, which can directly impact the model’s performance. Proper management of these items can improve model performance.</div>
+    <div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="CUSTOM RESULT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">File Size</div>
+        <div class="portalStandardText" style="text-align: left">RESULT of the file sizes for all reported Revit models in MB (megabytes).</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: 63,28 MB</div>
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Warnings</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all warnings in the model. Too many unresolved warnings can cause performance issues in a Revit model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 333</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Error_26.png" alt="ERROR" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Loadable Families</div>
+        <div class="portalStandardText" style="text-align: left">RESULT and LIST of the families in the project ordered by file size.</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: 29.680 KB</div>
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th><th>Value</th></tr>
+<tr><td>MHT_GM_Baseplate_2 Bolts</td><td>764 KB</td></tr>
+<tr><td>MHT_GM_Baseplate_3 Bolts</td><td>752 KB</td></tr>
+<tr><td>MHT_GM_Bolt</td><td>696 KB</td></tr>
+<tr><td>channel-unistrut-p4100-rfa</td><td>416 KB</td></tr>
+<tr><td>UC-Universal Columns</td><td>380 KB</td></tr>
+<tr><td>MHT_GM_Stair-S5 (Typical)</td><td>376 KB</td></tr>
+<tr><td>Rectangular Hollow Sections</td><td>372 KB</td></tr>
+<tr><td>MHT_GM_Stair-S1 (Level 10 to 11)</td><td>368 KB</td></tr>
+<tr><td>UB-Universal Beams</td><td>368 KB</td></tr>
+<tr><td>MHT_GM_Stair-S1 (Typical)</td><td>368 KB</td></tr>
+<tr><td>MHT_GM_Stair-N5 (Typical)</td><td>364 KB</td></tr>
+<tr><td>MHT_GM_Stair-N2 (Typical)</td><td>364 KB</td></tr>
+<tr><td>MHT_GM_Stair-N2 (Lvl2)</td><td>364 KB</td></tr>
+<tr><td>MHT_GM_Stair-N7 (Typical)</td><td>364 KB</td></tr>
+<tr><td>MHT_GM_Stair-N4 (Typical)</td><td>364 KB</td></tr>
+<tr><td>MHT_GM_Stair-N6 (Typical)</td><td>364 KB</td></tr>
+<tr><td>MHT_GM_Stair-S4 (Level10l)</td><td>364 KB</td></tr>
+<tr><td>MHT_GM_Stair-S2 (Level 10 to 11)</td><td>364 KB</td></tr>
+<tr><td>MHT_GM_Stair-S2 (Typical)</td><td>364 KB</td></tr>
+<tr><td>MHT_GM_Stair-S5 (Level 10)</td><td>364 KB</td></tr>
+<tr><td>MHT_GM_Stair-S3 (Level 11)</td><td>364 KB</td></tr>
+<tr><td>MHT_GM_Stair-S3 (Level10l)</td><td>364 KB</td></tr>
+<tr><td>MHT_GM_Stair-N3 (Typical)</td><td>364 KB</td></tr>
+<tr><td>MHT_GM_Stair-S3 (Typical)</td><td>360 KB</td></tr>
+<tr><td>MHT_GM_Stair-S4 (Typical)</td><td>360 KB</td></tr>
+<tr><td>MHT_GM_Stair-N1 (Typical)</td><td>360 KB</td></tr>
+<tr><td>PFC-Parallel Flange Channels</td><td>356 KB</td></tr>
+<tr><td>L-Equal Leg Angles</td><td>348 KB</td></tr>
+<tr><td>MHT_GM_Stair-S5 (Level 11)</td><td>336 KB</td></tr>
+<tr><td>MHT_GM_Vertical Penetration - Rectangular</td><td>336 KB</td></tr>
+<tr><td>MHT_GM_Shear Stud</td><td>328 KB</td></tr>
+<tr><td>MHT_GM_Stair-S1 (Level 11 to 12)</td><td>320 KB</td></tr>
+<tr><td>MVB_A_FRA_Z-Concrete-Rectangular Beam</td><td>320 KB</td></tr>
+<tr><td>MHT_SF_Fabricated Girder</td><td>320 KB</td></tr>
+<tr><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>316 KB</td></tr>
+<tr><td>Lots Road KC3_Concrete - (Transfer) Rectangular Beam</td><td>316 KB</td></tr>
+<tr><td>MHT_GM_Horizontal Penetration - Circular</td><td>316 KB</td></tr>
+<tr><td>UC-Universal Columns-Column</td><td>316 KB</td></tr>
+<tr><td>MHT_GM_Horizontal Penetration - Rectangular</td><td>312 KB</td></tr>
+<tr><td>MHT_GM_Stair-N6 (Level 08)</td><td>308 KB</td></tr>
+<tr><td>MHT_GM_Stair-N4 (Level 08)</td><td>308 KB</td></tr>
+<tr><td>MHT_GM_Stair-N2 (Level 08)</td><td>308 KB</td></tr>
+<tr><td>MHT_GM_Stair-N5 (Level 08)</td><td>308 KB</td></tr>
+<tr><td>MHT_Steel Plate_With Hole</td><td>308 KB</td></tr>
+<tr><td>MHT_Steel Plate</td><td>308 KB</td></tr>
+<tr><td>MHT_GM_Gully - Circular</td><td>308 KB</td></tr>
+<tr><td>MHT_GM_Stair-N7 (Level 08)</td><td>308 KB</td></tr>
+<tr><td>MHT_SF_Beam Conc-Insitu</td><td>308 KB</td></tr>
+<tr><td>MHT_GM_Recess - Rectangular</td><td>308 KB</td></tr>
+<tr><td>MHT_GM_Stair-N1 (Level 08)</td><td>308 KB</td></tr>
+<tr><td>Square Hollow Sections-Column</td><td>308 KB</td></tr>
+<tr><td>MHT_GM_Stair-S4 (Level 11 landing)</td><td>308 KB</td></tr>
+<tr><td>MHT_GM_Stair-N3 (Level 08)</td><td>308 KB</td></tr>
+<tr><td>MHT_GM_Stair-S2 (Level 11)</td><td>308 KB</td></tr>
+<tr><td>Rectangular Hollow Sections-Column</td><td>304 KB</td></tr>
+<tr><td>Plate</td><td>304 KB</td></tr>
+<tr><td>MHT_GM_Vertical Penetration - Circular</td><td>304 KB</td></tr>
+<tr><td>PFC-Parallel Flange Channels-Column</td><td>296 KB</td></tr>
+<tr><td>Circular Hollow Sections-Column</td><td>292 KB</td></tr>
+<tr><td>MHT_SF_Round Bar</td><td>292 KB</td></tr>
+<tr><td>MHT_SC_Rectangular Conc-Insitu</td><td>292 KB</td></tr>
+<tr><td>MHT_EM_Elevation Mark Body_Circle-12mm</td><td>292 KB</td></tr>
+<tr><td>MHT_DO_Door Opening</td><td>288 KB</td></tr>
+<tr><td>MHT_SC_Circular Conc-Insitu</td><td>276 KB</td></tr>
+<tr><td>Profiles_Reveal</td><td>268 KB</td></tr>
+<tr><td>MHT_EM_Elevation Mark Pointer_Circle-12mm</td><td>264 KB</td></tr>
+<tr><td>Profiles_Richard_Lees-Superib</td><td>260 KB</td></tr>
+<tr><td>MHT_HL_Level Head - Circle</td><td>256 KB</td></tr>
+<tr><td>MHT_SY_Connection-Column-Filled Triangle</td><td>256 KB</td></tr>
+<tr><td>MHT_PR_Slab Edge_Thickened</td><td>256 KB</td></tr>
+<tr><td>MHT_SM_Section Tail - Filled Horizontal</td><td>252 KB</td></tr>
+<tr><td>MHT_SY_Connection-Beam-Crank</td><td>252 KB</td></tr>
+<tr><td>MHT_SM_Section Head - No Arrow</td><td>252 KB</td></tr>
+<tr><td>MHT_SM_Section Tail - Filled</td><td>252 KB</td></tr>
+<tr><td>MHT_SY_Connection-Column-Splice Plates</td><td>252 KB</td></tr>
+<tr><td>MHT_HC_Callout Head</td><td>252 KB</td></tr>
+<tr><td>MHT_SY_Connection-Beam-End Plate</td><td>252 KB</td></tr>
+<tr><td>MHT_SY_Connection-Beam-Splice</td><td>252 KB</td></tr>
+<tr><td>MHT_SY_Connection-Moment-Filled</td><td>252 KB</td></tr>
+<tr><td>MHT_SY_Connection-Brace-Parallel</td><td>252 KB</td></tr>
+<tr><td>MHT_VT_View Title</td><td>252 KB</td></tr>
+<tr><td>MHT_SY_Connection-Moment-Not Filled</td><td>252 KB</td></tr>
+<tr><td>MHT_HG_Grid Head - Circle</td><td>252 KB</td></tr>
+<tr><td>MHT_SY_Spot Elevation - Target Filled</td><td>252 KB</td></tr>
+<tr><td>MHT_SY_Connection-Column-Default</td><td>252 KB</td></tr>
+<tr><td>MHT_SY_Connection-Column-Plate</td><td>252 KB</td></tr>
+<tr><td>MHT_SY_Connection-Brace-Kicker</td><td>248 KB</td></tr>
+<tr><td>MHT_GM_Baseplate</td><td>1.368 KB</td></tr>
+</table>
+</div>
+        <div class="portalHeadlineText" style="margin-top: 15px">Error</div><div class="portalStandardText" style="margin-top: 15px">Error getting file size from family 'Square Hollow Sections': Loaded Family Editing failed.Error getting file size from family 'MHT_GM_Baseplate_Advanced': Loaded Family Editing failed.</div>
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Unused Elements</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all elements that may be unused and therefore removed from a Revit model. A large number of unneeded elements can increase the model size with no benefit. Note that the count reported here may differ from the Purge Unused command in the Revit interface due to API restraints.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 145</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Model Groups</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all model group elements in the model. Too many model groups can be an indication of improper modeling techniques.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 74</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Detail Groups</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all detail group elements in the model. Too many detail groups can be an indication of improper modeling techniques.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">In-Place Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all in-place family elements in the model. In-place families can signifcantly impact model size and performance and should be used sparingly.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 9</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Project Settings</div>
+        <div class="structureBreakdown">5 Checks, 5 Count/List</div>
+    </div>
+    <div class="portalStandardText">Checks in this section are related to settings that can be configured at a project level, which may need to be verified for compliance with standards defined for the project.</div>
+    <div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="CUSTOM RESULT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Revit Version</div>
+        <div class="portalStandardText" style="text-align: left">LIST of the version and build data of Revit running the check.</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: Autodesk Revit 2019 20190108_1515(x64)</div>
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Design Options</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all elements created in each design option of the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Elements Per Phase</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all elements in each phase of the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 10.965</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Count</th><th>Name</th></tr>
+<tr><td>10965</td><td>New Construction</td></tr>
+<tr><td>0</td><td>Existing</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Worksets</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all user worksets in the model or indicates '*Not Workshared*' if worksharing is not enabled.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 23</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>ARC_AR_LINK-MODEL</td></tr>
+<tr><td>BHA_ST_LINK-MODEL</td></tr>
+<tr><td>JRL_MC_LINK-MODEL</td></tr>
+<tr><td>LSA_LS_LINK-MODEL</td></tr>
+<tr><td>MEP_BS_LINK-MODEL</td></tr>
+<tr><td>MHT_GE_SITE-GRIDS & LEVELS</td></tr>
+<tr><td>MHT_ST_BLDG-GRIDS & LEVELS</td></tr>
+<tr><td>MHT_ST_BLDG-GRIDS & LEVELS (HIDDEN)</td></tr>
+<tr><td>MHT_ST_LINK-MODEL</td></tr>
+<tr><td>MHT_ST_SSTR-ZONE_1_BWH</td></tr>
+<tr><td>MHT_ST_SSTR-ZONE_1_GENERAL</td></tr>
+<tr><td>MHT_ST_SSTR-ZONE_1_STAIRS</td></tr>
+<tr><td>MHT_ST_SSTR-ZONE_1A_BWH</td></tr>
+<tr><td>MHT_ST_SSTR-ZONE_1A_GENERAL</td></tr>
+<tr><td>MHT_ST_SSTR-ZONE_1A_STAIRS</td></tr>
+<tr><td>MHT_ST_SSTR-ZONE_2_BWH</td></tr>
+<tr><td>MHT_ST_SSTR-ZONE_2_GENERAL</td></tr>
+<tr><td>MHT_ST_SSTR-ZONE_2_STAIRS</td></tr>
+<tr><td>MHT_ST_SSTR-ZONE_2A_BWH</td></tr>
+<tr><td>MHT_ST_SSTR-ZONE_2A_GENERAL</td></tr>
+<tr><td>MHT_ST_SSTR-ZONE_2A_STAIRS</td></tr>
+<tr><td>MHT-ST-SSTR-STEELWORK-ATRIUM</td></tr>
+<tr><td>MHT-ST-SSTR-STEELWORK-ROOF</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Project Coordinates</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of the coordinate values of the survey and project base points, elevation, and true north.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 5</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th><th>Value</th></tr>
+<tr><td>Project Base Point Coordinate</td><td>526370000 E/W  |  177000000 N/S</td></tr>
+<tr><td>Project Base Point Elevation</td><td>0</td></tr>
+<tr><td>Project Base Point Rotation</td><td>325.90°</td></tr>
+<tr><td>Survey Point Coordinate</td><td>0 E/W  |  0 N/S</td></tr>
+<tr><td>Survey Point Elevation</td><td>0</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">External Files</div>
+        <div class="structureBreakdown">5 Checks, 5 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to linked and imported files in the model.</div>
+    <div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Linked Revit Files and Their Link Method</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of the link method (overlay vs. attach) for each Revit link in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 11</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th><th>Value</th></tr>
+<tr><td>RVT Links : Type : KC3 REVIT MODEL.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : LR-JRL-KC3-ZZ-M3-S-80-0001_P2.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : LR‐MDS‐KC3‐EX‐M3‐A‐98‐0001.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : LR‐MDS‐KC3‐ZZ‐M3‐A‐80‐0001.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : LR‐MDS‐KC3‐ZZ‐M3‐A‐80‐0002.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : LR‐MDS‐KC3‐ZZ‐M3‐A‐80‐0003.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : LR‐MDS‐KC3-ZZ-M3-A-80-0010.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : LR-MHT-KC3-ZZ-M3-S-80-0002.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : LR-MLM-KC3-XX-M3-M-98-0001-C02.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : LR-MLM-KC3-XX-M3-M-98-0002-C01.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : LR-MLM-KC3-XX-M3-M-98-0003-C01.rvt</td><td>Overlay</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Linked CAD Files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all linked CAD files in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Imported CAD files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all CAD files that were Imported and not Linked.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Imported SKP files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all imported SKP files in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Raster Images</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all raster images placed in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Levels and Grids</div>
+        <div class="structureBreakdown">2 Checks, 2 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to datum and location elements in the model.</div>
+    <div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Levels</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all level elements in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 27</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Grids</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all grid elements in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 44</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Views</div>
+        <div class="structureBreakdown">3 Checks, 3 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to views in the model.</div>
+    <div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Views</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all views.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Sheets</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all sheets in the model. Sheets typically do not impact model size, but too many unmanaged views can impact user efficiency.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Schedules</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all schedules in the model. Schedules typically do not impact model size, but too many unmanaged views can impact user efficiency.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Model Elements</div>
+        <div class="structureBreakdown">25 Checks, 3 <Span Foreground="#FAA24D">(75%)</Span> Pass, 1 Fail, 21 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to model elements in the model.</div>
+    <div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Arch System Families</div>
+        <div class="structureBreakdown">10 Checks, 10 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of architectural system families in the model</div>
+    <div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Ceiling Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all ceiling family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ceilings : Type : Ceiling 1</td></tr>
+<tr><td>Ceilings : Type : Ceiling 1</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Curtain System</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all architectural curtain system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Curtain Systems : Type : 1500 x 3000mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Curtain Wall Mullion Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all curtain wall mullion family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Floor Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all floor family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 16</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Floors : Type : Floors 1 : Floors 1</td></tr>
+<tr><td>Floors : Type : Floors 2 : Floors 2</td></tr>
+<tr><td>Floors : Type : Floors 3 : Floors 3</td></tr>
+<tr><td>Floors : Type : MHT_FS_Balcony LW Conc Insitu 200mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Composite Slab Conc Insitu 130mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Composite Slab Conc Insitu 150mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Composite Slab Conc Insitu 160mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Composite Slab Conc Insitu 170mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Composite Slab Conc Insitu 180mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Composite Slab Conc Insitu 250mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Slab Conc Insitu 200mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Slab Conc Insitu 250mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Slab Conc Insitu 300mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Slab Conc Insitu 325mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Slab Conc Insitu 350mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Slab Conc Insitu 375mm (C35/45)</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Railing Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all railing family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Railings : Type : 900mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Ramp Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all ramp family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ramps : Type : MHT_RP_Ramp 300mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Roof Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all roof family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Roofs : Type : MHT_Basic Roof 200mm</td></tr>
+<tr><td>Roofs : Type : Sloped Glazing</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Site Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all site family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Stair Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all stair family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 4</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Stairs : Type : Assembled Stair</td></tr>
+<tr><td>Stairs : Type : MHT_Stair Conc Insitu</td></tr>
+<tr><td>Stairs : Type : Monolithic Stair</td></tr>
+<tr><td>Stairs : Type : Precast Stair</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Wall Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all wall family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 10</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Walls : Type : Curtain Wall</td></tr>
+<tr><td>Walls : Type : Level 9 Wall Corbel Grid 1 : Level 9 Wall Corbel Grid 7</td></tr>
+<tr><td>Walls : Type : Level 9 Wall Corbel Grid 7 : Level 9 Wall Corbel Grid 7</td></tr>
+<tr><td>Walls : Type : MHT_Downstand Conc Insitu - 200mm</td></tr>
+<tr><td>Walls : Type : MHT_Upstand Conc Insitu - 150mm</td></tr>
+<tr><td>Walls : Type : MHT_Upstand Conc Insitu - 200mm</td></tr>
+<tr><td>Walls : Type : MHT_Wall Conc Insitu - 150mm</td></tr>
+<tr><td>Walls : Type : MHT_Wall Conc Insitu - 200mm</td></tr>
+<tr><td>Walls : Type : MHT_Wall Conc Insitu - 250mm</td></tr>
+<tr><td>Walls : Type : MHT_Wall Conc Insitu - 300mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">MEP System Families</div>
+        <div class="structureBreakdown">9 Checks, 3 <Span Foreground="#87BC40">(100%)</Span> Pass, 0 Fail, 6 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of MEP system families in the model</div>
+    <div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all duct family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 3</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ducts : Type : Default</td></tr>
+<tr><td>Ducts : Type : Default</td></tr>
+<tr><td>Ducts : Type : Default</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct System Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all duct system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 3</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Duct Systems : Type : Exhaust Air</td></tr>
+<tr><td>Duct Systems : Type : Return Air</td></tr>
+<tr><td>Duct Systems : Type : Supply Air</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Pass_26.png" alt="PASS" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any duct related elements that have a blank System Name.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Flex Duct Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all flex duct family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Flex Ducts : Type : Flex - Rectangular</td></tr>
+<tr><td>Flex Ducts : Type : Flex - Round</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Flex Pipe Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all flex pipe family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Flex Pipes : Type : Flex - Round</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Pipe Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all pipe family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Pipes : Type : Default</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Piping System Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all piping system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 11</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Piping Systems : Type : Domestic Cold Water</td></tr>
+<tr><td>Piping Systems : Type : Domestic Hot Water</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Dry</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Other</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Pre-Action</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Wet</td></tr>
+<tr><td>Piping Systems : Type : Hydronic Return</td></tr>
+<tr><td>Piping Systems : Type : Hydronic Supply</td></tr>
+<tr><td>Piping Systems : Type : Other</td></tr>
+<tr><td>Piping Systems : Type : Sanitary</td></tr>
+<tr><td>Piping Systems : Type : Vent</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Pass_26.png" alt="PASS" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Piping Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any piping related elements that have a blank System Name.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Pass_26.png" alt="PASS" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Electrical Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any electrical related elements that have a blank Panel Name or Circuit Number.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Structural System Families</div>
+        <div class="structureBreakdown">4 Checks, 4 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of structural system families in the model</div>
+    <div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Floor Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all floor family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 16</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Floors : Type : Floors 1 : Floors 1</td></tr>
+<tr><td>Floors : Type : Floors 2 : Floors 2</td></tr>
+<tr><td>Floors : Type : Floors 3 : Floors 3</td></tr>
+<tr><td>Floors : Type : MHT_FS_Balcony LW Conc Insitu 200mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Composite Slab Conc Insitu 130mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Composite Slab Conc Insitu 150mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Composite Slab Conc Insitu 160mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Composite Slab Conc Insitu 170mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Composite Slab Conc Insitu 180mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Composite Slab Conc Insitu 250mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Slab Conc Insitu 200mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Slab Conc Insitu 250mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Slab Conc Insitu 300mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Slab Conc Insitu 325mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Slab Conc Insitu 350mm (C35/45)</td></tr>
+<tr><td>Floors : Type : MHT_FS_Slab Conc Insitu 375mm (C35/45)</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Foundation Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all foundation family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Structural Foundations : Type : MHT_FD_Retaining Footing - 300 x 600 x 300</td></tr>
+<tr><td>Structural Foundations : Type : MHT_FD_Slab 400mm (C35/45)</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Rebar Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all rebar family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Wall Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all wall family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 10</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Walls : Type : Curtain Wall</td></tr>
+<tr><td>Walls : Type : Level 9 Wall Corbel Grid 1 : Level 9 Wall Corbel Grid 7</td></tr>
+<tr><td>Walls : Type : Level 9 Wall Corbel Grid 7 : Level 9 Wall Corbel Grid 7</td></tr>
+<tr><td>Walls : Type : MHT_Downstand Conc Insitu - 200mm</td></tr>
+<tr><td>Walls : Type : MHT_Upstand Conc Insitu - 150mm</td></tr>
+<tr><td>Walls : Type : MHT_Upstand Conc Insitu - 200mm</td></tr>
+<tr><td>Walls : Type : MHT_Wall Conc Insitu - 150mm</td></tr>
+<tr><td>Walls : Type : MHT_Wall Conc Insitu - 200mm</td></tr>
+<tr><td>Walls : Type : MHT_Wall Conc Insitu - 250mm</td></tr>
+<tr><td>Walls : Type : MHT_Wall Conc Insitu - 300mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Fail_26.png" alt="FAIL" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duplicate Modeled Elements</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any modeled elements that are duplicates (identical elements at the same location and base level). Check will Fail if any duplicate element is found.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">Element is a duplicate at the same location and base level.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 332</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Category</th><th>Family</th><th>Type</th><th>Name</th><th>ID</th></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1410025</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1409950</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1323777</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1410031</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1409958</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1323781</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1323782</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1410036</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1409963</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1323787</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1410041</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1409967</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1409951</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1409961</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1409962</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1409964</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1410028</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1410042</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1413520</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1413506</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1410040</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1773089</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1773091</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1773080</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037122</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037124</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037140</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2001682</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037154</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037138</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2001563</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037123</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1998822</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1773079</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1772086</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1773078</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1771910</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1410038</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1410037</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1410027</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1410043</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1328800</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1409965</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1410039</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1323785</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1409960</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1409959</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1410034</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1323780</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1409955</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1410026</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1323772</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1409949</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037156</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037125</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037157</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037126</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037158</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2934507</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042879</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2048557</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042880</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2048558</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042881</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2048559</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042882</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2048560</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042883</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2048561</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042884</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2048562</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042885</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2048563</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042886</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2048564</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042887</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2048565</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042888</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2048566</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042889</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2048567</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042890</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2048568</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042934</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042892</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2048570</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042936</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042937</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2150376</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2150478</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2150416</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2150479</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2150377</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2150415</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2048572</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2048571</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042893</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042935</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2048569</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042891</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042933</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2038276</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042932</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2038020</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042931</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2038019</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042930</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037907</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042929</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037844</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042928</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037835</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042927</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037834</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042926</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037826</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042925</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037825</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042924</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037824</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042923</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037823</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2042922</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037820</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037011</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037142</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2830290</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2853134</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2839095</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2830774</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2853177</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2842308</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2842490</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2831183</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2853256</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2842478</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2831307</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2853336</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2853255</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2842476</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2842479</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2853357</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2831237</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2842477</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2853257</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2831010</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2830850</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2839177</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2853133</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2830408</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2839097</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2001795</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2037141</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>2001735</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Recess - Rectangular</td><td>Standard</td><td>Generic Models : MHT_GM_Recess - Rectangular : Standard</td><td>1323771</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3223907</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3913694</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3242144</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3184442</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3223421</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3223754</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3242534</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3913807</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3241880</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3241835</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2788484</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2713500</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2714014</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>1989875</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2804650</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2805271</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2805283</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3183783</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3208382</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3182861</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2788327</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2865731</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2805661</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3183732</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3183751</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3184822</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2805917</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2805755</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2420494</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2870290</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2577909</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3184415</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2855106</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3183590</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3183665</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3122778</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3122812</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3082811</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3629366</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3111976</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3083128</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2871726</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3122721</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3153841</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3630640</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2871690</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3154039</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3153860</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3630311</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3122922</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2855163</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3208878</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2806157</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3223781</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2806124</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2578003</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2788207</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2578016</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2578128</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>3092414</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2578141</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2578375</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2788438</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2788273</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2788030</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>2865753</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>1990209</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø SVP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø SVP</td><td>1616694</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø VENT</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø VENT</td><td>3630331</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø VENT</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø VENT</td><td>3153875</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø VENT</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø VENT</td><td>2468277</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø VENT</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø VENT</td><td>2458573</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø VENT</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø VENT</td><td>2468467</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø VENT</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø VENT</td><td>2458288</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø VENT</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø VENT</td><td>3913943</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø VENT</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø VENT</td><td>2577666</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø VENT</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø VENT</td><td>2785244</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø VENT</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø VENT</td><td>2579665</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø VENT</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø VENT</td><td>3122764</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø VENT</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø VENT</td><td>3911579</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø VENT</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø VENT</td><td>3112253</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø VENT</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø VENT</td><td>3111899</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>100Ø VENT</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 100Ø VENT</td><td>2419206</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>2577676</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>2803795</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>2785434</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>2577672</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>3223808</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>3917189</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>3242584</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>3917709</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>3223380</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>3241816</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>3208791</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>2805991</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>3183456</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>2854927</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>3183513</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>3209721</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>2855028</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>2854901</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>3184779</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>2804623</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>3182048</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>2788352</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Cast-in Penetration - Circular</td><td>110Ø RWP</td><td>Generic Models : MHT_GM_Vertical Cast-in Penetration - Circular : 110Ø RWP</td><td>1616695</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>3183997</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>2805415</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>3184519</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>2806040</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>3630957</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>3906732</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>3184482</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>3224038</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>3208969</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>2805955</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>3085406</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>3111698</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>3184276</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>3184249</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>3184035</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>2805373</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>2806240</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>3184457</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>2806514</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>3184931</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>2806526</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>3183911</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>200 x 200</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 200 x 200</td><td>2805341</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>335 x 930</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 335 x 930</td><td>3899613</td></tr>
+<tr><td>Generic Models</td><td>MHT_GM_Vertical Penetration - Rectangular</td><td>335 x 930</td><td>Generic Models : MHT_GM_Vertical Penetration - Rectangular : 335 x 930</td><td>3885105</td></tr>
+<tr><td>Structural Framing</td><td>Rectangular Hollow Sections</td><td>RHS200x100x10.0</td><td>Structural Framing : Rectangular Hollow Sections : RHS200x100x10.0</td><td>4758243</td></tr>
+<tr><td>Structural Framing</td><td>Rectangular Hollow Sections</td><td>RHS200x100x10.0</td><td>Structural Framing : Rectangular Hollow Sections : RHS200x100x10.0</td><td>4679642</td></tr>
+<tr><td>Structural Framing</td><td>Rectangular Hollow Sections</td><td>RHS200x100x10.0</td><td>Structural Framing : Rectangular Hollow Sections : RHS200x100x10.0</td><td>4730764</td></tr>
+<tr><td>Structural Framing</td><td>Rectangular Hollow Sections</td><td>RHS450x250x16.0 (RB)</td><td>Structural Framing : Rectangular Hollow Sections : RHS450x250x16.0 (RB)</td><td>1946209</td></tr>
+<tr><td>Structural Framing</td><td>Square Hollow Sections</td><td>SHS150x150x6.3 (RB)</td><td>Structural Framing : Square Hollow Sections : SHS150x150x6.3 (RB)</td><td>2749804</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC152x152x23</td><td>Structural Framing : UC-Universal Columns : UC152x152x23</td><td>1933934</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1941167</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1943608</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1943913</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1943907</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1944290</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1943911</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1944292</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1944296</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1943909</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1941171</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1944831</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1946131</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1944816</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1941318</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1941173</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1941185</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1942095</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1942649</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1941189</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1940490</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x132 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x132 (RB)</td><td>1940449</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x73 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x73 (RB)</td><td>4573218</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x73 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x73 (RB)</td><td>4574539</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x73 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x73 (RB)</td><td>2749544</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x73 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x73 (RB)</td><td>2748579</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x73 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x73 (RB)</td><td>4575123</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x73 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x73 (RB)</td><td>4575514</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x73 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x73 (RB)</td><td>2748378</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x89 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x89 (RB)</td><td>4755613</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x89 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x89 (RB)</td><td>1943098</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x89 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x89 (RB)</td><td>2391351</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x89 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x89 (RB)</td><td>1944804</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x89 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x89 (RB)</td><td>2391172</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x89 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x89 (RB)</td><td>4755525</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x89 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x89 (RB)</td><td>1946254</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x89 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x89 (RB)</td><td>1943717</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x89 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x89 (RB)</td><td>1940573</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x89 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x89 (RB)</td><td>1940571</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x89 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x89 (RB)</td><td>4697624</td></tr>
+<tr><td>Structural Framing</td><td>UC-Universal Columns</td><td>UC254x254x89 (RB)</td><td>Structural Framing : UC-Universal Columns : UC254x254x89 (RB)</td><td>1940539</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Worksets and Elements</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all user worksets for a Revit model or indicates '*Not Workshared*' if worksharing is not enabled.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 52.176</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Count</th><th>Name</th></tr>
+<tr><td>12465</td><td>MHT_ST_SSTR-ZONE_1A_GENERAL</td></tr>
+<tr><td>11489</td><td>MHT_ST_SSTR-ZONE_1_GENERAL</td></tr>
+<tr><td>6565</td><td>MHT-ST-SSTR-STEELWORK-ROOF</td></tr>
+<tr><td>5916</td><td>MHT_ST_SSTR-ZONE_2A_GENERAL</td></tr>
+<tr><td>5517</td><td>MHT_ST_SSTR-ZONE_1_BWH</td></tr>
+<tr><td>5160</td><td>MHT_ST_SSTR-ZONE_2_GENERAL</td></tr>
+<tr><td>2582</td><td>MHT_ST_SSTR-ZONE_1A_BWH</td></tr>
+<tr><td>1299</td><td>MHT_ST_SSTR-ZONE_2_BWH</td></tr>
+<tr><td>857</td><td>MHT_ST_SSTR-ZONE_2A_BWH</td></tr>
+<tr><td>133</td><td>MHT_ST_LINK-MODEL</td></tr>
+<tr><td>61</td><td>MHT_ST_BLDG-GRIDS & LEVELS</td></tr>
+<tr><td>34</td><td>MHT_ST_SSTR-ZONE_1A_STAIRS</td></tr>
+<tr><td>32</td><td>MHT_ST_SSTR-ZONE_2_STAIRS</td></tr>
+<tr><td>27</td><td>MHT_ST_SSTR-ZONE_1_STAIRS</td></tr>
+<tr><td>17</td><td>MHT_ST_SSTR-ZONE_2A_STAIRS</td></tr>
+<tr><td>9</td><td>MHT_ST_BLDG-GRIDS & LEVELS (HIDDEN)</td></tr>
+<tr><td>5</td><td>ARC_AR_LINK-MODEL</td></tr>
+<tr><td>3</td><td>MEP_BS_LINK-MODEL</td></tr>
+<tr><td>2</td><td>MHT_GE_SITE-GRIDS & LEVELS</td></tr>
+<tr><td>1</td><td>BHA_ST_LINK-MODEL</td></tr>
+<tr><td>1</td><td>JRL_MC_LINK-MODEL</td></tr>
+<tr><td>1</td><td>MHT-ST-SSTR-STEELWORK-ATRIUM</td></tr>
+<tr><td>0</td><td>LSA_LS_LINK-MODEL</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div>
+</div>
+    </div>
+</div>
+</body>
+</html>
