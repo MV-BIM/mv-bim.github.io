@@ -1,0 +1,1380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Model Checker Report</title>
+    <style type="text/css">
+        /*  Name-agnostic definitions.
+ *  These definitions are just a copy of the definitions further below given a generic name.
+ *  This allows publishers to make a reference to "the page's default font" without having to
+ *  update hundreds of custom pages/styles to match the new name.
+ */
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-style: normal;
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-style: normal;
+            font-weight: 700;
+        }
+
+
+        /*  Generic "Artifakt" definitions.
+         *  An attempt will be made to map styles to appropriate font-faces when these are used.
+         *  See the definitions below if you wish to use a specific font.
+         */
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-style: normal;
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-style: normal;
+            font-weight: 700;
+        }
+
+
+        /*  "Artifakt Legend" definitions.
+         *   These definitions are for the "Artifakt Legend" series of font faces.
+         */
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendLight.svg#ArtifaktLegendLight') format('svg');
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendRegular.svg#ArtifaktLegendRegular') format('svg');
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendMedium.svg#ArtifaktLegendMedium') format('svg');
+            font-weight: 700;
+        }
+
+
+        /*  "Artifakt Element" definitions.
+         *   These definitions are for the "Artifakt Element" series of font faces.
+         */
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-weight: 700;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-italic.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementItalic.svg#ArtifaktElementItalic') format('svg');
+            font-style: italic;
+            font-weight: 400;
+        }
+    </style>
+    <style type="text/css">
+        body {
+            font: 100%/1.4 ADSK-Default, Verdana, Arial, Helvetica, sans-serif;
+            background: #f1f1f1;
+            margin: 0;
+            padding: 0;
+            color: #000;
+        }
+
+        h1, h2, h3, h4, h5, h6, p {
+            margin-top: 0; /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+            margin-bottom: 0;
+            padding-right: 0;
+            padding-left: 0; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+        }
+
+        h1, h3 {
+            color: white;
+        }
+
+        h1 {
+            font-family: "Artifakt Legend", Arial, sans-serif;
+            font-size: 1.5em;
+            margin: 0px;
+        }
+
+        a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+            border: none;
+        }
+
+        /* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+        a:link {
+            color: #414958;
+        }
+
+        a:visited {
+            color: #4E5869;
+        }
+
+        a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+            text-decoration: none;
+        }
+
+        /* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */
+        .container {
+            width: 100%;
+            max-width: 1260px; /* a max-width may be desirable to keep this layout from getting too wide on a large monitor. This keeps line length more readable. IE6 does not respect this declaration. */
+            min-width: 780px; /* a min-width may be desirable to keep this layout from getting too narrow. This keeps line length more readable in the side columns. IE6 does not respect this declaration. */
+            background: #f1f1f1;
+            margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
+        }
+
+        /* ~~the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo~~ */
+        .header {
+            background-color: #3b4453;
+            border-bottom: 1px black;
+            padding: 15px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .configContainer {
+            padding: 25px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+		
+		.imageContainer{
+		    width: 125px;
+			height: 125px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.checksetImage{
+		    max-width: 100%;
+			height: auto;
+		}
+
+        .resultData {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .tabBar {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 0 25px;
+        }
+
+        .tabItem {
+            margin-right: 15px;
+            background: #f9f9f9;
+            font-family: "Artifakt Element", Arial, sans-serif;
+            padding: 15px;
+            color: #bb7a14;
+        }
+
+        .tabItem a, .tabItem a:visited {
+            text-decoration: none;
+            color: #bb7a14;
+        }
+
+        .tabItemActive {
+            margin-right: 15px;
+            padding: 15px;
+            background: white;
+            font-family: "Artifakt Element", Arial, sans-serif;
+            color: #bb7a14;
+        }
+
+        .tabItemActive a, .tabItemActive a:visited {
+            text-decoration: none;
+            color: #bb7a14;
+        }
+
+        .portalStandardText {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: lighter;
+        }
+
+        .portalHeadlineText {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .portal {
+            background: white;
+            margin: 0 25px 25px 25px;
+            padding: 15px;
+        }
+
+        .treeElement {
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+
+        .checkResult {
+            border: 1px black solid;
+            padding: 15px;
+            margin-top: 15px;
+            margin-left: 25px;
+            display: grid;
+            justify-content: flex-start;
+            grid-template-columns: auto 1fr;
+        }
+
+        .itemList {
+            width: 100%;
+        }
+
+        .itemList th {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: bold;
+            background: #f1f1f1;
+            padding: 0 10px;
+        }
+
+        .configData {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-column-gap: 15px;
+            margin-left: 15px
+        }
+
+        .passRate{
+            font-family: "Artifakt Legend", Arial, sans-serif;
+            font-weight: bold;
+            font-size: 4.5em;
+        }
+        .structureHeading{
+            display: flex;
+        }
+
+        .structureBreakdown{
+            flex: auto;
+            flex-grow: 0;
+            white-space: nowrap;
+            margin-left: 15px;
+        }
+
+        .structureHeadingText{
+            flex-grow: 1;
+        }
+
+        .overallShown{
+            display: grid;
+            grid-template-rows: auto auto auto;
+            margin: 0 25px;
+        }
+        .overallHidden{
+            display: none;
+        }
+
+        .resultLow {
+            color: rgb(221, 34, 34);
+        }
+
+        .resultHigh {
+            color: rgb(135, 188, 64);
+        }
+
+        .resultMedium {
+            color: rgb(250, 162, 77);
+        }
+
+        .tableScroll{
+            overflow: auto;
+            max-height: 350px;
+            margin-top: 15px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_ModelChecker_24.png" width="24" height="24" style="margin-right: 15px" alt="Autodesk Model Checker for Revit"/>
+        <h1>Autodesk Model Checker for Revit</h1>
+    </div>
+    <div class="configContainer">
+        <div class="imageContainer">
+		    <img src="T:\TEMP_BIM LEAD\MDS Logo.PNG" class="checksetImage" 
+			onerror="this.src = 'https://interoperability.autodesk.com/modelchecker/reports/HeroImage_ModelChecker.png';" 
+			alt="Checkset Image"/>
+		</div>
+        <div class="configData">
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Title</span><span class="portalStandardText">BIM Model Audit</span>
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Date</span><span class="portalStandardText">martes, 14 de septiembre de 2021</span>
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Author</span><span class="portalStandardText">MV-BIM / MDS</span>
+            <span class="portalHeadlineText">Description</span><span
+                class="portalStandardText">Series of checks to review modeling best practices and integrity</span>
+        </div>
+    </div>
+    <div class="tabBar">
+        <div class="tabItemActive"><a href="OTC-BWL-PB-ZZ-M3-Y-0001.html">OTC-BWL-PB-ZZ-M3-Y-0001</a></div>
+    </div>
+    <div class="portal">
+        <div class="resultData">
+            <div class="overallShown">
+    <span class="passRate resultLow" style="text-align: center">50%</span>
+</div>
+<div style="display: grid; grid-template-columns: auto auto; grid-column-gap: 15px; margin-left: 15px">
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Check Summary</span><span
+        class="portalStandardText">47 Checks, 2 <Span Foreground="#DD2222">(50%)</Span> Pass, 2 Fail, 43 Count/List</span>
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Report Date</span><span
+        class="portalStandardText">lunes, 4 de octubre de 2021 - 17:18:58</span>
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Revit Filepath</span><span
+        class="portalStandardText">H:\01_TECNICO_MVB-INT\01_PROJECTS\250511_Nine Elms\01_WIP\06_BIM Documents\02_BIM Audit Report\01_BIM Model Audit\01\01_BIM Models\01\OTC-BWL-PB-ZZ-M3-Y-0001.rvt</span>
+    <span class="portalHeadlineText">Checkset File</span><span
+        class="portalStandardText">\\servidor\D_TECNICO\01_TECNICO_MVB-INT\03_LIBRARIES\BIM INTEROPERABILITY TOOLS\BIM Model Audit.xml</span>
+</div>
+        </div>
+    </div>
+    <div class="portal" style="margin-top: 15px">
+        <div>
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">BIM Model Audit</div>
+        <div class="structureBreakdown">47 Checks, 2 <Span Foreground="#DD2222">(50%)</Span> Pass, 2 Fail, 43 Count/List</div>
+    </div>
+    <div class="portalStandardText"></div>
+    <div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Model Performance</div>
+        <div class="structureBreakdown">7 Checks, 7 Count/List</div>
+    </div>
+    <div class="portalStandardText">Checks in this section help monitor the result of actions taken over the course of a model’s development, which can directly impact the model’s performance. Proper management of these items can improve model performance.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="CUSTOM RESULT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">File Size</div>
+        <div class="portalStandardText" style="text-align: left">RESULT of the file sizes for all reported Revit models in MB (megabytes).</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: 45,18 MB</div>
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Warnings</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all warnings in the model. Too many unresolved warnings can cause performance issues in a Revit model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 195</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Loadable Families</div>
+        <div class="portalStandardText" style="text-align: left">RESULT and LIST of the families in the project ordered by file size.</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: 43.632 KB</div>
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th><th>Value</th></tr>
+<tr><td>BW_AutoMakeUp</td><td>972 KB</td></tr>
+<tr><td>Aquatherm_Strainer_StraightNeckReducer</td><td>904 KB</td></tr>
+<tr><td>Grundfos_Pump_NB125-200-226</td><td>844 KB</td></tr>
+<tr><td>NPlastics_Backwash_SectionalTank_4x2.5x2</td><td>788 KB</td></tr>
+<tr><td>BW_Bend_SS316</td><td>780 KB</td></tr>
+<tr><td>NPlastics_SectionalTank_5x3x2</td><td>776 KB</td></tr>
+<tr><td>NPlastics_SectionalTank_3x2x2</td><td>768 KB</td></tr>
+<tr><td>Grundfos_Pump_NB32-125-130</td><td>732 KB</td></tr>
+<tr><td>Grundfos_Pump_NB50-200-219</td><td>724 KB</td></tr>
+<tr><td>Grundfos_Pump_NB50-250-241</td><td>708 KB</td></tr>
+<tr><td>BW_InletAdjustable_100NB</td><td>696 KB</td></tr>
+<tr><td>BW_InletAdjustable_75mm</td><td>692 KB</td></tr>
+<tr><td>ATG_Vent_210x210</td><td>600 KB</td></tr>
+<tr><td>ATG_Control Unit</td><td>484 KB</td></tr>
+<tr><td>Certikin_FilterVessel_AlpinePlus800</td><td>472 KB</td></tr>
+<tr><td>BW_Feature_PiezoSwitchCompletefa</td><td>456 KB</td></tr>
+<tr><td>Siemans_Flowmeter_Magflo5100W</td><td>440 KB</td></tr>
+<tr><td>ATG_IsoltorSwitch</td><td>440 KB</td></tr>
+<tr><td>ATG_Vent_160x160</td><td>420 KB</td></tr>
+<tr><td>NPlastics_TankPanel_SectionalManholeFLIP</td><td>408 KB</td></tr>
+<tr><td>Bray_Valve_Butterfly</td><td>400 KB</td></tr>
+<tr><td>NPlastics_TankPanel_SectionalFLIP</td><td>396 KB</td></tr>
+<tr><td>Cable Tray Reducer</td><td>384 KB</td></tr>
+<tr><td>BW_3Pump_Header_SS316</td><td>380 KB</td></tr>
+<tr><td>Certikin_FilterVessel_SLX</td><td>376 KB</td></tr>
+<tr><td>BW_Panel-Vent</td><td>376 KB</td></tr>
+<tr><td>BW_Header_Learner Pool</td><td>368 KB</td></tr>
+<tr><td>Gaffey_Saddle_Bronze</td><td>368 KB</td></tr>
+<tr><td>BW_Header_Main Pool</td><td>368 KB</td></tr>
+<tr><td>Cable Tray Horizontal Cross</td><td>364 KB</td></tr>
+<tr><td>Reducer - Soldered - CU</td><td>364 KB</td></tr>
+<tr><td>Tee - Soldered - CU</td><td>360 KB</td></tr>
+<tr><td>BW_ControlPanel</td><td>360 KB</td></tr>
+<tr><td>Spears_Strainer_Y_Cap</td><td>360 KB</td></tr>
+<tr><td>Cable Tray Vertical Outside Bend</td><td>356 KB</td></tr>
+<tr><td>Spears_Valve_Ball</td><td>352 KB</td></tr>
+<tr><td>Cable Tray Horizontal Bend</td><td>352 KB</td></tr>
+<tr><td>Cable Tray Vertical Inside Bend</td><td>352 KB</td></tr>
+<tr><td>Spears_Cross</td><td>348 KB</td></tr>
+<tr><td>Cable Tray Horizontal Tee</td><td>344 KB</td></tr>
+<tr><td>Sink - Work</td><td>344 KB</td></tr>
+<tr><td>BW_SplashPage</td><td>340 KB</td></tr>
+<tr><td>Pacific_Valve_NRV</td><td>340 KB</td></tr>
+<tr><td>Grundfos_DosingPump_DDE</td><td>340 KB</td></tr>
+<tr><td>BW_Locker_Single</td><td>336 KB</td></tr>
+<tr><td>Cipriani_HeatExchanger_S070</td><td>336 KB</td></tr>
+<tr><td>BW_PACStation</td><td>336 KB</td></tr>
+<tr><td>Spears_FlangeStub_GalvBackingRing</td><td>332 KB</td></tr>
+<tr><td>Spears_Elbow</td><td>332 KB</td></tr>
+<tr><td>BW_Feature_NeckMassage</td><td>328 KB</td></tr>
+<tr><td>Spears_Tee</td><td>328 KB</td></tr>
+<tr><td>Coupling - Soldered - CU</td><td>328 KB</td></tr>
+<tr><td>Spears_Cap</td><td>324 KB</td></tr>
+<tr><td>Siemans_DosingPanel</td><td>324 KB</td></tr>
+<tr><td>BW_Shower, Drench</td><td>324 KB</td></tr>
+<tr><td>BW_ConcentricReducer_SS316</td><td>320 KB</td></tr>
+<tr><td>Spears_Union</td><td>320 KB</td></tr>
+<tr><td>Spears_Socket</td><td>316 KB</td></tr>
+<tr><td>Spears_ReducingBush</td><td>316 KB</td></tr>
+<tr><td>EJ_ChemicalDayTank_DT</td><td>316 KB</td></tr>
+<tr><td>BW_BulkStorageTank_2000L ALT</td><td>316 KB</td></tr>
+<tr><td>BW_Plinth_Concrete</td><td>312 KB</td></tr>
+<tr><td>Cable Tray Union</td><td>312 KB</td></tr>
+<tr><td>Spears_Strainer_Y</td><td>308 KB</td></tr>
+<tr><td>Conduit Junction Box - Transition - PVC</td><td>308 KB</td></tr>
+<tr><td>Conduit Elbow - without Fittings - RNC</td><td>308 KB</td></tr>
+<tr><td>Conduit Junction Box - Cross - PVC</td><td>304 KB</td></tr>
+<tr><td>Conduit Junction Box - Tee - PVC</td><td>304 KB</td></tr>
+<tr><td>Conduit Coupling - PVC</td><td>300 KB</td></tr>
+<tr><td>BW_BulkFillPoint</td><td>300 KB</td></tr>
+<tr><td>NPlastics_TankPanel_SectionalManhole</td><td>292 KB</td></tr>
+<tr><td>BW_Symbol_ElevationMark</td><td>288 KB</td></tr>
+<tr><td>Baluster - Square</td><td>284 KB</td></tr>
+<tr><td>NPlastics_TankPanel_Sectional</td><td>276 KB</td></tr>
+<tr><td>BW_Symbol_SectionHead_Filled</td><td>260 KB</td></tr>
+<tr><td>Gutter - Bevel</td><td>260 KB</td></tr>
+<tr><td>BW_Symbol_ElevationMarkPointer</td><td>260 KB</td></tr>
+<tr><td>Rectangular Handrail</td><td>256 KB</td></tr>
+<tr><td>Circular Handrail</td><td>256 KB</td></tr>
+<tr><td>BW_Symbol_LevelHead</td><td>256 KB</td></tr>
+<tr><td>BW_Symbol_SpotTarget</td><td>256 KB</td></tr>
+<tr><td>Slab Edge-Thickened</td><td>256 KB</td></tr>
+<tr><td>Fascia-Flat</td><td>256 KB</td></tr>
+<tr><td>BW_Symbol_SectionTail_Filled.rfa</td><td>256 KB</td></tr>
+<tr><td>BW_Symbol_SectionTail_FilledHorizontal</td><td>256 KB</td></tr>
+<tr><td>BW_Symbol_CalloutHead</td><td>256 KB</td></tr>
+<tr><td>Brick - UK Standard</td><td>256 KB</td></tr>
+<tr><td>BW_Symbol_GridHead</td><td>252 KB</td></tr>
+<tr><td>BW_Symbol_SectionHead_NoArrow</td><td>252 KB</td></tr>
+<tr><td>BW_Symbol_ViewReference</td><td>252 KB</td></tr>
+<tr><td>BW_Symbol_ViewTitle</td><td>252 KB</td></tr>
+<tr><td>Zepher_Blower_RT-3000 Series</td><td>2.804 KB</td></tr>
+<tr><td>ATG_Panel_PGA01-2x3.3kW & 4x3.3kW</td><td>2.200 KB</td></tr>
+<tr><td>ATG_UVDS_WF</td><td>1.544 KB</td></tr>
+<tr><td>ATG_Panel_PGA01-1x3.3kW</td><td>1.512 KB</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Unused Elements</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all elements that may be unused and therefore removed from a Revit model. A large number of unneeded elements can increase the model size with no benefit. Note that the count reported here may differ from the Purge Unused command in the Revit interface due to API restraints.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 123</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Model Groups</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all model group elements in the model. Too many model groups can be an indication of improper modeling techniques.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Detail Groups</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all detail group elements in the model. Too many detail groups can be an indication of improper modeling techniques.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">In-Place Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all in-place family elements in the model. In-place families can signifcantly impact model size and performance and should be used sparingly.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Project Settings</div>
+        <div class="structureBreakdown">5 Checks, 5 Count/List</div>
+    </div>
+    <div class="portalStandardText">Checks in this section are related to settings that can be configured at a project level, which may need to be verified for compliance with standards defined for the project.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="CUSTOM RESULT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Revit Version</div>
+        <div class="portalStandardText" style="text-align: left">LIST of the version and build data of Revit running the check.</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: Autodesk Revit 2019 20210416_1515(x64)</div>
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Design Options</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all elements created in each design option of the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Elements Per Phase</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all elements in each phase of the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 4.284</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Count</th><th>Name</th></tr>
+<tr><td>4284</td><td>New Construction</td></tr>
+<tr><td>0</td><td>Existing</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Worksets</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all user worksets in the model or indicates '*Not Workshared*' if worksharing is not enabled.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Shared Levels and Grids</td></tr>
+<tr><td>Workset1</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Project Coordinates</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of the coordinate values of the survey and project base points, elevation, and true north.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 5</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th><th>Value</th></tr>
+<tr><td>Project Base Point Coordinate</td><td>530116100 E/W  |  177588904 N/S</td></tr>
+<tr><td>Project Base Point Elevation</td><td>0</td></tr>
+<tr><td>Project Base Point Rotation</td><td>321.86°</td></tr>
+<tr><td>Survey Point Coordinate</td><td>0 E/W  |  0 N/S</td></tr>
+<tr><td>Survey Point Elevation</td><td>0</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">External Files</div>
+        <div class="structureBreakdown">5 Checks, 5 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to linked and imported files in the model.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Linked Revit Files and Their Link Method</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of the link method (overlay vs. attach) for each Revit link in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Linked CAD Files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all linked CAD files in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Imported CAD files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all CAD files that were Imported and not Linked.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Imported SKP files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all imported SKP files in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Raster Images</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all raster images placed in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Levels and Grids</div>
+        <div class="structureBreakdown">2 Checks, 2 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to datum and location elements in the model.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Levels</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all level elements in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 5</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Grids</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all grid elements in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 26</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Views</div>
+        <div class="structureBreakdown">3 Checks, 3 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to views in the model.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Views</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all views.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 8</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>3D View - {3D - bw_john.kelly}</td></tr>
+<tr><td>3D View - {3D}</td></tr>
+<tr><td>3D View - Navisworks Export</td></tr>
+<tr><td>Elevation - East</td></tr>
+<tr><td>Elevation - North</td></tr>
+<tr><td>Elevation - South</td></tr>
+<tr><td>Elevation - West</td></tr>
+<tr><td>Floor Plan - Level 0</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Sheets</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all sheets in the model. Sheets typically do not impact model size, but too many unmanaged views can impact user efficiency.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Schedules</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all schedules in the model. Schedules typically do not impact model size, but too many unmanaged views can impact user efficiency.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 10</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Model Elements</div>
+        <div class="structureBreakdown">25 Checks, 2 <Span Foreground="#DD2222">(50%)</Span> Pass, 2 Fail, 21 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to model elements in the model.</div>
+    <div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Arch System Families</div>
+        <div class="structureBreakdown">10 Checks, 10 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of architectural system families in the model</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Ceiling Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all ceiling family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ceilings : Type : 600 x 600mm Grid</td></tr>
+<tr><td>Ceilings : Type : Generic</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Curtain System</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all architectural curtain system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Curtain Systems : Type : 1500 x 3000mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Curtain Wall Mullion Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all curtain wall mullion family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Floor Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all floor family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Floors : Type : BW_Floor_Concrete_300mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Railing Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all railing family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Railings : Type : 1100mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Ramp Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all ramp family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ramps : Type : Ramp 1</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Roof Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all roof family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Roofs : Type : Generic - 400mm</td></tr>
+<tr><td>Roofs : Type : Sloped Glazing</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Site Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all site family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Stair Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all stair family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 4</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Stairs : Type : 190mm max riser 250mm going</td></tr>
+<tr><td>Stairs : Type : 190mm max riser 250mm going</td></tr>
+<tr><td>Stairs : Type : Cast-In-Place Stair</td></tr>
+<tr><td>Stairs : Type : Precast Stair</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Wall Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all wall family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 4</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Walls : Type : BW_Wall_Concrete_150mm</td></tr>
+<tr><td>Walls : Type : Exterior - Block on Mtl. Stud</td></tr>
+<tr><td>Walls : Type : Exterior - Brick on Mtl. Stud</td></tr>
+<tr><td>Walls : Type : Exterior Glazing</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">MEP System Families</div>
+        <div class="structureBreakdown">9 Checks, 1 <Span Foreground="#DD2222">(33%)</Span> Pass, 2 Fail, 6 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of MEP system families in the model</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all duct family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 3</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ducts : Type : Flanged Radius Bend / Shoe Branch</td></tr>
+<tr><td>Ducts : Type : Pressed Radius Bend / Shoe Branch</td></tr>
+<tr><td>Ducts : Type : Segmented Bend / Tee</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct System Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all duct system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 3</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Duct Systems : Type : Exhaust Air</td></tr>
+<tr><td>Duct Systems : Type : Return Air</td></tr>
+<tr><td>Duct Systems : Type : Supply Air</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Pass_26.png" alt="PASS" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any duct related elements that have a blank System Name.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Flex Duct Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all flex duct family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Flex Ducts : Type : Flex - Rectangular</td></tr>
+<tr><td>Flex Ducts : Type : Flex - Round</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Flex Pipe Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all flex pipe family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Flex Pipes : Type : Flex - Round</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Pipe Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all pipe family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Pipes : Type : PVC-U</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Piping System Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all piping system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 57</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Piping Systems : Type : AF_AirFeature</td></tr>
+<tr><td>Piping Systems : Type : AF-LP_AirFeature</td></tr>
+<tr><td>Piping Systems : Type : AF-MP_AirFeature</td></tr>
+<tr><td>Piping Systems : Type : AS_AirScour</td></tr>
+<tr><td>Piping Systems : Type : AS-LP_AirScour</td></tr>
+<tr><td>Piping Systems : Type : AS-MP_AirScour</td></tr>
+<tr><td>Piping Systems : Type : BS_BalanceTankSuction</td></tr>
+<tr><td>Piping Systems : Type : BS-LP_BalanceTankSuction</td></tr>
+<tr><td>Piping Systems : Type : BS-MP_BalanceTankSuction</td></tr>
+<tr><td>Piping Systems : Type : BW_Backwash</td></tr>
+<tr><td>Piping Systems : Type : BW-LP_Backwash</td></tr>
+<tr><td>Piping Systems : Type : BW-MP_Backwash</td></tr>
+<tr><td>Piping Systems : Type : CF_ChemicalFeed</td></tr>
+<tr><td>Piping Systems : Type : CF-LP_ChemicalFeed</td></tr>
+<tr><td>Piping Systems : Type : CF-MP_ChemicalFeed</td></tr>
+<tr><td>Piping Systems : Type : DR_Drain</td></tr>
+<tr><td>Piping Systems : Type : DR-LP_Drain</td></tr>
+<tr><td>Piping Systems : Type : DR-MP_Drain</td></tr>
+<tr><td>Piping Systems : Type : FW_FilteredWater</td></tr>
+<tr><td>Piping Systems : Type : FW-LP_FilteredWater</td></tr>
+<tr><td>Piping Systems : Type : FW-MP_FilteredWater</td></tr>
+<tr><td>Piping Systems : Type : HX_HeatExchanger</td></tr>
+<tr><td>Piping Systems : Type : HX-LP_HeatExchanger</td></tr>
+<tr><td>Piping Systems : Type : HX-MP_HeatExchanger</td></tr>
+<tr><td>Piping Systems : Type : LC_LevelControl</td></tr>
+<tr><td>Piping Systems : Type : LC-LP_LevelControl</td></tr>
+<tr><td>Piping Systems : Type : LC-MP_LevelControl</td></tr>
+<tr><td>Piping Systems : Type : LD_LevelDeck</td></tr>
+<tr><td>Piping Systems : Type : LD-LP_LevelDeck</td></tr>
+<tr><td>Piping Systems : Type : LD-MP_LevelDeck</td></tr>
+<tr><td>Piping Systems : Type : MU_MakeUp</td></tr>
+<tr><td>Piping Systems : Type : MU-LP_MakeUp</td></tr>
+<tr><td>Piping Systems : Type : MU-MP_MakeUp</td></tr>
+<tr><td>Piping Systems : Type : NM_NeckMassage</td></tr>
+<tr><td>Piping Systems : Type : OF_Overflow</td></tr>
+<tr><td>Piping Systems : Type : OF-LP_Overflow</td></tr>
+<tr><td>Piping Systems : Type : OF-MP_Overflow</td></tr>
+<tr><td>Piping Systems : Type : RW_ReflexologyWater</td></tr>
+<tr><td>Piping Systems : Type : SO_SumpOutlet</td></tr>
+<tr><td>Piping Systems : Type : SO-LP_SumpOutlet</td></tr>
+<tr><td>Piping Systems : Type : SO-MP_SumpOutlet</td></tr>
+<tr><td>Piping Systems : Type : UV_UltraViolet</td></tr>
+<tr><td>Piping Systems : Type : UV-LP_UltraViolet</td></tr>
+<tr><td>Piping Systems : Type : UV-MP_UltraViolet</td></tr>
+<tr><td>Piping Systems : Type : UW_UnfilteredWater</td></tr>
+<tr><td>Piping Systems : Type : UW-LP_UnfilteredWater</td></tr>
+<tr><td>Piping Systems : Type : UW-MP_UnfilteredWater</td></tr>
+<tr><td>Piping Systems : Type : xDomestic Cold Water</td></tr>
+<tr><td>Piping Systems : Type : xDomestic Hot Water</td></tr>
+<tr><td>Piping Systems : Type : xFire Protection Dry</td></tr>
+<tr><td>Piping Systems : Type : xFire Protection Other</td></tr>
+<tr><td>Piping Systems : Type : xFire Protection Pre-Action</td></tr>
+<tr><td>Piping Systems : Type : xFire Protection Wet</td></tr>
+<tr><td>Piping Systems : Type : xHydronic Return</td></tr>
+<tr><td>Piping Systems : Type : xOther</td></tr>
+<tr><td>Piping Systems : Type : xSanitary</td></tr>
+<tr><td>Piping Systems : Type : xVent</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Fail_26.png" alt="FAIL" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Piping Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any piping related elements that have a blank System Name.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">There are piping related elements that that have a blank System Name.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 52</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Category</th><th>Family</th><th>Type</th><th>Name</th><th>ID</th></tr>
+<tr><td>Mechanical Equipment</td><td>Grundfos_DosingPump_DDE</td><td>DDE 6-10</td><td>Mechanical Equipment : Grundfos_DosingPump_DDE : DDE 6-10</td><td>1063697</td></tr>
+<tr><td>Mechanical Equipment</td><td>Grundfos_DosingPump_DDE</td><td>DDE 6-10</td><td>Mechanical Equipment : Grundfos_DosingPump_DDE : DDE 6-10</td><td>1133417</td></tr>
+<tr><td>Mechanical Equipment</td><td>Grundfos_DosingPump_DDE</td><td>DDE 6-10</td><td>Mechanical Equipment : Grundfos_DosingPump_DDE : DDE 6-10</td><td>1133437</td></tr>
+<tr><td>Mechanical Equipment</td><td>Grundfos_DosingPump_DDE</td><td>DDE 6-10</td><td>Mechanical Equipment : Grundfos_DosingPump_DDE : DDE 6-10</td><td>1133344</td></tr>
+<tr><td>Mechanical Equipment</td><td>Grundfos_DosingPump_DDE</td><td>DDE 6-10</td><td>Mechanical Equipment : Grundfos_DosingPump_DDE : DDE 6-10</td><td>1064248</td></tr>
+<tr><td>Mechanical Equipment</td><td>Grundfos_DosingPump_DDE</td><td>DDE 6-10</td><td>Mechanical Equipment : Grundfos_DosingPump_DDE : DDE 6-10</td><td>1133592</td></tr>
+<tr><td>Mechanical Equipment</td><td>Grundfos_DosingPump_DDE</td><td>DDE 6-10</td><td>Mechanical Equipment : Grundfos_DosingPump_DDE : DDE 6-10</td><td>1133591</td></tr>
+<tr><td>Mechanical Equipment</td><td>Grundfos_DosingPump_DDE</td><td>DDE 6-10</td><td>Mechanical Equipment : Grundfos_DosingPump_DDE : DDE 6-10</td><td>1133590</td></tr>
+<tr><td>Mechanical Equipment</td><td>Grundfos_DosingPump_DDE</td><td>DDE 6-10</td><td>Mechanical Equipment : Grundfos_DosingPump_DDE : DDE 6-10</td><td>1061950</td></tr>
+<tr><td>Pipe Accessories</td><td>Bray_Valve_Butterfly</td><td>150NB</td><td>Pipe Accessories : Bray_Valve_Butterfly : 150NB</td><td>1033660</td></tr>
+<tr><td>Pipe Accessories</td><td>Bray_Valve_Butterfly</td><td>150NB</td><td>Pipe Accessories : Bray_Valve_Butterfly : 150NB</td><td>1035537</td></tr>
+<tr><td>Pipe Accessories</td><td>Bray_Valve_Butterfly</td><td>150NB</td><td>Pipe Accessories : Bray_Valve_Butterfly : 150NB</td><td>1035633</td></tr>
+<tr><td>Pipe Accessories</td><td>Bray_Valve_Butterfly</td><td>150NB</td><td>Pipe Accessories : Bray_Valve_Butterfly : 150NB</td><td>1032813</td></tr>
+<tr><td>Pipe Accessories</td><td>Bray_Valve_Butterfly</td><td>80NB</td><td>Pipe Accessories : Bray_Valve_Butterfly : 80NB</td><td>1122215</td></tr>
+<tr><td>Pipe Accessories</td><td>Bray_Valve_Butterfly</td><td>80NB</td><td>Pipe Accessories : Bray_Valve_Butterfly : 80NB</td><td>1100744</td></tr>
+<tr><td>Pipe Accessories</td><td>Bray_Valve_Butterfly</td><td>80NB</td><td>Pipe Accessories : Bray_Valve_Butterfly : 80NB</td><td>1061597</td></tr>
+<tr><td>Pipe Accessories</td><td>Bray_Valve_Butterfly</td><td>80NB</td><td>Pipe Accessories : Bray_Valve_Butterfly : 80NB</td><td>1061471</td></tr>
+<tr><td>Pipe Accessories</td><td>BW_ConcentricReducer_SS316</td><td>80x50</td><td>Pipe Accessories : BW_ConcentricReducer_SS316 : 80x50</td><td>1108539</td></tr>
+<tr><td>Pipe Accessories</td><td>BW_ConcentricReducer_SS316</td><td>80x50</td><td>Pipe Accessories : BW_ConcentricReducer_SS316 : 80x50</td><td>1122807</td></tr>
+<tr><td>Pipe Accessories</td><td>BW_ConcentricReducer_SS316</td><td>80x50</td><td>Pipe Accessories : BW_ConcentricReducer_SS316 : 80x50</td><td>1122044</td></tr>
+<tr><td>Pipe Accessories</td><td>BW_ConcentricReducer_SS316</td><td>80x50</td><td>Pipe Accessories : BW_ConcentricReducer_SS316 : 80x50</td><td>1121985</td></tr>
+<tr><td>Pipe Accessories</td><td>BW_ConcentricReducer_SS316</td><td>80x50</td><td>Pipe Accessories : BW_ConcentricReducer_SS316 : 80x50</td><td>1108483</td></tr>
+<tr><td>Pipe Accessories</td><td>BW_InletAdjustable_75mm</td><td>75mm</td><td>Pipe Accessories : BW_InletAdjustable_75mm : 75mm</td><td>989611</td></tr>
+<tr><td>Pipe Accessories</td><td>BW_InletAdjustable_75mm</td><td>75mm</td><td>Pipe Accessories : BW_InletAdjustable_75mm : 75mm</td><td>989689</td></tr>
+<tr><td>Pipe Accessories</td><td>BW_InletAdjustable_75mm</td><td>75mm</td><td>Pipe Accessories : BW_InletAdjustable_75mm : 75mm</td><td>993151</td></tr>
+<tr><td>Pipe Accessories</td><td>BW_InletAdjustable_75mm</td><td>75mm</td><td>Pipe Accessories : BW_InletAdjustable_75mm : 75mm</td><td>993341</td></tr>
+<tr><td>Pipe Accessories</td><td>BW_InletAdjustable_75mm</td><td>75mm</td><td>Pipe Accessories : BW_InletAdjustable_75mm : 75mm</td><td>989703</td></tr>
+<tr><td>Pipe Accessories</td><td>BW_InletAdjustable_75mm</td><td>75mm</td><td>Pipe Accessories : BW_InletAdjustable_75mm : 75mm</td><td>989647</td></tr>
+<tr><td>Pipe Accessories</td><td>BW_InletAdjustable_75mm</td><td>75mm</td><td>Pipe Accessories : BW_InletAdjustable_75mm : 75mm</td><td>989437</td></tr>
+<tr><td>Pipe Accessories</td><td>BW_InletAdjustable_75mm</td><td>75mm</td><td>Pipe Accessories : BW_InletAdjustable_75mm : 75mm</td><td>989260</td></tr>
+<tr><td>Pipe Accessories</td><td>Gaffey_Saddle_Bronze</td><td>80NB x 1/2"BSP</td><td>Pipe Accessories : Gaffey_Saddle_Bronze : 80NB x 1/2"BSP</td><td>1246982</td></tr>
+<tr><td>Pipe Accessories</td><td>Gaffey_Saddle_Bronze</td><td>80NB x 1/2"BSP</td><td>Pipe Accessories : Gaffey_Saddle_Bronze : 80NB x 1/2"BSP</td><td>1247014</td></tr>
+<tr><td>Pipe Accessories</td><td>Gaffey_Saddle_Bronze</td><td>80NB x 1/2"BSP</td><td>Pipe Accessories : Gaffey_Saddle_Bronze : 80NB x 1/2"BSP</td><td>1247048</td></tr>
+<tr><td>Pipe Accessories</td><td>Gaffey_Saddle_Bronze</td><td>80NB x 1/2"BSP</td><td>Pipe Accessories : Gaffey_Saddle_Bronze : 80NB x 1/2"BSP</td><td>1247109</td></tr>
+<tr><td>Pipe Accessories</td><td>Gaffey_Saddle_Bronze</td><td>80NB x 1/2"BSP</td><td>Pipe Accessories : Gaffey_Saddle_Bronze : 80NB x 1/2"BSP</td><td>1247138</td></tr>
+<tr><td>Pipe Accessories</td><td>Gaffey_Saddle_Bronze</td><td>80NB x 1/2"BSP</td><td>Pipe Accessories : Gaffey_Saddle_Bronze : 80NB x 1/2"BSP</td><td>1247073</td></tr>
+<tr><td>Pipe Accessories</td><td>Gaffey_Saddle_Bronze</td><td>80NB x 1/2"BSP</td><td>Pipe Accessories : Gaffey_Saddle_Bronze : 80NB x 1/2"BSP</td><td>1245826</td></tr>
+<tr><td>Pipe Accessories</td><td>Siemans_Flowmeter_Magflo5100W</td><td>150NB</td><td>Pipe Accessories : Siemans_Flowmeter_Magflo5100W : 150NB</td><td>1155261</td></tr>
+<tr><td>Pipe Fittings</td><td>Spears_FlangeStub_GalvBackingRing</td><td>Standard</td><td>Pipe Fittings : Spears_FlangeStub_GalvBackingRing : Standard</td><td>1174878</td></tr>
+<tr><td>Pipe Fittings</td><td>Spears_FlangeStub_GalvBackingRing</td><td>Standard</td><td>Pipe Fittings : Spears_FlangeStub_GalvBackingRing : Standard</td><td>1176691</td></tr>
+<tr><td>Pipe Fittings</td><td>Spears_FlangeStub_GalvBackingRing</td><td>Standard</td><td>Pipe Fittings : Spears_FlangeStub_GalvBackingRing : Standard</td><td>1176693</td></tr>
+<tr><td>Pipe Fittings</td><td>Spears_FlangeStub_GalvBackingRing</td><td>Standard</td><td>Pipe Fittings : Spears_FlangeStub_GalvBackingRing : Standard</td><td>1176335</td></tr>
+<tr><td>Pipe Fittings</td><td>Spears_FlangeStub_GalvBackingRing</td><td>Standard</td><td>Pipe Fittings : Spears_FlangeStub_GalvBackingRing : Standard</td><td>1167309</td></tr>
+<tr><td>Pipe Fittings</td><td>Spears_FlangeStub_GalvBackingRing</td><td>Standard</td><td>Pipe Fittings : Spears_FlangeStub_GalvBackingRing : Standard</td><td>1173435</td></tr>
+<tr><td>Pipe Fittings</td><td>Spears_FlangeStub_GalvBackingRing</td><td>Standard</td><td>Pipe Fittings : Spears_FlangeStub_GalvBackingRing : Standard</td><td>1167311</td></tr>
+<tr><td>Pipe Fittings</td><td>Spears_FlangeStub_GalvBackingRing</td><td>Standard</td><td>Pipe Fittings : Spears_FlangeStub_GalvBackingRing : Standard</td><td>1174876</td></tr>
+<tr><td>Pipe Fittings</td><td>Spears_FlangeStub_GalvBackingRing</td><td>Standard</td><td>Pipe Fittings : Spears_FlangeStub_GalvBackingRing : Standard</td><td>1167286</td></tr>
+<tr><td>Pipe Fittings</td><td>Spears_FlangeStub_GalvBackingRing</td><td>Standard</td><td>Pipe Fittings : Spears_FlangeStub_GalvBackingRing : Standard</td><td>1167183</td></tr>
+<tr><td>Pipe Fittings</td><td>Spears_Strainer_Y_Cap</td><td>Standard</td><td>Pipe Fittings : Spears_Strainer_Y_Cap : Standard</td><td>1176696</td></tr>
+<tr><td>Pipe Fittings</td><td>Spears_Strainer_Y_Cap</td><td>Standard</td><td>Pipe Fittings : Spears_Strainer_Y_Cap : Standard</td><td>1174769</td></tr>
+<tr><td>Pipe Fittings</td><td>Spears_Strainer_Y_Cap</td><td>Standard</td><td>Pipe Fittings : Spears_Strainer_Y_Cap : Standard</td><td>1167314</td></tr>
+<tr><td>Plumbing Fixtures</td><td>Sink - Work</td><td>510 mmx455 mm</td><td>Plumbing Fixtures : Sink - Work : 510 mmx455 mm</td><td>1184452</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Fail_26.png" alt="FAIL" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Electrical Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any electrical related elements that have a blank Panel Name or Circuit Number.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">There are electrical related elements that have a blank Panel Name or Circuit Number.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Category</th><th>Family</th><th>Type</th><th>Name</th><th>ID</th></tr>
+<tr><td>Electrical Equipment</td><td>BW_ControlPanel</td><td>Main</td><td>Electrical Equipment : BW_ControlPanel : Main</td><td>1037176</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Structural System Families</div>
+        <div class="structureBreakdown">4 Checks, 4 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of structural system families in the model</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Floor Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all floor family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Floors : Type : BW_Floor_Concrete_300mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Foundation Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all foundation family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Structural Foundations : Type : 150mm Foundation Slab</td></tr>
+<tr><td>Structural Foundations : Type : Bearing Footing - 900 x 300</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Rebar Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all rebar family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Wall Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all wall family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 4</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Walls : Type : BW_Wall_Concrete_150mm</td></tr>
+<tr><td>Walls : Type : Exterior - Block on Mtl. Stud</td></tr>
+<tr><td>Walls : Type : Exterior - Brick on Mtl. Stud</td></tr>
+<tr><td>Walls : Type : Exterior Glazing</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Pass_26.png" alt="PASS" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duplicate Modeled Elements</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any modeled elements that are duplicates (identical elements at the same location and base level). Check will Fail if any duplicate element is found.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Worksets and Elements</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all user worksets for a Revit model or indicates '*Not Workshared*' if worksharing is not enabled.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 5.008</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Count</th><th>Name</th></tr>
+<tr><td>4985</td><td>Workset1</td></tr>
+<tr><td>23</td><td>Shared Levels and Grids</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div>
+</div>
+    </div>
+</div>
+</body>
+</html>
