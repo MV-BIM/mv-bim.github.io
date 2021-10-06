@@ -1,0 +1,1857 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Model Checker Report</title>
+    <style type="text/css">
+        /*  Name-agnostic definitions.
+ *  These definitions are just a copy of the definitions further below given a generic name.
+ *  This allows publishers to make a reference to "the page's default font" without having to
+ *  update hundreds of custom pages/styles to match the new name.
+ */
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-style: normal;
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-style: normal;
+            font-weight: 700;
+        }
+
+
+        /*  Generic "Artifakt" definitions.
+         *  An attempt will be made to map styles to appropriate font-faces when these are used.
+         *  See the definitions below if you wish to use a specific font.
+         */
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-style: normal;
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-style: normal;
+            font-weight: 700;
+        }
+
+
+        /*  "Artifakt Legend" definitions.
+         *   These definitions are for the "Artifakt Legend" series of font faces.
+         */
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendLight.svg#ArtifaktLegendLight') format('svg');
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendRegular.svg#ArtifaktLegendRegular') format('svg');
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendMedium.svg#ArtifaktLegendMedium') format('svg');
+            font-weight: 700;
+        }
+
+
+        /*  "Artifakt Element" definitions.
+         *   These definitions are for the "Artifakt Element" series of font faces.
+         */
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-weight: 700;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-italic.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementItalic.svg#ArtifaktElementItalic') format('svg');
+            font-style: italic;
+            font-weight: 400;
+        }
+    </style>
+    <style type="text/css">
+        body {
+            font: 100%/1.4 ADSK-Default, Verdana, Arial, Helvetica, sans-serif;
+            background: #f1f1f1;
+            margin: 0;
+            padding: 0;
+            color: #000;
+        }
+
+        h1, h2, h3, h4, h5, h6, p {
+            margin-top: 0; /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+            margin-bottom: 0;
+            padding-right: 0;
+            padding-left: 0; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+        }
+
+        h1, h3 {
+            color: white;
+        }
+
+        h1 {
+            font-family: "Artifakt Legend", Arial, sans-serif;
+            font-size: 1.5em;
+            margin: 0px;
+        }
+
+        a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+            border: none;
+        }
+
+        /* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+        a:link {
+            color: #414958;
+        }
+
+        a:visited {
+            color: #4E5869;
+        }
+
+        a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+            text-decoration: none;
+        }
+
+        /* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */
+        .container {
+            width: 100%;
+            max-width: 1260px; /* a max-width may be desirable to keep this layout from getting too wide on a large monitor. This keeps line length more readable. IE6 does not respect this declaration. */
+            min-width: 780px; /* a min-width may be desirable to keep this layout from getting too narrow. This keeps line length more readable in the side columns. IE6 does not respect this declaration. */
+            background: #f1f1f1;
+            margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
+        }
+
+        /* ~~the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo~~ */
+        .header {
+            background-color: #3b4453;
+            border-bottom: 1px black;
+            padding: 15px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .configContainer {
+            padding: 25px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+		
+		.imageContainer{
+		    width: 125px;
+			height: 125px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.checksetImage{
+		    max-width: 100%;
+			height: auto;
+		}
+
+        .resultData {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .tabBar {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 0 25px;
+        }
+
+        .tabItem {
+            margin-right: 15px;
+            background: #f9f9f9;
+            font-family: "Artifakt Element", Arial, sans-serif;
+            padding: 15px;
+            color: #bb7a14;
+        }
+
+        .tabItem a, .tabItem a:visited {
+            text-decoration: none;
+            color: #bb7a14;
+        }
+
+        .tabItemActive {
+            margin-right: 15px;
+            padding: 15px;
+            background: white;
+            font-family: "Artifakt Element", Arial, sans-serif;
+            color: #bb7a14;
+        }
+
+        .tabItemActive a, .tabItemActive a:visited {
+            text-decoration: none;
+            color: #bb7a14;
+        }
+
+        .portalStandardText {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: lighter;
+        }
+
+        .portalHeadlineText {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .portal {
+            background: white;
+            margin: 0 25px 25px 25px;
+            padding: 15px;
+        }
+
+        .treeElement {
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+
+        .checkResult {
+            border: 1px black solid;
+            padding: 15px;
+            margin-top: 15px;
+            margin-left: 25px;
+            display: grid;
+            justify-content: flex-start;
+            grid-template-columns: auto 1fr;
+        }
+
+        .itemList {
+            width: 100%;
+        }
+
+        .itemList th {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: bold;
+            background: #f1f1f1;
+            padding: 0 10px;
+        }
+
+        .configData {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-column-gap: 15px;
+            margin-left: 15px
+        }
+
+        .passRate{
+            font-family: "Artifakt Legend", Arial, sans-serif;
+            font-weight: bold;
+            font-size: 4.5em;
+        }
+        .structureHeading{
+            display: flex;
+        }
+
+        .structureBreakdown{
+            flex: auto;
+            flex-grow: 0;
+            white-space: nowrap;
+            margin-left: 15px;
+        }
+
+        .structureHeadingText{
+            flex-grow: 1;
+        }
+
+        .overallShown{
+            display: grid;
+            grid-template-rows: auto auto auto;
+            margin: 0 25px;
+        }
+        .overallHidden{
+            display: none;
+        }
+
+        .resultLow {
+            color: rgb(221, 34, 34);
+        }
+
+        .resultHigh {
+            color: rgb(135, 188, 64);
+        }
+
+        .resultMedium {
+            color: rgb(250, 162, 77);
+        }
+
+        .tableScroll{
+            overflow: auto;
+            max-height: 350px;
+            margin-top: 15px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_ModelChecker_24.png" width="24" height="24" style="margin-right: 15px" alt="Autodesk Model Checker for Revit"/>
+        <h1>Autodesk Model Checker for Revit</h1>
+    </div>
+    <div class="configContainer">
+        <div class="imageContainer">
+		    <img src="T:\TEMP_BIM LEAD\MDS Logo.PNG" class="checksetImage" 
+			onerror="this.src = 'https://interoperability.autodesk.com/modelchecker/reports/HeroImage_ModelChecker.png';" 
+			alt="Checkset Image"/>
+		</div>
+        <div class="configData">
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Title</span><span class="portalStandardText">BIM Model Audit</span>
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Date</span><span class="portalStandardText">martes, 14 de septiembre de 2021</span>
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Author</span><span class="portalStandardText">MV-BIM / MDS</span>
+            <span class="portalHeadlineText">Description</span><span
+                class="portalStandardText">Series of checks to review modeling best practices and integrity</span>
+        </div>
+    </div>
+    <div class="tabBar">
+        <div class="tabItemActive"><a href="OTC-ARK-ZZ-ZZ-M3-V-70-0002.html">OTC-ARK-ZZ-ZZ-M3-V-70-0002</a></div>
+    </div>
+    <div class="portal">
+        <div class="resultData">
+            <div class="overallShown">
+    <span class="passRate resultMedium" style="text-align: center">75%</span>
+</div>
+<div style="display: grid; grid-template-columns: auto auto; grid-column-gap: 15px; margin-left: 15px">
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Check Summary</span><span
+        class="portalStandardText">47 Checks, 3 <Span Foreground="#FAA24D">(75%)</Span> Pass, 1 Fail, 42 Count/List, <Span Foreground="#DD2222">1 Errors</Span></span>
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Report Date</span><span
+        class="portalStandardText">lunes, 4 de octubre de 2021 - 16:22:19</span>
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Revit Filepath</span><span
+        class="portalStandardText">H:\01_TECNICO_MVB-INT\01_PROJECTS\250511_Nine Elms\01_WIP\06_BIM Documents\02_BIM Audit Report\01_BIM Model Audit\01\01_BIM Models\01\OTC-ARK-ZZ-ZZ-M3-V-70-0002.rvt</span>
+    <span class="portalHeadlineText">Checkset File</span><span
+        class="portalStandardText">\\servidor\D_TECNICO\01_TECNICO_MVB-INT\03_LIBRARIES\BIM INTEROPERABILITY TOOLS\BIM Model Audit.xml</span>
+</div>
+        </div>
+    </div>
+    <div class="portal" style="margin-top: 15px">
+        <div>
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">BIM Model Audit</div>
+        <div class="structureBreakdown">47 Checks, 3 <Span Foreground="#FAA24D">(75%)</Span> Pass, 1 Fail, 42 Count/List, <Span Foreground="#DD2222">1 Errors</Span></div>
+    </div>
+    <div class="portalStandardText"></div>
+    <div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Model Performance</div>
+        <div class="structureBreakdown">7 Checks, 6 Count/List, <Span Foreground="#DD2222">1 Errors</Span></div>
+    </div>
+    <div class="portalStandardText">Checks in this section help monitor the result of actions taken over the course of a model’s development, which can directly impact the model’s performance. Proper management of these items can improve model performance.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="CUSTOM RESULT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">File Size</div>
+        <div class="portalStandardText" style="text-align: left">RESULT of the file sizes for all reported Revit models in MB (megabytes).</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: 94,80 MB</div>
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Warnings</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all warnings in the model. Too many unresolved warnings can cause performance issues in a Revit model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 43</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Error_26.png" alt="ERROR" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Loadable Families</div>
+        <div class="portalStandardText" style="text-align: left">RESULT and LIST of the families in the project ordered by file size.</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: 194.096 KB</div>
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th><th>Value</th></tr>
+<tr><td>MEE-ExternalSecurityCamera</td><td>892 KB</td></tr>
+<tr><td>MEE-Boiler-Domestic</td><td>884 KB</td></tr>
+<tr><td>MEE-PipeExpansion</td><td>820 KB</td></tr>
+<tr><td>MEE-OutdoorUnit</td><td>772 KB</td></tr>
+<tr><td>MEE-LuminaireSchedule-Tag</td><td>732 KB</td></tr>
+<tr><td>MEE-Pump-Mechanical</td><td>720 KB</td></tr>
+<tr><td>MEE-AHU-Standard</td><td>708 KB</td></tr>
+<tr><td>MEE-EquipmentBase</td><td>680 KB</td></tr>
+<tr><td>MEE-FireProtection-IPS-Tee-ReducingTee</td><td>672 KB</td></tr>
+<tr><td>MEE-Victaulic-IPS-ElbowGeneric</td><td>668 KB</td></tr>
+<tr><td>MEE-FireProtection-IPS-Elbow</td><td>664 KB</td></tr>
+<tr><td>MEE-Attenuator-Circular</td><td>664 KB</td></tr>
+<tr><td>MEE-Attenuator-Rectangular</td><td>660 KB</td></tr>
+<tr><td>MEE-AHU-Stacked-Length</td><td>628 KB</td></tr>
+<tr><td>MEE-CommandoSocket</td><td>628 KB</td></tr>
+<tr><td>MEE-DoubleCheckValve-20to90Ø</td><td>608 KB</td></tr>
+<tr><td>MEE-3DMan</td><td>608 KB</td></tr>
+<tr><td>MEE-ExternalLouvre-ExhaustAir</td><td>596 KB</td></tr>
+<tr><td>MEE-Victaulic-IPS-ConcentricReducerNo50</td><td>596 KB</td></tr>
+<tr><td>MEE-AHU-Stacked-Side</td><td>576 KB</td></tr>
+<tr><td>MEE-Victaulic-IPS-ElbowNo10-13</td><td>576 KB</td></tr>
+<tr><td>ME_Single Switched Socket Outlet+USB</td><td>572 KB</td></tr>
+<tr><td>MEE-Linear-Slot</td><td>572 KB</td></tr>
+<tr><td>MEE-Victaulic-IPS-Cross-No35</td><td>568 KB</td></tr>
+<tr><td>MEE-Degasser</td><td>564 KB</td></tr>
+<tr><td>ME_Multi Gang switch</td><td>564 KB</td></tr>
+<tr><td>MEE-InlineFilter-Rectangular</td><td>560 KB</td></tr>
+<tr><td>MEE-CassetteUnit</td><td>560 KB</td></tr>
+<tr><td>ME TV outlet</td><td>560 KB</td></tr>
+<tr><td>MEE-TVoutlet</td><td>556 KB</td></tr>
+<tr><td>MEE-AHU-PHEStacked</td><td>556 KB</td></tr>
+<tr><td>MEE-Victaulic-IPS-CapNo60</td><td>556 KB</td></tr>
+<tr><td>MEE-Chiller</td><td>552 KB</td></tr>
+<tr><td>ME Shaver Socket</td><td>548 KB</td></tr>
+<tr><td>MEE-AHU-THWStacked</td><td>548 KB</td></tr>
+<tr><td>MEE-CRAHUnit</td><td>544 KB</td></tr>
+<tr><td>MEE-ExternalLouvre-OutsideAir</td><td>544 KB</td></tr>
+<tr><td>MEE-DoubleSwitchedSocketOutlet</td><td>544 KB</td></tr>
+<tr><td>MEE-ShaverSocket</td><td>544 KB</td></tr>
+<tr><td>MEE-SwitchedFusedConnectionUnit</td><td>540 KB</td></tr>
+<tr><td>MEE-EquipmentSchedule-A3</td><td>536 KB</td></tr>
+<tr><td>MEE-UnswitchedFusedConnectionUnit</td><td>536 KB</td></tr>
+<tr><td>MEE-SingleUnswitchedSocketOutlet</td><td>536 KB</td></tr>
+<tr><td>MEE-SecurityPanel</td><td>532 KB</td></tr>
+<tr><td>MEE-FireAlarm-Panel</td><td>532 KB</td></tr>
+<tr><td>MEE-AHU-Modular</td><td>524 KB</td></tr>
+<tr><td>MEE-CentrifugalPump-Horizontal</td><td>524 KB</td></tr>
+<tr><td>MEE-PAVASpeaker</td><td>524 KB</td></tr>
+<tr><td>MEE-LightingSwitches</td><td>524 KB</td></tr>
+<tr><td>MEE-RectangularSquareBend</td><td>520 KB</td></tr>
+<tr><td>MEE-SpringKinetics-NoiseControl</td><td>520 KB</td></tr>
+<tr><td>ME_Heavy Duty Spring Hanger Solid Fix</td><td>516 KB</td></tr>
+<tr><td>MEE-CircularSupplyGrille</td><td>512 KB</td></tr>
+<tr><td>MEE-InlinePump</td><td>512 KB</td></tr>
+<tr><td>MEE-CircularExtractGrille</td><td>512 KB</td></tr>
+<tr><td>MEE-Elbow-Flexible-SL</td><td>512 KB</td></tr>
+<tr><td>MEE-RectangularRadiussedTwinBend</td><td>500 KB</td></tr>
+<tr><td>MEE-FireAlarm-Interface</td><td>500 KB</td></tr>
+<tr><td>MEE-SecurityCamera</td><td>492 KB</td></tr>
+<tr><td>MEE-InlineFan-Round</td><td>488 KB</td></tr>
+<tr><td>MEE-InlineFan-Rectangular</td><td>488 KB</td></tr>
+<tr><td>MEE-HeatDetectorwithSounderandBeacon</td><td>484 KB</td></tr>
+<tr><td>MEE-ThreadedUnion-Generic</td><td>484 KB</td></tr>
+<tr><td>MEE-Yorkex-Copper-Elbow</td><td>484 KB</td></tr>
+<tr><td>MEE-HeatDetectorwithSounder</td><td>480 KB</td></tr>
+<tr><td>MEE-Elbow-Press-Fit-CU</td><td>480 KB</td></tr>
+<tr><td>MEE-LadderReducer</td><td>476 KB</td></tr>
+<tr><td>MEE-Sprinkler-Pendant-Hosted</td><td>472 KB</td></tr>
+<tr><td>MEE-Sprinkler-Dry-Pendant-Hosted</td><td>468 KB</td></tr>
+<tr><td>MEE-CommissioningStation-65to300Ø-Grooved</td><td>468 KB</td></tr>
+<tr><td>MEE-DataOutlet</td><td>464 KB</td></tr>
+<tr><td>MEE-Attenuator-Round</td><td>460 KB</td></tr>
+<tr><td>MEE-FireAlarmwithSounderandBeacon</td><td>456 KB</td></tr>
+<tr><td>MEE-Victaulic-IPS-Tee-ReducingTee</td><td>456 KB</td></tr>
+<tr><td>MEE-DoorEntry</td><td>456 KB</td></tr>
+<tr><td>MEE-RectangularSquareBranch</td><td>456 KB</td></tr>
+<tr><td>MEE-TRANSFER-GRILLE</td><td>452 KB</td></tr>
+<tr><td>MEE-CallPoint</td><td>452 KB</td></tr>
+<tr><td>MEE-SafetyValve-Angle-20to200Ø</td><td>448 KB</td></tr>
+<tr><td>MEE-ITRack</td><td>448 KB</td></tr>
+<tr><td>MEE-FireProtection-GroovedCouplingOGS-AGS</td><td>444 KB</td></tr>
+<tr><td>MEE-Yorkex-Cross</td><td>444 KB</td></tr>
+<tr><td>MEE-Victaulic-GroovedCouplingOGS-AGS1</td><td>444 KB</td></tr>
+<tr><td>MEE-RectangularRadiusBend-DW144</td><td>444 KB</td></tr>
+<tr><td>MEE-Victaulic-GroovedCouplingOGS-AGS</td><td>444 KB</td></tr>
+<tr><td>MEE-DoubleRegulatingValve-20to300Ø</td><td>440 KB</td></tr>
+<tr><td>MEE-MDPE-Bend</td><td>440 KB</td></tr>
+<tr><td>MEE-InlineFan-Corner</td><td>440 KB</td></tr>
+<tr><td>MEE-ExternalLouvre-ExtractAir</td><td>440 KB</td></tr>
+<tr><td>MEE-Elbow-Flanged-CS-PN25</td><td>436 KB</td></tr>
+<tr><td>MEE-Elbow-Soldered-CU</td><td>436 KB</td></tr>
+<tr><td>MEE-SmokeAlarm</td><td>432 KB</td></tr>
+<tr><td>MEE-ElbowShortRadius-Flanged-CS-Class150</td><td>432 KB</td></tr>
+<tr><td>MEE-SmokeAlarm-Void</td><td>432 KB</td></tr>
+<tr><td>MEE-ElbowLongRadius-Flanged-CS-Class150</td><td>432 KB</td></tr>
+<tr><td>MEE-PlateHeatExchanger</td><td>432 KB</td></tr>
+<tr><td>MEE-Pump-MechanicalPipe</td><td>432 KB</td></tr>
+<tr><td>MEE-Elbow-Flanged-CS-Class150</td><td>432 KB</td></tr>
+<tr><td>Blücher - Bend</td><td>432 KB</td></tr>
+<tr><td>MEE-TeeBranchReduced-Flanged-CS-Class150</td><td>428 KB</td></tr>
+<tr><td>MEE-LadderHorizontalCross</td><td>428 KB</td></tr>
+<tr><td>MEE-Elbow-Threaded-GMI</td><td>424 KB</td></tr>
+<tr><td>MEE-Elbow-Welded-Generic</td><td>424 KB</td></tr>
+<tr><td>MEE-FireAlarmwithSounder</td><td>424 KB</td></tr>
+<tr><td>MEE-HDPE-Bend</td><td>420 KB</td></tr>
+<tr><td>MEE-Steel-Threaded-Elbow</td><td>420 KB</td></tr>
+<tr><td>MEE-Elbow-PVC-Sch40</td><td>420 KB</td></tr>
+<tr><td>MEE-LadderVerticalInsideBend</td><td>420 KB</td></tr>
+<tr><td>MEE-Elbow-Bypasscontrol</td><td>420 KB</td></tr>
+<tr><td>MEE-PanicButton</td><td>420 KB</td></tr>
+<tr><td>MEE-LadderVerticalOutsideBend</td><td>420 KB</td></tr>
+<tr><td>MEE-Bend-ButtWelded-HDPE</td><td>416 KB</td></tr>
+<tr><td>MEE-Elbow-ButtWelded-CS</td><td>416 KB</td></tr>
+<tr><td>MEE-Elbow-Brazed-CU</td><td>416 KB</td></tr>
+<tr><td>MEE-Elbow-Threaded-MS</td><td>416 KB</td></tr>
+<tr><td>MEE-LadderHorizontalBend</td><td>412 KB</td></tr>
+<tr><td>MEE-Sprinkler-HorizontalSidewall-Hosted</td><td>412 KB</td></tr>
+<tr><td>MEE-TeeBranchReduced-Press-Fit-CU</td><td>412 KB</td></tr>
+<tr><td>MEE-Yorkex-Copper-TeeBranchReduced</td><td>412 KB</td></tr>
+<tr><td>MEE-Elbow-Plain-PVC-C</td><td>412 KB</td></tr>
+<tr><td>MEE-ExternalLouvre-SupplyAir</td><td>412 KB</td></tr>
+<tr><td>MEE-ElbowLongRadius-ButtWelded-CS</td><td>412 KB</td></tr>
+<tr><td>MEE-PSU</td><td>408 KB</td></tr>
+<tr><td>MEE-Steel-Welded-Elbow</td><td>408 KB</td></tr>
+<tr><td>MEE-Sprinkler-Dry-HorizontalSidewall-Hosted</td><td>408 KB</td></tr>
+<tr><td>MEE-Tee-Press-Fit-CU</td><td>408 KB</td></tr>
+<tr><td>MEE-FlexOutletPlate</td><td>404 KB</td></tr>
+<tr><td>MEE-CableTrayReducer</td><td>400 KB</td></tr>
+<tr><td>MEE-OvalRoundTransformation-SlipJoint</td><td>400 KB</td></tr>
+<tr><td>MEE-FlexibleJoint</td><td>400 KB</td></tr>
+<tr><td>MEE-Builderswork</td><td>400 KB</td></tr>
+<tr><td>MEE-WireMesh-RectangularIntake</td><td>400 KB</td></tr>
+<tr><td>MEE-Cross-Soldered-CU</td><td>396 KB</td></tr>
+<tr><td>MEE-OvalShoeCross-SlipJoint</td><td>396 KB</td></tr>
+<tr><td>MEE-SecurityPIR</td><td>396 KB</td></tr>
+<tr><td>Support_Generic_Pipe</td><td>396 KB</td></tr>
+<tr><td>MEE-CableTrayHorizontalBend-FixedRadius</td><td>396 KB</td></tr>
+<tr><td>MEE-SingleSwitchedSocketOutlet</td><td>396 KB</td></tr>
+<tr><td>MEE-CableTrayVerticalOutsideBend-FixedRadius</td><td>392 KB</td></tr>
+<tr><td>MEE-CableTrayVerticalInsideBend-FixedRadius</td><td>392 KB</td></tr>
+<tr><td>MEE-Cross-Flanged-DI-PN16</td><td>388 KB</td></tr>
+<tr><td>MEE-600mm-ROUND-EXTRACT-GRILLE</td><td>388 KB</td></tr>
+<tr><td>MEE-Isolator</td><td>388 KB</td></tr>
+<tr><td>MEE-Cross-Flanged-CS-PN25</td><td>388 KB</td></tr>
+<tr><td>MEE-BranchDouble-Push-Fit-SS</td><td>388 KB</td></tr>
+<tr><td>MEE-TeeBranchReduced-Soldered-CU</td><td>388 KB</td></tr>
+<tr><td>MEE-BusbarVerticalBend</td><td>388 KB</td></tr>
+<tr><td>MEE-Rectangular-OvalTransformation</td><td>388 KB</td></tr>
+<tr><td>MEE-600mm-ROUND-SUPPLY-GRILLE</td><td>388 KB</td></tr>
+<tr><td>MEE-DUCT-CURVED-GRILLE</td><td>388 KB</td></tr>
+<tr><td>A4-ME-landscape-Schedule</td><td>384 KB</td></tr>
+<tr><td>MEE-RequestToExit</td><td>384 KB</td></tr>
+<tr><td>MEE-MultiServiceSwitch</td><td>384 KB</td></tr>
+<tr><td>MEE-RoundTaper</td><td>384 KB</td></tr>
+<tr><td>A4-ME-Issue Sheet</td><td>384 KB</td></tr>
+<tr><td>MEE-FireAlarm-Breakglass</td><td>384 KB</td></tr>
+<tr><td>MEE-IsolationValve-50to150Ø</td><td>384 KB</td></tr>
+<tr><td>MEE-Door-Concept-InternalDouble</td><td>384 KB</td></tr>
+<tr><td>MEE-InternalSecurityCamera</td><td>380 KB</td></tr>
+<tr><td>MEE-BlankPlate</td><td>380 KB</td></tr>
+<tr><td>MEE-LadderHorizontalTee</td><td>380 KB</td></tr>
+<tr><td>MEE-OvalConcentricTaper-SlipJoint</td><td>380 KB</td></tr>
+<tr><td>MEE-CableTrayHorizontalCross</td><td>380 KB</td></tr>
+<tr><td>MEE-Cross-Flanged-CS-Class150</td><td>380 KB</td></tr>
+<tr><td>MEE-AirCurtain-Ambient</td><td>380 KB</td></tr>
+<tr><td>MEE-Coupling-FlexibleJoints</td><td>380 KB</td></tr>
+<tr><td>MEE-Sink-Island-Single</td><td>376 KB</td></tr>
+<tr><td>MEE-PressureReducingValve-20-90mm</td><td>376 KB</td></tr>
+<tr><td>MEE-DistributionBoard-Surface</td><td>376 KB</td></tr>
+<tr><td>MEE-ServiceHead</td><td>376 KB</td></tr>
+<tr><td>MEE-300mm-ROUND-EXTRACT-GRILLE</td><td>372 KB</td></tr>
+<tr><td>MEE-300mm-ROUND-SUPPLY-GRILLE</td><td>372 KB</td></tr>
+<tr><td>MEE-PressureIndependentControlValve-20to90Ø</td><td>372 KB</td></tr>
+<tr><td>MEE-WaterCloset-FlushValve-WallMounted</td><td>372 KB</td></tr>
+<tr><td>MEE-FireProtection-IPS-FlexibleCouplingStyle75</td><td>372 KB</td></tr>
+<tr><td>MEE-Victaulic-IPS-FlexibleCouplingStyle75</td><td>372 KB</td></tr>
+<tr><td>MEE-Tee-Flanged-DI-PN16</td><td>372 KB</td></tr>
+<tr><td>MEE-CableTrayVerticalInsideBend</td><td>372 KB</td></tr>
+<tr><td>MEE-CableTrayVerticalOutsideBend</td><td>372 KB</td></tr>
+<tr><td>MEE-Strainer-50to600Ø</td><td>372 KB</td></tr>
+<tr><td>MEE-PIR</td><td>372 KB</td></tr>
+<tr><td>MEE-CableTrayHorizontalBend</td><td>372 KB</td></tr>
+<tr><td>MEE-AHUSchedule-Tag</td><td>368 KB</td></tr>
+<tr><td>MEE-CouplingPress-Fit-CU</td><td>368 KB</td></tr>
+<tr><td>MEE-CardReader</td><td>368 KB</td></tr>
+<tr><td>MEE-WireMesh-RectangularOutput</td><td>368 KB</td></tr>
+<tr><td>MEE-Coupling-Press-Fit-CU</td><td>368 KB</td></tr>
+<tr><td>MEE-Reducer-Flanged-CS-PN25</td><td>368 KB</td></tr>
+<tr><td>MEE-Tee-Soldered-CU</td><td>368 KB</td></tr>
+<tr><td>MEE-VolumeControlDamper-Round</td><td>368 KB</td></tr>
+<tr><td>MEE-BusbarHorizontalBend</td><td>368 KB</td></tr>
+<tr><td>A4-ME-Schedule</td><td>368 KB</td></tr>
+<tr><td>MEE-FireDamper-Round</td><td>368 KB</td></tr>
+<tr><td>MEE-150mm-ROUND-SUPPLY-GRILLE</td><td>368 KB</td></tr>
+<tr><td>MEE-150mm-ROUND-EXTRACT-GRILLE</td><td>368 KB</td></tr>
+<tr><td>MEE-WaterMeter-15to50Ø</td><td>368 KB</td></tr>
+<tr><td>MEE-ReducerStraight-Press-Fit-CU</td><td>364 KB</td></tr>
+<tr><td>MEE-100mm-ROUND-SUPPLY-GRILLE</td><td>364 KB</td></tr>
+<tr><td>MEE-SIDE-ENTRY-SQUARE-EXTRACT-GRILLE</td><td>364 KB</td></tr>
+<tr><td>MEE-SIDE-ENTRY-SQUARE-EXTRACT-GRILLE.0002</td><td>364 KB</td></tr>
+<tr><td>MEE-VolumeControlDamper-Rectangular</td><td>364 KB</td></tr>
+<tr><td>MEE-Cap-Tap-Flowarrow</td><td>364 KB</td></tr>
+<tr><td>MEE-DUCT-FLAT-GRILLE</td><td>364 KB</td></tr>
+<tr><td>MEE-WireMesh-RoundOutput</td><td>364 KB</td></tr>
+<tr><td>MEE-LadderUnion</td><td>364 KB</td></tr>
+<tr><td>MEE-WireMesh-RoundIntake</td><td>364 KB</td></tr>
+<tr><td>MEE-TeeBranchReduced-Brazed-CU</td><td>364 KB</td></tr>
+<tr><td>MEE-RectangularMitredThroatBend</td><td>364 KB</td></tr>
+<tr><td>MEE-Tee-Flanged-CS-PN25</td><td>360 KB</td></tr>
+<tr><td>MEE-DoorController</td><td>360 KB</td></tr>
+<tr><td>MEE-VAVUnit</td><td>360 KB</td></tr>
+<tr><td>MEE-SocketReducing-Threaded-MS</td><td>360 KB</td></tr>
+<tr><td>MEE-CableTrayHorizontalTee</td><td>360 KB</td></tr>
+<tr><td>MEE-HeatDetector</td><td>360 KB</td></tr>
+<tr><td>MEE-DataBoard</td><td>360 KB</td></tr>
+<tr><td>MEE-Reducer-Flanged-CS-Class150</td><td>360 KB</td></tr>
+<tr><td>MEE-SIDE-ENTRY-SQUARE-SUPPLY-GRILLE</td><td>360 KB</td></tr>
+<tr><td>MEE-Tee-Brazed-CU</td><td>360 KB</td></tr>
+<tr><td>MEE-Retangular-Recessed</td><td>360 KB</td></tr>
+<tr><td>MEE-KeySwitch</td><td>360 KB</td></tr>
+<tr><td>MEE-CCTV-PTZ</td><td>360 KB</td></tr>
+<tr><td>MEE-Rectangular-RoundTransformation</td><td>360 KB</td></tr>
+<tr><td>MEE-Cross-Threaded-GMI</td><td>360 KB</td></tr>
+<tr><td>MEE-CCTV-Fixed</td><td>356 KB</td></tr>
+<tr><td>MEE-CCTV-MultiLens</td><td>356 KB</td></tr>
+<tr><td>MEE-Circular-Recessed</td><td>356 KB</td></tr>
+<tr><td>ME-PLMB-Valve Gate</td><td>356 KB</td></tr>
+<tr><td>MEE-Circular-Surface</td><td>356 KB</td></tr>
+<tr><td>MEE-RectangularOffset-Mitred</td><td>356 KB</td></tr>
+<tr><td>MEE-ElectricalPlant</td><td>356 KB</td></tr>
+<tr><td>MEE-Branch-Push-Fit-SS</td><td>356 KB</td></tr>
+<tr><td>MEE-OvalShoeBranch-SlipJoint</td><td>356 KB</td></tr>
+<tr><td>MEE-Steel-Threaded-SocketReducing</td><td>356 KB</td></tr>
+<tr><td>MEE-IsolationValve-15to54Ø</td><td>356 KB</td></tr>
+<tr><td>MEE-DistributionBoard-Recessed</td><td>356 KB</td></tr>
+<tr><td>MEE-OvalSegmentedBend-SlipJoint</td><td>356 KB</td></tr>
+<tr><td>MEE-SQUARE-RETURN-GRILLE</td><td>356 KB</td></tr>
+<tr><td>MEE-Bend-Flanged-DI-PN16</td><td>352 KB</td></tr>
+<tr><td>MEE-HeatingPlant</td><td>352 KB</td></tr>
+<tr><td>MEE-RoundPressedBend-SlipJoint</td><td>352 KB</td></tr>
+<tr><td>MEE-OvalBlankEnd</td><td>352 KB</td></tr>
+<tr><td>MEE-PressureGauge</td><td>352 KB</td></tr>
+<tr><td>MEE-RectangularAngledTap-DTL</td><td>352 KB</td></tr>
+<tr><td>MEE-XenonBeacon&Bell</td><td>352 KB</td></tr>
+<tr><td>MEE-ThermostaticRadiatorValve-15to22Ø</td><td>352 KB</td></tr>
+<tr><td>MEE-Linear-Slot-Diffuser</td><td>352 KB</td></tr>
+<tr><td>MEE-DoorAlarmcontact</td><td>352 KB</td></tr>
+<tr><td>MEE-CouplingReducing-PVC-Sch40</td><td>348 KB</td></tr>
+<tr><td>MEE-Steel-Welded-StabIn</td><td>348 KB</td></tr>
+<tr><td>MEE-OvalUnion</td><td>348 KB</td></tr>
+<tr><td>MEE-Cross-Plain-PVC-C</td><td>348 KB</td></tr>
+<tr><td>MEE-HDPE-ReducerEccentric</td><td>348 KB</td></tr>
+<tr><td>MEE-FireAlarmSounder-Recessed</td><td>348 KB</td></tr>
+<tr><td>MEE-TaperConcentric-Flanged-DI-PN16</td><td>348 KB</td></tr>
+<tr><td>MEE-SocketReducing-Threaded-GMI</td><td>348 KB</td></tr>
+<tr><td>MEE-ReducerStraight-Soldered-CU</td><td>348 KB</td></tr>
+<tr><td>MEE-DomesticPlant</td><td>348 KB</td></tr>
+<tr><td>MEE-CoolingPlant</td><td>348 KB</td></tr>
+<tr><td>MEE-PipeStubin-Generic</td><td>348 KB</td></tr>
+<tr><td>MEE-TaperConcentric-Plain-CI</td><td>348 KB</td></tr>
+<tr><td>MEE-Bend-Push-Fit-SS</td><td>344 KB</td></tr>
+<tr><td>MEE-CheckValve-50to600Ø</td><td>344 KB</td></tr>
+<tr><td>MEE-VolumeControlDamper-Oval</td><td>344 KB</td></tr>
+<tr><td>MEE-VentilationPlant</td><td>344 KB</td></tr>
+<tr><td>MEE-Retangular-Surface</td><td>344 KB</td></tr>
+<tr><td>unistrut</td><td>344 KB</td></tr>
+<tr><td>MEE-RoundTap-SlipJoint</td><td>344 KB</td></tr>
+<tr><td>MEE-BypassIsolationValve-15to54Ø</td><td>344 KB</td></tr>
+<tr><td>MEE-RoundOffset</td><td>340 KB</td></tr>
+<tr><td>MEE-HDPE-Branch88.5DegSwept-Entry</td><td>340 KB</td></tr>
+<tr><td>MEE-Switch</td><td>340 KB</td></tr>
+<tr><td>MEE-Transition-Generic</td><td>340 KB</td></tr>
+<tr><td>MEE-Branch90DegDouble-Plain-CI</td><td>340 KB</td></tr>
+<tr><td>MEE-Branch88.5DegSwept-Entry-ButtWelded-HDPE</td><td>340 KB</td></tr>
+<tr><td>MEE-CeilingLight-FlatRound</td><td>340 KB</td></tr>
+<tr><td>MEE-Unistrut</td><td>340 KB</td></tr>
+<tr><td>MEE-MixingValve-15to20Ø</td><td>340 KB</td></tr>
+<tr><td>MEE-ServiceZone</td><td>336 KB</td></tr>
+<tr><td>MEE-MotionandWindowDetector</td><td>336 KB</td></tr>
+<tr><td>MEE-Coupling-CI</td><td>336 KB</td></tr>
+<tr><td>ME_Switch</td><td>336 KB</td></tr>
+<tr><td>MEE-RectangularShoeBranch</td><td>336 KB</td></tr>
+<tr><td>MEE-RectangularEccentricTaper</td><td>336 KB</td></tr>
+<tr><td>MEE-ReducerConcentric-Push-Fit-SS</td><td>336 KB</td></tr>
+<tr><td>MEE-Coupling-DI</td><td>336 KB</td></tr>
+<tr><td>MEE-Cross-Threaded-MS</td><td>336 KB</td></tr>
+<tr><td>MEE-HDPE-BranchDouble</td><td>336 KB</td></tr>
+<tr><td>MEE-Union-ExpansionJoint-10-200mm</td><td>336 KB</td></tr>
+<tr><td>MEE-BranchDouble-ButtWelded-HDPE</td><td>336 KB</td></tr>
+<tr><td>MEE-Coupling-Soldered-CU</td><td>336 KB</td></tr>
+<tr><td>MEE-Cross-Generic</td><td>336 KB</td></tr>
+<tr><td>MEE-CableTrayUnion</td><td>332 KB</td></tr>
+<tr><td>MEE-SocketSlidingRingSeal-Push-Fit-SS</td><td>332 KB</td></tr>
+<tr><td>MEE-Branch45Deg-ButtWelded-HDPE</td><td>332 KB</td></tr>
+<tr><td>MEE-ReducerStraight-Brazed-CU</td><td>332 KB</td></tr>
+<tr><td>MEE-Tee-ButtWelded-CS</td><td>332 KB</td></tr>
+<tr><td>MEE-Tee-Threaded-MS</td><td>332 KB</td></tr>
+<tr><td>MEE-Tee-Generic</td><td>332 KB</td></tr>
+<tr><td>MEE-Steel-Welded-TeeBranchReduced</td><td>332 KB</td></tr>
+<tr><td>MEE-Round-ToiletExtract-Grille-250RNDNeck</td><td>332 KB</td></tr>
+<tr><td>Unistrut-21-41</td><td>332 KB</td></tr>
+<tr><td>MEE-Steel-Threaded-TeeBranchReduced</td><td>332 KB</td></tr>
+<tr><td>MEE-Branch45DegDouble-ButtWelded-HDPE</td><td>332 KB</td></tr>
+<tr><td>MEE-Branch60DegDouble-ButtWelded-HDPE</td><td>332 KB</td></tr>
+<tr><td>MEE-HDPE-AccessPipeScrewed</td><td>332 KB</td></tr>
+<tr><td>MEE-RoundShoeBranch-SlipJoint</td><td>332 KB</td></tr>
+<tr><td>MEE-Branch90Deg-Plain-CI</td><td>332 KB</td></tr>
+<tr><td>MEE-Branch-ButtWelded-HDPE</td><td>328 KB</td></tr>
+<tr><td>MEE-Socket-Threaded-GMI</td><td>328 KB</td></tr>
+<tr><td>MEE-Flange-Slip-on-Steel-PN25</td><td>328 KB</td></tr>
+<tr><td>MEE-Cap-StopEndSoldered-CU</td><td>328 KB</td></tr>
+<tr><td>MEE-Tee-Plain-PVC-C</td><td>328 KB</td></tr>
+<tr><td>MEE-TeeBranchReduced-ButtWelded-CS</td><td>328 KB</td></tr>
+<tr><td>MEE-ReducerConcentric-ButtWelded-CS1</td><td>328 KB</td></tr>
+<tr><td>MEE-RoundConicalBranch-SlipJoint</td><td>328 KB</td></tr>
+<tr><td>MEE-Radiator</td><td>328 KB</td></tr>
+<tr><td>MEE-ReducerConcentric-ButtWelded-HDPE</td><td>328 KB</td></tr>
+<tr><td>MEE-Union-Slip-on-Steel-PN25</td><td>328 KB</td></tr>
+<tr><td>MEE-TeeBranchReduced-Threaded-MS</td><td>328 KB</td></tr>
+<tr><td>MEE-CapwithConnector</td><td>328 KB</td></tr>
+<tr><td>MEE-Cross-Welded-CS-Class150</td><td>328 KB</td></tr>
+<tr><td>MEE-Tee-PVC-Sch40</td><td>324 KB</td></tr>
+<tr><td>MEE-Steel-Welded-FlangeNeck(PN16)</td><td>324 KB</td></tr>
+<tr><td>MEE-Flange-WeldNeck-Steel-Class150</td><td>324 KB</td></tr>
+<tr><td>ME_Fitting Warning Sphere</td><td>324 KB</td></tr>
+<tr><td>MEE-FittingWarningSphere</td><td>324 KB</td></tr>
+<tr><td>MEE-Cap-ButtWelded-CS</td><td>324 KB</td></tr>
+<tr><td>MEE-Cap-Plain-PVC-C</td><td>324 KB</td></tr>
+<tr><td>MEE-Cap-ButtWelded-HDPE</td><td>324 KB</td></tr>
+<tr><td>MEE-RoundAngleBranch-SlipJoint</td><td>324 KB</td></tr>
+<tr><td>MEE-Flange-Slip-on-Steel-PN16</td><td>324 KB</td></tr>
+<tr><td>MEE-KTCHEN-HOOD-3-CONN</td><td>324 KB</td></tr>
+<tr><td>MEE-FireDamper-Rectangular</td><td>320 KB</td></tr>
+<tr><td>MEE-Bend-Plain-CI</td><td>320 KB</td></tr>
+<tr><td>MEE-Socket-Plain-PVC-C</td><td>320 KB</td></tr>
+<tr><td>MEE-Reducer-BushPlain-PVC-C</td><td>320 KB</td></tr>
+<tr><td>ME_Conduit Elbow - Plain End - PVC</td><td>320 KB</td></tr>
+<tr><td>MEE-HotwaterManifold</td><td>320 KB</td></tr>
+<tr><td>MEE-HeatingManifold</td><td>320 KB</td></tr>
+<tr><td>MEE-Union-Systemchange</td><td>320 KB</td></tr>
+<tr><td>MEE-TestPoint</td><td>320 KB</td></tr>
+<tr><td>MEE-RoundSegmentedBend-SlipJoint</td><td>316 KB</td></tr>
+<tr><td>MEE-Cap-Threaded-MS</td><td>316 KB</td></tr>
+<tr><td>MEE-Cap-PVC-Sch40</td><td>316 KB</td></tr>
+<tr><td>MEE-Coupling-Generic</td><td>316 KB</td></tr>
+<tr><td>MEE-KTCHEN-HOOD-2-CONN</td><td>316 KB</td></tr>
+<tr><td>MEE-Socket-Threaded-MS1</td><td>316 KB</td></tr>
+<tr><td>MEE-Logo</td><td>316 KB</td></tr>
+<tr><td>MEE-HDPE-Cap</td><td>312 KB</td></tr>
+<tr><td>MEE-Coupling-PVC-Sch40</td><td>312 KB</td></tr>
+<tr><td>MEE-Plug-PVC-Sch40</td><td>312 KB</td></tr>
+<tr><td>MEE-Joint-Push-Fit-CI</td><td>312 KB</td></tr>
+<tr><td>MEE-Socket-Threaded-MS</td><td>312 KB</td></tr>
+<tr><td>MEE-Coupling-Brazed-CU</td><td>312 KB</td></tr>
+<tr><td>MEE-KTCHEN-HOOD-1-CONN</td><td>312 KB</td></tr>
+<tr><td>MEE-ConduitElbow-800</td><td>312 KB</td></tr>
+<tr><td>Conduit Junction Box - Transition - PVC</td><td>312 KB</td></tr>
+<tr><td>MEE-Cap-PVC</td><td>312 KB</td></tr>
+<tr><td>MEE-Joint-PushFit-HDPE</td><td>312 KB</td></tr>
+<tr><td>MEE-Coupling-SL</td><td>312 KB</td></tr>
+<tr><td>MEE-AccessZone</td><td>312 KB</td></tr>
+<tr><td>MEE-RectangularBlankEnd</td><td>312 KB</td></tr>
+<tr><td>MEE-RectangularUnion</td><td>308 KB</td></tr>
+<tr><td>MEE-RoundUnion</td><td>308 KB</td></tr>
+<tr><td>MEE-RoundBlankEnd</td><td>308 KB</td></tr>
+<tr><td>Cap - Generic</td><td>308 KB</td></tr>
+<tr><td>Conduit Coupling - PVC</td><td>308 KB</td></tr>
+<tr><td>MEE-WallMountedRadiator</td><td>304 KB</td></tr>
+<tr><td>MEE-StructuralColumn_UniversalColumn</td><td>304 KB</td></tr>
+<tr><td>MEE_BIM STAMP-19</td><td>296 KB</td></tr>
+<tr><td>MEE_BIM STAMP</td><td>296 KB</td></tr>
+<tr><td>MEE-ElevationMarkBody-Circle</td><td>292 KB</td></tr>
+<tr><td>M_Level Head - Circle</td><td>288 KB</td></tr>
+<tr><td>Baluster - Square</td><td>288 KB</td></tr>
+<tr><td>MEE-Voiceonly</td><td>276 KB</td></tr>
+<tr><td>MEE-FusedSwitchedAnnotation</td><td>276 KB</td></tr>
+<tr><td>ME-FireAlarmwithSounderandBeaconAnnotation</td><td>272 KB</td></tr>
+<tr><td>MEE-SingleSwitchedSocketOutletAnnotation</td><td>272 KB</td></tr>
+<tr><td>Keypad</td><td>272 KB</td></tr>
+<tr><td>ME-HeatDetectorwithSounderandBeaconAnnotation</td><td>272 KB</td></tr>
+<tr><td>MEE-5ASingleSwitchedSocketOutletAnnotation</td><td>272 KB</td></tr>
+<tr><td>MEE-GraphicScales</td><td>272 KB</td></tr>
+<tr><td>MEE-UnSwitchedSocketOutletAnnotation</td><td>268 KB</td></tr>
+<tr><td>MEE-flexoutletPlateAnnotation</td><td>268 KB</td></tr>
+<tr><td>MEE-BlankPlateAnnotation</td><td>268 KB</td></tr>
+<tr><td>MEE-FusedUnswitchedAnnotation</td><td>268 KB</td></tr>
+<tr><td>MEE-ElevationMarkPointer-Circle</td><td>268 KB</td></tr>
+<tr><td>Model_information</td><td>268 KB</td></tr>
+<tr><td>MEE-SocketOutletAnnotation</td><td>268 KB</td></tr>
+<tr><td>MEE-Scale_1_20</td><td>268 KB</td></tr>
+<tr><td>MEE-Scale_1_50</td><td>264 KB</td></tr>
+<tr><td>MEE-Scale_1_250</td><td>264 KB</td></tr>
+<tr><td>MEE-Scale_1_200</td><td>264 KB</td></tr>
+<tr><td>MEE-Scale_1_25</td><td>264 KB</td></tr>
+<tr><td>MEE-Scale_1_500</td><td>264 KB</td></tr>
+<tr><td>MEE-PipeAccessoriesTypeMark</td><td>264 KB</td></tr>
+<tr><td>Space Tag</td><td>264 KB</td></tr>
+<tr><td>MEE-Ductsizeandtypeleader</td><td>264 KB</td></tr>
+<tr><td>MEE-SwitchType</td><td>264 KB</td></tr>
+<tr><td>MEE-Ductsizeandtypewithoutleader</td><td>264 KB</td></tr>
+<tr><td>MEE_Scale_1_100</td><td>264 KB</td></tr>
+<tr><td>MEE_Scale_1_50</td><td>264 KB</td></tr>
+<tr><td>MEE_Scale_1_200</td><td>264 KB</td></tr>
+<tr><td>MEE_Scale_1_25</td><td>264 KB</td></tr>
+<tr><td>MEE_Scale_1_500</td><td>264 KB</td></tr>
+<tr><td>MEE-ViewTitle</td><td>264 KB</td></tr>
+<tr><td>MEE-CameraAnnotation-Type1</td><td>264 KB</td></tr>
+<tr><td>MEE-SectionArrow</td><td>264 KB</td></tr>
+<tr><td>MEE_Scale_1_250</td><td>264 KB</td></tr>
+<tr><td>MEE_Scale_1_20</td><td>264 KB</td></tr>
+<tr><td>Level Head - Circle</td><td>264 KB</td></tr>
+<tr><td>Room Tag</td><td>264 KB</td></tr>
+<tr><td>MEE-Scale_1_100</td><td>264 KB</td></tr>
+<tr><td>MEE-Detail-Brick</td><td>264 KB</td></tr>
+<tr><td>Fascia-Flat</td><td>264 KB</td></tr>
+<tr><td>MEE-PipeSizeandtypewithoutleader</td><td>264 KB</td></tr>
+<tr><td>MEE-PipeSizeandtypeleader</td><td>264 KB</td></tr>
+<tr><td>Slab Edge-Thickened</td><td>264 KB</td></tr>
+<tr><td>Gutter - Bevel</td><td>264 KB</td></tr>
+<tr><td>MEE-DiffuserTag</td><td>260 KB</td></tr>
+<tr><td>MEE-Generalnotes</td><td>260 KB</td></tr>
+<tr><td>MEE-TrayLeaderTag</td><td>260 KB</td></tr>
+<tr><td>MEE-TrunkingLeaderTag</td><td>260 KB</td></tr>
+<tr><td>MEE-PipeSizeandtypeTag</td><td>260 KB</td></tr>
+<tr><td>MEE-PipeSizeandtypeleaderTag</td><td>260 KB</td></tr>
+<tr><td>MEE-DataDevicecommentsTag</td><td>260 KB</td></tr>
+<tr><td>MEE-DataDevicemarkTag</td><td>260 KB</td></tr>
+<tr><td>MEE-CableTrays-Size-Tag</td><td>260 KB</td></tr>
+<tr><td>MEE-DataDevicetypeTag</td><td>260 KB</td></tr>
+<tr><td>View Reference_16</td><td>260 KB</td></tr>
+<tr><td>MEE-ElectricalFixturecommentsTag</td><td>260 KB</td></tr>
+<tr><td>MEE-ElectricalFixturemarkTag</td><td>260 KB</td></tr>
+<tr><td>MEE-DuctAccessories-TypeMarkTag</td><td>260 KB</td></tr>
+<tr><td>MEE-DuctSizeandtypeleaderTag</td><td>260 KB</td></tr>
+<tr><td>MEE-Pipedrop</td><td>260 KB</td></tr>
+<tr><td>Model_info - Tag</td><td>260 KB</td></tr>
+<tr><td>MEE-MechanicalEquipment-TypeName-Tag</td><td>260 KB</td></tr>
+<tr><td>MEE-DuctSizeTag</td><td>260 KB</td></tr>
+<tr><td>MEE-DuctAccessories-MarkTag</td><td>260 KB</td></tr>
+<tr><td>MEE-ElectricalEquipmentPanelName</td><td>260 KB</td></tr>
+<tr><td>MEE-GenericModelComment</td><td>260 KB</td></tr>
+<tr><td>MEE-CableTrays-TrunkingSize-Tag</td><td>260 KB</td></tr>
+<tr><td>MEE-SecurityTypeMarkTag</td><td>260 KB</td></tr>
+<tr><td>MEE-ElectricalFixtureserveTag</td><td>260 KB</td></tr>
+<tr><td>MEE-ElectricalDataserveTag</td><td>260 KB</td></tr>
+<tr><td>MEE-CableTrays-TrunkingSizeAndFamily-Tag</td><td>260 KB</td></tr>
+<tr><td>MEE-Conduits-Size-Tag</td><td>260 KB</td></tr>
+<tr><td>MEE-Level_Head</td><td>260 KB</td></tr>
+<tr><td>MEE-Builderswork-Tag</td><td>260 KB</td></tr>
+<tr><td>MEE-Centreline</td><td>260 KB</td></tr>
+<tr><td>Callout Head</td><td>260 KB</td></tr>
+<tr><td>Model_info - REV Tag</td><td>260 KB</td></tr>
+<tr><td>MEE-MechanicalEquipment-TypeMark-Tag</td><td>260 KB</td></tr>
+<tr><td>MEE-LightingFixture-Tag</td><td>260 KB</td></tr>
+<tr><td>MEE-LogoAddressOnly</td><td>260 KB</td></tr>
+<tr><td>MEE-CameraAnnotation-Type2</td><td>260 KB</td></tr>
+<tr><td>MEE-CircuitReference-Annotation</td><td>260 KB</td></tr>
+<tr><td>MEE-CeilingData-Annotation</td><td>260 KB</td></tr>
+<tr><td>View Reference</td><td>260 KB</td></tr>
+<tr><td>Spot Elevation - Crosshair</td><td>260 KB</td></tr>
+<tr><td>Rectangular Handrail</td><td>260 KB</td></tr>
+<tr><td>Sprinklers Tag</td><td>260 KB</td></tr>
+<tr><td>MEE-SizeLengthSystemname</td><td>260 KB</td></tr>
+<tr><td>MEE-PipingSystemAbbreviationTag</td><td>260 KB</td></tr>
+<tr><td>MEE-PlumbingFixtureTag</td><td>260 KB</td></tr>
+<tr><td>Grid Head - Circle</td><td>260 KB</td></tr>
+<tr><td>Spot Elevation - Exterior Filled</td><td>260 KB</td></tr>
+<tr><td>MEE-NorthArrow-2</td><td>260 KB</td></tr>
+<tr><td>Circular Handrail</td><td>260 KB</td></tr>
+<tr><td>Spot Elevation - Target Filled</td><td>260 KB</td></tr>
+<tr><td>MEE-DuctSizeandtypeTag</td><td>256 KB</td></tr>
+<tr><td>MEE-PipeSizeTag</td><td>256 KB</td></tr>
+<tr><td>MEE_SpotElevation</td><td>256 KB</td></tr>
+<tr><td>MEE-HWS-PackagedPlant</td><td>2.736 KB</td></tr>
+<tr><td>MEE-NonReturnValve-150to200Ø</td><td>1.904 KB</td></tr>
+<tr><td>ME-MECH-Equipment Blockout</td><td>1.760 KB</td></tr>
+<tr><td>MEE-HeatExchanger-Vertical</td><td>1.536 KB</td></tr>
+<tr><td>MEE-MHVR-WallMounted</td><td>1.344 KB</td></tr>
+<tr><td>MEE-IsolationValve-150to400Ø</td><td>1.272 KB</td></tr>
+<tr><td>MEE-IsolationValve-400to800Ø</td><td>1.236 KB</td></tr>
+<tr><td>MEE-ExitSign</td><td>1.224 KB</td></tr>
+<tr><td>21008_ME_A0_TITLEBLOCK - JRL</td><td>1.208 KB</td></tr>
+<tr><td>20014_ME_A0_TITLEBLOCK - JRL-PB-Basement</td><td>1.148 KB</td></tr>
+<tr><td>MEE-IsolationValve-80to250Ø</td><td>1.028 KB</td></tr>
+<tr><td>MEE-Sprinkler-Upright</td><td>1.020 KB</td></tr>
+</table>
+</div>
+        <div class="portalHeadlineText" style="margin-top: 15px">Error</div><div class="portalStandardText" style="margin-top: 15px">Error getting file size from family 'MEE-Hydromag-90to110Ø': Loaded Family Editing failed.</div>
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Unused Elements</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all elements that may be unused and therefore removed from a Revit model. A large number of unneeded elements can increase the model size with no benefit. Note that the count reported here may differ from the Purge Unused command in the Revit interface due to API restraints.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1.970</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Model Groups</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all model group elements in the model. Too many model groups can be an indication of improper modeling techniques.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Detail Groups</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all detail group elements in the model. Too many detail groups can be an indication of improper modeling techniques.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 458</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">In-Place Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all in-place family elements in the model. In-place families can signifcantly impact model size and performance and should be used sparingly.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 16</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Project Settings</div>
+        <div class="structureBreakdown">5 Checks, 5 Count/List</div>
+    </div>
+    <div class="portalStandardText">Checks in this section are related to settings that can be configured at a project level, which may need to be verified for compliance with standards defined for the project.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="CUSTOM RESULT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Revit Version</div>
+        <div class="portalStandardText" style="text-align: left">LIST of the version and build data of Revit running the check.</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: Autodesk Revit 2019 20210416_1515(x64)</div>
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Design Options</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all elements created in each design option of the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Elements Per Phase</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all elements in each phase of the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 3.377</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Count</th><th>Name</th></tr>
+<tr><td>3350</td><td>New Construction</td></tr>
+<tr><td>27</td><td>Existing</td></tr>
+<tr><td>0</td><td>Strip Out</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Worksets</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all user worksets in the model or indicates '*Not Workshared*' if worksharing is not enabled.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 7</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>EXISTING WORKS</td></tr>
+<tr><td>MEE-CAD Links</td></tr>
+<tr><td>MEE-MEP Services</td></tr>
+<tr><td>MEE-Revit Links</td></tr>
+<tr><td>MEE-Service Zones</td></tr>
+<tr><td>NEW WORKS</td></tr>
+<tr><td>Shared Levels and Grids</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Project Coordinates</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of the coordinate values of the survey and project base points, elevation, and true north.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 5</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th><th>Value</th></tr>
+<tr><td>Project Base Point Coordinate</td><td>530116100 E/W  |  177588900 N/S</td></tr>
+<tr><td>Project Base Point Elevation</td><td>0</td></tr>
+<tr><td>Project Base Point Rotation</td><td>321.86°</td></tr>
+<tr><td>Survey Point Coordinate</td><td>0 E/W  |  0 N/S</td></tr>
+<tr><td>Survey Point Elevation</td><td>0</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">External Files</div>
+        <div class="structureBreakdown">5 Checks, 5 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to linked and imported files in the model.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Linked Revit Files and Their Link Method</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of the link method (overlay vs. attach) for each Revit link in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Linked CAD Files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all linked CAD files in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Imported CAD files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all CAD files that were Imported and not Linked.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Imported SKP files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all imported SKP files in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Raster Images</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all raster images placed in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Raster Images : Section- Section 3.jpg (2)</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Levels and Grids</div>
+        <div class="structureBreakdown">2 Checks, 2 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to datum and location elements in the model.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Levels</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all level elements in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 4</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Grids</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all grid elements in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Views</div>
+        <div class="structureBreakdown">3 Checks, 3 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to views in the model.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Views</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all views.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 56</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>3D View - {3D - alex.sinclairUJ5GH}</td></tr>
+<tr><td>3D View - {3D - george.bond4GG5L}</td></tr>
+<tr><td>3D View - {3D - miklos.marton}</td></tr>
+<tr><td>3D View - {3D - paul.mulvey}</td></tr>
+<tr><td>3D View - {3D - Paul.Mulvey}</td></tr>
+<tr><td>3D View - {3D - santhakumar s}</td></tr>
+<tr><td>3D View - ISOMETRIC VIEW C</td></tr>
+<tr><td>3D View - NWC IFC Export</td></tr>
+<tr><td>Elevation - East - Mech</td></tr>
+<tr><td>Elevation - Elevation 1 - a</td></tr>
+<tr><td>Elevation - North - Mech</td></tr>
+<tr><td>Elevation - South - Mech</td></tr>
+<tr><td>Elevation - West - Mech</td></tr>
+<tr><td>Floor Plan - CopyMonitor-Grids</td></tr>
+<tr><td>Floor Plan - GROUND FLOOR</td></tr>
+<tr><td>Floor Plan - GROUND FLOOR - Dependent 1</td></tr>
+<tr><td>Floor Plan - GROUND FLOOR - Dependent 2</td></tr>
+<tr><td>Floor Plan - GROUND FLOOR - Dependent 3</td></tr>
+<tr><td>Floor Plan - GROUND FLOOR - Dependent 4</td></tr>
+<tr><td>Floor Plan - GROUND FLOOR - Dependent 5</td></tr>
+<tr><td>Floor Plan - GROUND FLOOR - Dependent 6</td></tr>
+<tr><td>Floor Plan - GROUND FLOOR - Parent View</td></tr>
+<tr><td>Floor Plan - GROUND FLOOR Copy 1</td></tr>
+<tr><td>Floor Plan - GROUND FLOOR Copy 2</td></tr>
+<tr><td>Section - CopyMonitor-Levels</td></tr>
+<tr><td>Section - EXTERNAL SECTION 1</td></tr>
+<tr><td>Section - EXTERNAL SECTION 2</td></tr>
+<tr><td>Section - EXTERNAL SECTION 3</td></tr>
+<tr><td>Section - EXTERNAL SECTION 4</td></tr>
+<tr><td>Section - EXTERNAL SECTION 5</td></tr>
+<tr><td>Section - EXTERNAL SECTION 6</td></tr>
+<tr><td>Section - EXTERNAL SECTION 7</td></tr>
+<tr><td>Section - Section 1</td></tr>
+<tr><td>Section - Section 10</td></tr>
+<tr><td>Section - Section 11</td></tr>
+<tr><td>Section - Section 12</td></tr>
+<tr><td>Section - Section 13</td></tr>
+<tr><td>Section - Section 14</td></tr>
+<tr><td>Section - Section 15</td></tr>
+<tr><td>Section - Section 16</td></tr>
+<tr><td>Section - Section 17</td></tr>
+<tr><td>Section - Section 18</td></tr>
+<tr><td>Section - Section 19</td></tr>
+<tr><td>Section - Section 2</td></tr>
+<tr><td>Section - Section 20</td></tr>
+<tr><td>Section - Section 21</td></tr>
+<tr><td>Section - Section 22</td></tr>
+<tr><td>Section - Section 23</td></tr>
+<tr><td>Section - Section 24</td></tr>
+<tr><td>Section - Section 3</td></tr>
+<tr><td>Section - Section 4</td></tr>
+<tr><td>Section - Section 5</td></tr>
+<tr><td>Section - Section 6</td></tr>
+<tr><td>Section - Section 7</td></tr>
+<tr><td>Section - Section 8</td></tr>
+<tr><td>Section - Section 9</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Sheets</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all sheets in the model. Sheets typically do not impact model size, but too many unmanaged views can impact user efficiency.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 4</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Schedules</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all schedules in the model. Schedules typically do not impact model size, but too many unmanaged views can impact user efficiency.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 54</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Model Elements</div>
+        <div class="structureBreakdown">25 Checks, 3 <Span Foreground="#FAA24D">(75%)</Span> Pass, 1 Fail, 21 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to model elements in the model.</div>
+    <div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Arch System Families</div>
+        <div class="structureBreakdown">10 Checks, 10 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of architectural system families in the model</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Ceiling Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all ceiling family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ceilings : Type : 600 x 600mm Grid</td></tr>
+<tr><td>Ceilings : Type : Generic</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Curtain System</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all architectural curtain system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Curtain Systems : Type : 1500 x 3000mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Curtain Wall Mullion Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all curtain wall mullion family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Floor Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all floor family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Floors : Type : Generic 300mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Railing Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all railing family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Railings : Type : 1100mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Ramp Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all ramp family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ramps : Type : Ramp 1</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Roof Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all roof family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Roofs : Type : Generic - 400mm</td></tr>
+<tr><td>Roofs : Type : Sloped Glazing</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Site Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all site family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Stair Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all stair family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 4</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Stairs : Type : 190mm max riser 250mm going</td></tr>
+<tr><td>Stairs : Type : 190mm max riser 250mm going</td></tr>
+<tr><td>Stairs : Type : Cast-In-Place Stair</td></tr>
+<tr><td>Stairs : Type : Precast Stair</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Wall Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all wall family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 5</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Walls : Type : MEE-BasicWall_Generic-100</td></tr>
+<tr><td>Walls : Type : MEE-BasicWall_Generic-200</td></tr>
+<tr><td>Walls : Type : MEE-BasicWall_Generic-300</td></tr>
+<tr><td>Walls : Type : MEE-BasicWall_Generic-500</td></tr>
+<tr><td>Walls : Type : MEE-CurtainWall_ExteriorGlazing</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">MEP System Families</div>
+        <div class="structureBreakdown">9 Checks, 2 <Span Foreground="#DD2222">(67%)</Span> Pass, 1 Fail, 6 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of MEP system families in the model</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all duct family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 11</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ducts : Type : MEE-OvalDuct-SegmentedBend-Tap</td></tr>
+<tr><td>Ducts : Type : MEE-RectangularDuct-FlangedMitredBend-Bellmouth-ShoeBranch</td></tr>
+<tr><td>Ducts : Type : MEE-RectangularDuct-FlangedRadiusBend-AngledBranch</td></tr>
+<tr><td>Ducts : Type : MEE-RectangularDuct-FlangedRadiusBend-ShoeBranch</td></tr>
+<tr><td>Ducts : Type : MEE-RectangularDuct-FlangedSquareBend-SquareBranch</td></tr>
+<tr><td>Ducts : Type : MEE-RectangularDuct-SlipJointRadiusBend-ShoeBranch</td></tr>
+<tr><td>Ducts : Type : MEE-RectangularDuct-SlipJointSquareBend-SquareBranch</td></tr>
+<tr><td>Ducts : Type : MEE-RoundDuct-FabricRadiusBend-RoundTap</td></tr>
+<tr><td>Ducts : Type : MEE-RoundDuct-PressedRadiusBend-Bellmouth-ConicalBranch</td></tr>
+<tr><td>Ducts : Type : MEE-RoundDuct-PressedRadiusBend-ShoeBranch</td></tr>
+<tr><td>Ducts : Type : MEE-RoundDuct-SegmentedBend-RoundTap</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct System Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all duct system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 13</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Duct Systems : Type : EA</td></tr>
+<tr><td>Duct Systems : Type : FA</td></tr>
+<tr><td>Duct Systems : Type : FLUES</td></tr>
+<tr><td>Duct Systems : Type : KE</td></tr>
+<tr><td>Duct Systems : Type : KHE</td></tr>
+<tr><td>Duct Systems : Type : KS</td></tr>
+<tr><td>Duct Systems : Type : OA</td></tr>
+<tr><td>Duct Systems : Type : ODOUR</td></tr>
+<tr><td>Duct Systems : Type : RA</td></tr>
+<tr><td>Duct Systems : Type : SA</td></tr>
+<tr><td>Duct Systems : Type : SE</td></tr>
+<tr><td>Duct Systems : Type : TE</td></tr>
+<tr><td>Duct Systems : Type : TS</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Pass_26.png" alt="PASS" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any duct related elements that have a blank System Name.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Flex Duct Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all flex duct family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Flex Ducts : Type : MEE-FlexDuct-Rectangular</td></tr>
+<tr><td>Flex Ducts : Type : MEE-FlexDuct-Round</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Flex Pipe Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all flex pipe family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Flex Pipes : Type : MEE-FlexPipe-Round</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Pipe Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all pipe family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 9</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Pipes : Type : MEE-CastIronDrainage</td></tr>
+<tr><td>Pipes : Type : MEE-Pipe-Copper</td></tr>
+<tr><td>Pipes : Type : MEE-Pipe-FireProtection</td></tr>
+<tr><td>Pipes : Type : MEE-Pipe-HDPE</td></tr>
+<tr><td>Pipes : Type : MEE-Pipe-Steel-Flanged</td></tr>
+<tr><td>Pipes : Type : MEE-Pipe-Steel-Stupin</td></tr>
+<tr><td>Pipes : Type : MEE-Pipe-Steel-Threaded</td></tr>
+<tr><td>Pipes : Type : MEE-Pipe-Steel-Welded</td></tr>
+<tr><td>Pipes : Type : MEE-PVC</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Piping System Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all piping system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 56</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Piping Systems : Type : ASP</td></tr>
+<tr><td>Piping Systems : Type : BCWS</td></tr>
+<tr><td>Piping Systems : Type : CHW F</td></tr>
+<tr><td>Piping Systems : Type : CHW R</td></tr>
+<tr><td>Piping Systems : Type : CHW/LTHW F</td></tr>
+<tr><td>Piping Systems : Type : CHW/LTHW R</td></tr>
+<tr><td>Piping Systems : Type : CHWF</td></tr>
+<tr><td>Piping Systems : Type : CON F</td></tr>
+<tr><td>Piping Systems : Type : CON R</td></tr>
+<tr><td>Piping Systems : Type : COND</td></tr>
+<tr><td>Piping Systems : Type : CWS</td></tr>
+<tr><td>Piping Systems : Type : DC F</td></tr>
+<tr><td>Piping Systems : Type : DC R</td></tr>
+<tr><td>Piping Systems : Type : DCWS</td></tr>
+<tr><td>Piping Systems : Type : DH F</td></tr>
+<tr><td>Piping Systems : Type : DH R</td></tr>
+<tr><td>Piping Systems : Type : Domestic Cold Water</td></tr>
+<tr><td>Piping Systems : Type : Domestic Hot Water</td></tr>
+<tr><td>Piping Systems : Type : DRY RISER</td></tr>
+<tr><td>Piping Systems : Type : DRY SPK MAIN</td></tr>
+<tr><td>Piping Systems : Type : DSH F</td></tr>
+<tr><td>Piping Systems : Type : DSH R</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Dry</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Other</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Pre-Action</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Wet</td></tr>
+<tr><td>Piping Systems : Type : FPD</td></tr>
+<tr><td>Piping Systems : Type : FPM</td></tr>
+<tr><td>Piping Systems : Type : FUEL</td></tr>
+<tr><td>Piping Systems : Type : FWD</td></tr>
+<tr><td>Piping Systems : Type : GAS</td></tr>
+<tr><td>Piping Systems : Type : HR</td></tr>
+<tr><td>Piping Systems : Type : HWS F</td></tr>
+<tr><td>Piping Systems : Type : HWS R</td></tr>
+<tr><td>Piping Systems : Type : HYD</td></tr>
+<tr><td>Piping Systems : Type : Hydronic Return</td></tr>
+<tr><td>Piping Systems : Type : Hydronic Supply</td></tr>
+<tr><td>Piping Systems : Type : IRR</td></tr>
+<tr><td>Piping Systems : Type : LTHW F</td></tr>
+<tr><td>Piping Systems : Type : LTHW R</td></tr>
+<tr><td>Piping Systems : Type : MCWS</td></tr>
+<tr><td>Piping Systems : Type : Other</td></tr>
+<tr><td>Piping Systems : Type : OVERFLOW</td></tr>
+<tr><td>Piping Systems : Type : RWP</td></tr>
+<tr><td>Piping Systems : Type : RWSP</td></tr>
+<tr><td>Piping Systems : Type : Sanitary</td></tr>
+<tr><td>Piping Systems : Type : SP</td></tr>
+<tr><td>Piping Systems : Type : SPK</td></tr>
+<tr><td>Piping Systems : Type : SS</td></tr>
+<tr><td>Piping Systems : Type : STP</td></tr>
+<tr><td>Piping Systems : Type : SVP</td></tr>
+<tr><td>Piping Systems : Type : SWD</td></tr>
+<tr><td>Piping Systems : Type : VP</td></tr>
+<tr><td>Piping Systems : Type : WP</td></tr>
+<tr><td>Piping Systems : Type : WR</td></tr>
+<tr><td>Piping Systems : Type : WVP</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Fail_26.png" alt="FAIL" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Piping Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any piping related elements that have a blank System Name.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">There are piping related elements that that have a blank System Name.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 37</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Category</th><th>Family</th><th>Type</th><th>Name</th><th>ID</th></tr>
+<tr><td>Pipe Fittings</td><td>ME_Fitting Warning Sphere</td><td>ME_Fitting Warning Sphere</td><td>Pipe Fittings : ME_Fitting Warning Sphere : ME_Fitting Warning Sphere</td><td>3178750</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3059863</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3060707</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3072608</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3073242</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3182099</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3182119</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3191542</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3229850</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3233515</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3233541</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3233612</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3235247</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3235354</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3235378</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3235466</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3235497</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3239446</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3235508</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3235480</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3235432</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3235373</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3235252</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3233632</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3233546</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3233523</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3233215</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3208723</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3191145</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3182108</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3182078</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3106857</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3073094</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3060712</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3059868</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3051284</td></tr>
+<tr><td>Pipe Fittings</td><td>MEE-FittingWarningSphere</td><td>MEE-FittingWarningSphere_Standard</td><td>Pipe Fittings : MEE-FittingWarningSphere : MEE-FittingWarningSphere_Standard</td><td>3048437</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Pass_26.png" alt="PASS" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Electrical Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any electrical related elements that have a blank Panel Name or Circuit Number.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Structural System Families</div>
+        <div class="structureBreakdown">4 Checks, 4 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of structural system families in the model</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Floor Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all floor family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Floors : Type : Generic 300mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Foundation Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all foundation family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 18</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Structural Foundations : Type : MEE-FoundationSlab_150</td></tr>
+<tr><td>Structural Foundations : Type : MEE-WallFoundation_BearingFooting-900x300</td></tr>
+<tr><td>Structural Foundations : Type : SW CHAMBER : SW CHAMBER</td></tr>
+<tr><td>Structural Foundations : Type : SW CHAMBER1 : SW CHAMBER</td></tr>
+<tr><td>Structural Foundations : Type : SW CHAMBER10 : SW CHAMBER</td></tr>
+<tr><td>Structural Foundations : Type : SW CHAMBER11 : SW CHAMBER</td></tr>
+<tr><td>Structural Foundations : Type : SW CHAMBER12 : SW CHAMBER</td></tr>
+<tr><td>Structural Foundations : Type : SW CHAMBER13 : SW CHAMBER</td></tr>
+<tr><td>Structural Foundations : Type : SW CHAMBER14 : SW CHAMBER</td></tr>
+<tr><td>Structural Foundations : Type : SW CHAMBER15 : SW CHAMBER</td></tr>
+<tr><td>Structural Foundations : Type : SW CHAMBER2 : SW CHAMBER</td></tr>
+<tr><td>Structural Foundations : Type : SW CHAMBER3 : SW CHAMBER</td></tr>
+<tr><td>Structural Foundations : Type : SW CHAMBER4 : SW CHAMBER</td></tr>
+<tr><td>Structural Foundations : Type : SW CHAMBER5 : SW CHAMBER</td></tr>
+<tr><td>Structural Foundations : Type : SW CHAMBER6 : SW CHAMBER</td></tr>
+<tr><td>Structural Foundations : Type : SW CHAMBER7 : SW CHAMBER</td></tr>
+<tr><td>Structural Foundations : Type : SW CHAMBER8 : SW CHAMBER</td></tr>
+<tr><td>Structural Foundations : Type : SW CHAMBER9 : SW CHAMBER</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Rebar Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all rebar family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Wall Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all wall family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 5</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Walls : Type : MEE-BasicWall_Generic-100</td></tr>
+<tr><td>Walls : Type : MEE-BasicWall_Generic-200</td></tr>
+<tr><td>Walls : Type : MEE-BasicWall_Generic-300</td></tr>
+<tr><td>Walls : Type : MEE-BasicWall_Generic-500</td></tr>
+<tr><td>Walls : Type : MEE-CurtainWall_ExteriorGlazing</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Pass_26.png" alt="PASS" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duplicate Modeled Elements</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any modeled elements that are duplicates (identical elements at the same location and base level). Check will Fail if any duplicate element is found.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Worksets and Elements</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all user worksets for a Revit model or indicates '*Not Workshared*' if worksharing is not enabled.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 4.599</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Count</th><th>Name</th></tr>
+<tr><td>2034</td><td>NEW WORKS</td></tr>
+<tr><td>1898</td><td>EXISTING WORKS</td></tr>
+<tr><td>453</td><td>MEE-MEP Services</td></tr>
+<tr><td>177</td><td>MEE-Revit Links</td></tr>
+<tr><td>36</td><td>MEE-CAD Links</td></tr>
+<tr><td>1</td><td>Shared Levels and Grids</td></tr>
+<tr><td>0</td><td>MEE-Service Zones</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div>
+</div>
+    </div>
+</div>
+</body>
+</html>
