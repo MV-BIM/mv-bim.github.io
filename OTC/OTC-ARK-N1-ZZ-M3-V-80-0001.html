@@ -1,0 +1,2392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Model Checker Report</title>
+    <style type="text/css">
+        /*  Name-agnostic definitions.
+ *  These definitions are just a copy of the definitions further below given a generic name.
+ *  This allows publishers to make a reference to "the page's default font" without having to
+ *  update hundreds of custom pages/styles to match the new name.
+ */
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-style: normal;
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-style: normal;
+            font-weight: 700;
+        }
+
+
+        /*  Generic "Artifakt" definitions.
+         *  An attempt will be made to map styles to appropriate font-faces when these are used.
+         *  See the definitions below if you wish to use a specific font.
+         */
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-style: normal;
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-style: normal;
+            font-weight: 700;
+        }
+
+
+        /*  "Artifakt Legend" definitions.
+         *   These definitions are for the "Artifakt Legend" series of font faces.
+         */
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendLight.svg#ArtifaktLegendLight') format('svg');
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendRegular.svg#ArtifaktLegendRegular') format('svg');
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendMedium.svg#ArtifaktLegendMedium') format('svg');
+            font-weight: 700;
+        }
+
+
+        /*  "Artifakt Element" definitions.
+         *   These definitions are for the "Artifakt Element" series of font faces.
+         */
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-weight: 700;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-italic.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementItalic.svg#ArtifaktElementItalic') format('svg');
+            font-style: italic;
+            font-weight: 400;
+        }
+    </style>
+    <style type="text/css">
+        body {
+            font: 100%/1.4 ADSK-Default, Verdana, Arial, Helvetica, sans-serif;
+            background: #f1f1f1;
+            margin: 0;
+            padding: 0;
+            color: #000;
+        }
+
+        h1, h2, h3, h4, h5, h6, p {
+            margin-top: 0; /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+            margin-bottom: 0;
+            padding-right: 0;
+            padding-left: 0; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+        }
+
+        h1, h3 {
+            color: white;
+        }
+
+        h1 {
+            font-family: "Artifakt Legend", Arial, sans-serif;
+            font-size: 1.5em;
+            margin: 0px;
+        }
+
+        a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+            border: none;
+        }
+
+        /* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+        a:link {
+            color: #414958;
+        }
+
+        a:visited {
+            color: #4E5869;
+        }
+
+        a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+            text-decoration: none;
+        }
+
+        /* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */
+        .container {
+            width: 100%;
+            max-width: 1260px; /* a max-width may be desirable to keep this layout from getting too wide on a large monitor. This keeps line length more readable. IE6 does not respect this declaration. */
+            min-width: 780px; /* a min-width may be desirable to keep this layout from getting too narrow. This keeps line length more readable in the side columns. IE6 does not respect this declaration. */
+            background: #f1f1f1;
+            margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
+        }
+
+        /* ~~the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo~~ */
+        .header {
+            background-color: #3b4453;
+            border-bottom: 1px black;
+            padding: 15px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .configContainer {
+            padding: 25px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+		
+		.imageContainer{
+		    width: 125px;
+			height: 125px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.checksetImage{
+		    max-width: 100%;
+			height: auto;
+		}
+
+        .resultData {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .tabBar {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 0 25px;
+        }
+
+        .tabItem {
+            margin-right: 15px;
+            background: #f9f9f9;
+            font-family: "Artifakt Element", Arial, sans-serif;
+            padding: 15px;
+            color: #bb7a14;
+        }
+
+        .tabItem a, .tabItem a:visited {
+            text-decoration: none;
+            color: #bb7a14;
+        }
+
+        .tabItemActive {
+            margin-right: 15px;
+            padding: 15px;
+            background: white;
+            font-family: "Artifakt Element", Arial, sans-serif;
+            color: #bb7a14;
+        }
+
+        .tabItemActive a, .tabItemActive a:visited {
+            text-decoration: none;
+            color: #bb7a14;
+        }
+
+        .portalStandardText {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: lighter;
+        }
+
+        .portalHeadlineText {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .portal {
+            background: white;
+            margin: 0 25px 25px 25px;
+            padding: 15px;
+        }
+
+        .treeElement {
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+
+        .checkResult {
+            border: 1px black solid;
+            padding: 15px;
+            margin-top: 15px;
+            margin-left: 25px;
+            display: grid;
+            justify-content: flex-start;
+            grid-template-columns: auto 1fr;
+        }
+
+        .itemList {
+            width: 100%;
+        }
+
+        .itemList th {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: bold;
+            background: #f1f1f1;
+            padding: 0 10px;
+        }
+
+        .configData {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-column-gap: 15px;
+            margin-left: 15px
+        }
+
+        .passRate{
+            font-family: "Artifakt Legend", Arial, sans-serif;
+            font-weight: bold;
+            font-size: 4.5em;
+        }
+        .structureHeading{
+            display: flex;
+        }
+
+        .structureBreakdown{
+            flex: auto;
+            flex-grow: 0;
+            white-space: nowrap;
+            margin-left: 15px;
+        }
+
+        .structureHeadingText{
+            flex-grow: 1;
+        }
+
+        .overallShown{
+            display: grid;
+            grid-template-rows: auto auto auto;
+            margin: 0 25px;
+        }
+        .overallHidden{
+            display: none;
+        }
+
+        .resultLow {
+            color: rgb(221, 34, 34);
+        }
+
+        .resultHigh {
+            color: rgb(135, 188, 64);
+        }
+
+        .resultMedium {
+            color: rgb(250, 162, 77);
+        }
+
+        .tableScroll{
+            overflow: auto;
+            max-height: 350px;
+            margin-top: 15px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_ModelChecker_24.png" width="24" height="24" style="margin-right: 15px" alt="Autodesk Model Checker for Revit"/>
+        <h1>Autodesk Model Checker for Revit</h1>
+    </div>
+    <div class="configContainer">
+        <div class="imageContainer">
+		    <img src="T:\TEMP_BIM LEAD\MDS Logo.PNG" class="checksetImage" 
+			onerror="this.src = 'https://interoperability.autodesk.com/modelchecker/reports/HeroImage_ModelChecker.png';" 
+			alt="Checkset Image"/>
+		</div>
+        <div class="configData">
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Title</span><span class="portalStandardText">BIM Model Audit</span>
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Date</span><span class="portalStandardText">martes, 14 de septiembre de 2021</span>
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Author</span><span class="portalStandardText">MV-BIM / MDS</span>
+            <span class="portalHeadlineText">Description</span><span
+                class="portalStandardText">Series of checks to review modeling best practices and integrity</span>
+        </div>
+    </div>
+    <div class="tabBar">
+        <div class="tabItemActive"><a href="OTC-ARK-N1-ZZ-M3-V-80-0001.html">OTC-ARK-N1-ZZ-M3-V-80-0001</a></div>
+    </div>
+    <div class="portal">
+        <div class="resultData">
+            <div class="overallShown">
+    <span class="passRate resultLow" style="text-align: center">0%</span>
+</div>
+<div style="display: grid; grid-template-columns: auto auto; grid-column-gap: 15px; margin-left: 15px">
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Check Summary</span><span
+        class="portalStandardText">47 Checks, 0 <Span Foreground="#DD2222">(0%)</Span> Pass, 4 Fail, 42 Count/List, <Span Foreground="#DD2222">1 Errors</Span></span>
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Report Date</span><span
+        class="portalStandardText">lunes, 4 de octubre de 2021 - 15:48:50</span>
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Revit Filepath</span><span
+        class="portalStandardText">H:\01_TECNICO_MVB-INT\01_PROJECTS\250511_Nine Elms\01_WIP\06_BIM Documents\02_BIM Audit Report\01_BIM Model Audit\01\01_BIM Models\01\OTC-ARK-N1-ZZ-M3-V-80-0001.rvt</span>
+    <span class="portalHeadlineText">Checkset File</span><span
+        class="portalStandardText">\\servidor\D_TECNICO\01_TECNICO_MVB-INT\03_LIBRARIES\BIM INTEROPERABILITY TOOLS\BIM Model Audit.xml</span>
+</div>
+        </div>
+    </div>
+    <div class="portal" style="margin-top: 15px">
+        <div>
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">BIM Model Audit</div>
+        <div class="structureBreakdown">47 Checks, 0 <Span Foreground="#DD2222">(0%)</Span> Pass, 4 Fail, 42 Count/List, <Span Foreground="#DD2222">1 Errors</Span></div>
+    </div>
+    <div class="portalStandardText"></div>
+    <div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Model Performance</div>
+        <div class="structureBreakdown">7 Checks, 6 Count/List, <Span Foreground="#DD2222">1 Errors</Span></div>
+    </div>
+    <div class="portalStandardText">Checks in this section help monitor the result of actions taken over the course of a model’s development, which can directly impact the model’s performance. Proper management of these items can improve model performance.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="CUSTOM RESULT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">File Size</div>
+        <div class="portalStandardText" style="text-align: left">RESULT of the file sizes for all reported Revit models in MB (megabytes).</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: 298,40 MB</div>
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Warnings</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all warnings in the model. Too many unresolved warnings can cause performance issues in a Revit model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 144</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Error_26.png" alt="ERROR" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Loadable Families</div>
+        <div class="portalStandardText" style="text-align: left">RESULT and LIST of the families in the project ordered by file size.</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: 341.248 KB</div>
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th><th>Value</th></tr>
+<tr><td>HVAC_Air-dirt-separator_Caleffi_NA546-flanged</td><td>996 KB</td></tr>
+<tr><td>PIF_Silent-PP bend reducing_Geberit</td><td>980 KB</td></tr>
+<tr><td>MEE_Drain Trap</td><td>952 KB</td></tr>
+<tr><td>HVAC_Dirt-separator_Caleffi_NAM5465-flanged</td><td>916 KB</td></tr>
+<tr><td>PIF_PE-HD multireducer_Geberit</td><td>916 KB</td></tr>
+<tr><td>HVAC_Dirt-separator_Caleffi_NA5465-flanged</td><td>912 KB</td></tr>
+<tr><td>Pipe-Valve-Hattersley-42_Bronze_Horizontal_Lift_Check_Valve</td><td>904 KB</td></tr>
+<tr><td>Superior S6</td><td>900 KB</td></tr>
+<tr><td>OleveonFit</td><td>9.592 KB</td></tr>
+<tr><td>Pipe-Strainer_Valve-Hattersley-807_Bronze_Y_Type_Strainer_Valve</td><td>880 KB</td></tr>
+<tr><td>Blank-End-EF070</td><td>836 KB</td></tr>
+<tr><td>Balancing valve with flow meter_Caleffi_132 DN65 DN80 DN100</td><td>820 KB</td></tr>
+<tr><td>PIF_Silent-PP bend connection_Geberit</td><td>808 KB</td></tr>
+<tr><td>PIF_Silent-PP straight connector_Geberit</td><td>804 KB</td></tr>
+<tr><td>PIF_Silent-PP bend double connection_Geberit</td><td>796 KB</td></tr>
+<tr><td>Thermal Store Vessel</td><td>796 KB</td></tr>
+<tr><td>Pipe-Valve-Hattersley-305_Pressure_Independent_Control_Valve_DN40-DN50</td><td>792 KB</td></tr>
+<tr><td>PIF_PE-HD connection bend with expansion socket_Geberit</td><td>748 KB</td></tr>
+<tr><td>PIF_PE-HD straight adapter to lead_Geberit</td><td>740 KB</td></tr>
+<tr><td>PIF_PE-HD expansionsocket_Geberit</td><td>732 KB</td></tr>
+<tr><td>NLRS_53_ME_UN_expansion vessel_flexcon m 100-1000_10bar_Flamco</td><td>724 KB</td></tr>
+<tr><td>MEE_Sensor_CombinedDetectorBeacon</td><td>716 KB</td></tr>
+<tr><td>Daikin Air Cooled Chiller</td><td>700 KB</td></tr>
+<tr><td>00317-Ruskin-090207-Ver10-SD36SS</td><td>696 KB</td></tr>
+<tr><td>PIF_Silent-PP reducer short_Geberit</td><td>688 KB</td></tr>
+<tr><td>PIF_Silent-PP bend connection for WC_Geberit</td><td>684 KB</td></tr>
+<tr><td>Safety relief valve_Caleffi_527 DN32</td><td>664 KB</td></tr>
+<tr><td>Chiller Compound</td><td>656 KB</td></tr>
+<tr><td>Pipe-Valve-Hatts-M2000_Flow_Measurement_Device</td><td>652 KB</td></tr>
+<tr><td>Cast in Resin Transformer 2</td><td>636 KB</td></tr>
+<tr><td>Cast in Resin Transformer</td><td>632 KB</td></tr>
+<tr><td>PIF_PE-HD ball branch triple_Geberit</td><td>632 KB</td></tr>
+<tr><td>PIF_PE-HD ball branch quad_Geberit</td><td>632 KB</td></tr>
+<tr><td>PIF_PE-HD straight adapter ft_Geberit</td><td>624 KB</td></tr>
+<tr><td>PIF_PE-HD bend segmented 2x 45º_Geberit</td><td>624 KB</td></tr>
+<tr><td>PIF_PE-HD straight adapter mt_Geberit</td><td>620 KB</td></tr>
+<tr><td>PIF_PE-HD branch_Geberit</td><td>620 KB</td></tr>
+<tr><td>PIF_PE-HD ball branch double_Geberit</td><td>620 KB</td></tr>
+<tr><td>PIF_PE-HD bend 2x 45º_Geberit</td><td>616 KB</td></tr>
+<tr><td>PIF_PE-HD threaded connector extended with screw cap_Geberit</td><td>612 KB</td></tr>
+<tr><td>PIF_PE-HD bend_Geberit</td><td>612 KB</td></tr>
+<tr><td>PIF_PE-HD threaded connector with screw cap_Geberit</td><td>612 KB</td></tr>
+<tr><td>PIF_PE-HD P-trap_Geberit</td><td>608 KB</td></tr>
+<tr><td>Doors_IntAys_2</td><td>608 KB</td></tr>
+<tr><td>PIF_PE-HD reducer -SH_Geberit</td><td>604 KB</td></tr>
+<tr><td>PIF_PE-HD bend long leg_Geberit</td><td>604 KB</td></tr>
+<tr><td>PIF_PE-HD threaded connector with compression joint_Geberit</td><td>604 KB</td></tr>
+<tr><td>MEE_Outlet_Socket</td><td>604 KB</td></tr>
+<tr><td>PIF_PE-HD straight adapter with compression joint_Geberit</td><td>604 KB</td></tr>
+<tr><td>PIF_PE-HD threaded connector with compression joint extended_Geberit</td><td>600 KB</td></tr>
+<tr><td>PIF_PE-HD cap weld-on_Geberit</td><td>596 KB</td></tr>
+<tr><td>3D ManII</td><td>588 KB</td></tr>
+<tr><td>ME_DOUBLE_CHECK VALVE_20-90mm</td><td>588 KB</td></tr>
+<tr><td>MEE_Ceiling Mounted Exit Luminaire</td><td>580 KB</td></tr>
+<tr><td>MEE_DistributionBoard_WallSurfaceThreePhase</td><td>568 KB</td></tr>
+<tr><td>DIEMEE_SHARKY 775_LOD 400</td><td>564 KB</td></tr>
+<tr><td>Reliable_Louvers_-_445RD5125_-_Stationary_Heavyline_Louver</td><td>564 KB</td></tr>
+<tr><td>PIF_PE-HD sovent tee_Geberit</td><td>564 KB</td></tr>
+<tr><td>Plate Heat Exchanger (Generic)</td><td>556 KB</td></tr>
+<tr><td>ME Fused Unswitched</td><td>548 KB</td></tr>
+<tr><td>PIF_PE-HD access pipe round opening_Geberit</td><td>536 KB</td></tr>
+<tr><td>MEE_Pump_VerticalInLineSingleHead</td><td>536 KB</td></tr>
+<tr><td>MEE_DistributionBoard_with_Isolator TPN</td><td>532 KB</td></tr>
+<tr><td>ME_Multi Gang switch</td><td>532 KB</td></tr>
+<tr><td>MEE_DistributionBoard_with_Isolator</td><td>532 KB</td></tr>
+<tr><td>DIEMEE_SHARKY 774_LOD 400</td><td>528 KB</td></tr>
+<tr><td>PIF_Silent-PP sleeve to iron (union)_Geberit</td><td>528 KB</td></tr>
+<tr><td>MC Detector v18</td><td>524 KB</td></tr>
+<tr><td>MEE_Pump_VerticalInLineTwinHead</td><td>520 KB</td></tr>
+<tr><td>PH1-T61-P-TP 200-400-4</td><td>520 KB</td></tr>
+<tr><td>PIF_Silent-PP retaining claw_Geberit</td><td>516 KB</td></tr>
+<tr><td>PIF_PE-HD branch swept_Geberit</td><td>512 KB</td></tr>
+<tr><td>PIF_PE-HD connection bend 45º ring seal_Geberit</td><td>508 KB</td></tr>
+<tr><td>MEE_Valve_ButterflyGearboxOperated50-600mm</td><td>504 KB</td></tr>
+<tr><td>PIF_PE-HD connection bend for wall-hung toilet_Geberit</td><td>500 KB</td></tr>
+<tr><td>PIF_PE-HD coupling socket extended_Geberit</td><td>500 KB</td></tr>
+<tr><td>Grundfos_TPE-65-210</td><td>500 KB</td></tr>
+<tr><td>MEE_LinearLuminaire_WallDirect</td><td>500 KB</td></tr>
+<tr><td>PIF_PE-HD branch equal_Geberit</td><td>500 KB</td></tr>
+<tr><td>PIF_PE-HD connector adapter_Geberit</td><td>496 KB</td></tr>
+<tr><td>PIF_PE-HD straight adapter to pvc unequal_Geberit</td><td>496 KB</td></tr>
+<tr><td>PIF_PE-HD bend segmented_Geberit</td><td>496 KB</td></tr>
+<tr><td>PIF_PE-HD adapter socket_Geberit</td><td>496 KB</td></tr>
+<tr><td>PIF_PE-HD connection bend welded_Geberit</td><td>496 KB</td></tr>
+<tr><td>PIF_PE-HD straight adapter with sleeve unequal_Geberit</td><td>492 KB</td></tr>
+<tr><td>PIF_PE-HD straight adapter with sleeve equal_Geberit</td><td>492 KB</td></tr>
+<tr><td>PIF_PE-HD bend segmented -SH_Geberit</td><td>492 KB</td></tr>
+<tr><td>PIF_PE-HD bend -SH_Geberit</td><td>492 KB</td></tr>
+<tr><td>PIF_PE-HD straight adapter to pvc equal_Geberit</td><td>492 KB</td></tr>
+<tr><td>MEE_Alarm_CallPoint</td><td>492 KB</td></tr>
+<tr><td>MEE_Valve_ButterflyLeverOperated50-200mm</td><td>492 KB</td></tr>
+<tr><td>PIF_PE-HD bend reducing_Geberit</td><td>492 KB</td></tr>
+<tr><td>PIF_PE-HD straight connector with ringseal equal_Geberit</td><td>488 KB</td></tr>
+<tr><td>PIF_PE-HD straight adapter to stoneware_Geberit</td><td>488 KB</td></tr>
+<tr><td>PIF_PE-HD straight adapter to cast_Geberit</td><td>488 KB</td></tr>
+<tr><td>PIF_PE-HD clamping transition_Geberit</td><td>488 KB</td></tr>
+<tr><td>TPE 125-400_4P_50Hz</td><td>488 KB</td></tr>
+<tr><td>Lighting Switches</td><td>488 KB</td></tr>
+<tr><td>PIF_PE-HD straight adapter unequal_Geberit</td><td>488 KB</td></tr>
+<tr><td>PIF_PE-HD connection ringseal socket equal_Geberit</td><td>488 KB</td></tr>
+<tr><td>MEE_1 Gang 1 Way Switch</td><td>488 KB</td></tr>
+<tr><td>PIF_PE-HD ringseal socket_Geberit</td><td>488 KB</td></tr>
+<tr><td>PIF_PE-HD connection ringseal socket unequal_Geberit</td><td>488 KB</td></tr>
+<tr><td>PIF_PE-HD straight adapter to cast with support_Geberit</td><td>488 KB</td></tr>
+<tr><td>PIF_PE-HD straight adapter equal_Geberit</td><td>488 KB</td></tr>
+<tr><td>PIF_PE-HD ringseal socket extended equal_Geberit</td><td>488 KB</td></tr>
+<tr><td>PIF_PE-HD connection bend for sleeve_Geberit</td><td>484 KB</td></tr>
+<tr><td>PIF_PE-HD straight connector_Geberit</td><td>484 KB</td></tr>
+<tr><td>Relief_Valves-Safety-WATTS-Bronze-Figure_41_Series</td><td>484 KB</td></tr>
+<tr><td>Lighting Switches.0001</td><td>484 KB</td></tr>
+<tr><td>PIF_PE-HD straight connector with ringseal unequal_Geberit</td><td>484 KB</td></tr>
+<tr><td>PIF_PE-HD adapter to ft_Geberit</td><td>484 KB</td></tr>
+<tr><td>PIF_PE-HD clamping connector_Geberit</td><td>484 KB</td></tr>
+<tr><td>PIF_PE-HD sleeve to cast iron with support ring_Geberit</td><td>484 KB</td></tr>
+<tr><td>PIF_PE-HD protective cap for weathering slates_Geberit</td><td>484 KB</td></tr>
+<tr><td>PIF_PE-HD electrofusion coupling_Geberit</td><td>480 KB</td></tr>
+<tr><td>PIF_PE-HD electrofusion socket_Geberit</td><td>480 KB</td></tr>
+<tr><td>PIF_PE-HD weld-on collar_Geberit</td><td>480 KB</td></tr>
+<tr><td>MEE_Flex Connector</td><td>480 KB</td></tr>
+<tr><td>PIF_PE-HD access pipe oval opening_Geberit</td><td>480 KB</td></tr>
+<tr><td>0000_ME_A0_TITLEBLOCK</td><td>476 KB</td></tr>
+<tr><td>Doors_IntDbl_1</td><td>472 KB</td></tr>
+<tr><td>Screw Chiller - Air Cooled - 1406-1758 kW</td><td>472 KB</td></tr>
+<tr><td>M_Discharge Tundish_MEPcontent_Caleffi_5520 DN20</td><td>472 KB</td></tr>
+<tr><td>TPE 100-3902 A-F-A-BQQE-QX1 - 96110299</td><td>472 KB</td></tr>
+<tr><td>TPE 125-230-4</td><td>468 KB</td></tr>
+<tr><td>TPE 150-230-4</td><td>468 KB</td></tr>
+<tr><td>ME-Heat Detector with Sounder</td><td>464 KB</td></tr>
+<tr><td>MEE_CableLadder_Reducer</td><td>460 KB</td></tr>
+<tr><td>Dosing Pot</td><td>460 KB</td></tr>
+<tr><td>ME Twin Switched Socket Outlet</td><td>460 KB</td></tr>
+<tr><td>Ladder Reducer</td><td>456 KB</td></tr>
+<tr><td>Break Tank Package CAT 5 Booster 650L</td><td>448 KB</td></tr>
+<tr><td>MEE_RotaryIsolator_FloorCeilingSurfaceWeatherproof</td><td>440 KB</td></tr>
+<tr><td>Grundfos Single Pump Inertia Base</td><td>440 KB</td></tr>
+<tr><td>MEE_Valve_Check50-300mm</td><td>436 KB</td></tr>
+<tr><td>MEE_Valve_Gate50-300mm</td><td>436 KB</td></tr>
+<tr><td>Smoke Alarm Void</td><td>432 KB</td></tr>
+<tr><td>MEE_Strainer_15-600mm</td><td>432 KB</td></tr>
+<tr><td>MEE_ExtractGrille_CeilingSquareorRectangular1VerticalRectangularConnection</td><td>428 KB</td></tr>
+<tr><td>Plumbing-Double_45_Bend-Valsir-HDPE-00</td><td>420 KB</td></tr>
+<tr><td>MEE_Panel_ATS</td><td>412 KB</td></tr>
+<tr><td>Ladder Horizontal Cross</td><td>412 KB</td></tr>
+<tr><td>MEE_CableLadder_VerticalInsideBend</td><td>404 KB</td></tr>
+<tr><td>MEE_CableLadder_VerticalOutsideBend</td><td>404 KB</td></tr>
+<tr><td>MEE_Valve_NonReturn50-300mm</td><td>404 KB</td></tr>
+<tr><td>ME Fused Switched</td><td>404 KB</td></tr>
+<tr><td>Ladder Vertical Inside Bend</td><td>400 KB</td></tr>
+<tr><td>Ladder Vertical Outside Bend</td><td>400 KB</td></tr>
+<tr><td>Ventilation_System-Breathing_Buildings-Passive_Stack-14</td><td>4.724 KB</td></tr>
+<tr><td>Ventilation_Penthouse Louvre</td><td>4.304 KB</td></tr>
+<tr><td>Enwa_Side_Stream_Filter_1252</td><td>4.092 KB</td></tr>
+<tr><td>Enwa_Side_Stream_Filter_(no Break Tank</td><td>4.080 KB</td></tr>
+<tr><td>Isolator...</td><td>396 KB</td></tr>
+<tr><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>396 KB</td></tr>
+<tr><td>M-Rectangular Elbow</td><td>396 KB</td></tr>
+<tr><td>Ladder Horizontal Bend</td><td>392 KB</td></tr>
+<tr><td>Isolator(TBC)...</td><td>392 KB</td></tr>
+<tr><td>PIF_PE-HD suction trap_Geberit</td><td>392 KB</td></tr>
+<tr><td>MEE_CableLadder_HorizontalBend</td><td>392 KB</td></tr>
+<tr><td>MEE_1 Gang 13A Switched Fused Connection Unit</td><td>392 KB</td></tr>
+<tr><td>MEE_Fire Alarm Panel</td><td>388 KB</td></tr>
+<tr><td>M_Oval to Round Transition - Length</td><td>388 KB</td></tr>
+<tr><td>300mm ø x 500mm L Heat Meter</td><td>388 KB</td></tr>
+<tr><td>MEE_Isolating Valve</td><td>388 KB</td></tr>
+<tr><td>MEE_Rectangular_MediumRadiusBend</td><td>388 KB</td></tr>
+<tr><td>MEE_Rectangular_ShortRadiusBend</td><td>388 KB</td></tr>
+<tr><td>Expansion Vessel 300L Vertical</td><td>388 KB</td></tr>
+<tr><td>Inverter - CUE 3X380-500V IP55 55KW 106A</td><td>388 KB</td></tr>
+<tr><td>Flamco</td><td>388 KB</td></tr>
+<tr><td>Type SV2</td><td>388 KB</td></tr>
+<tr><td>125mm ø x 400mm L Heat Meter</td><td>384 KB</td></tr>
+<tr><td>250mm ø x 500mm L Heat Meter</td><td>384 KB</td></tr>
+<tr><td>50mm ø x 400mm L Heat Meter</td><td>384 KB</td></tr>
+<tr><td>MEE_Side Stream Filtration Unit</td><td>384 KB</td></tr>
+<tr><td>E_Pr_60_70_22_22_DTL_MEE_Distribution_DistributionBoardThreePhaseNeutral</td><td>384 KB</td></tr>
+<tr><td>200mm ø x 500mm L Heat Meter</td><td>384 KB</td></tr>
+<tr><td>Plumbing-Branch-Valsir-HDPE-00</td><td>380 KB</td></tr>
+<tr><td>Cable Tray Reducer</td><td>380 KB</td></tr>
+<tr><td>Oval Round Transformation - Slip Joint</td><td>380 KB</td></tr>
+<tr><td>MEE_Fan_InLineCentrifugalorAxialRoundRoundConnections</td><td>380 KB</td></tr>
+<tr><td>PAD MOUNTED TRANSFORMER</td><td>380 KB</td></tr>
+<tr><td>Victaulic-Grooved Coupling OGS-AGS</td><td>380 KB</td></tr>
+<tr><td>Oval Shoe Cross - Slip Joint</td><td>376 KB</td></tr>
+<tr><td>MEE_CableTray_Reducer</td><td>376 KB</td></tr>
+<tr><td>MEE_CableBasket_Reducer</td><td>376 KB</td></tr>
+<tr><td>Pressurisation Unit Grundfos-PHP C3</td><td>372 KB</td></tr>
+<tr><td>Cross - Soldered - CU</td><td>372 KB</td></tr>
+<tr><td>MEE_Attenuator_Rectangular</td><td>372 KB</td></tr>
+<tr><td>MEE_Rectangular_SquareBend</td><td>372 KB</td></tr>
+<tr><td>MEE_UPVCSoil_BranchSingle</td><td>372 KB</td></tr>
+<tr><td>Cross - Flanged - DI - PN 16</td><td>368 KB</td></tr>
+<tr><td>Round Breeches Piece - Slip Joint</td><td>368 KB</td></tr>
+<tr><td>Rectangular - Oval Transformation - Flanged</td><td>368 KB</td></tr>
+<tr><td>Branch Double - Push-Fit - SS</td><td>368 KB</td></tr>
+<tr><td>Durapipe_PipeFittings_Friaphon_AccessPipeWithRoddingEye</td><td>364 KB</td></tr>
+<tr><td>ME_FireandSmokeDamper_RectangularRectangularConnections</td><td>364 KB</td></tr>
+<tr><td>MEE_CableLadder_HorizontalTee</td><td>364 KB</td></tr>
+<tr><td>Plumbing-Reducer-Valsir-HDPE-00</td><td>364 KB</td></tr>
+<tr><td>ME_Single Data Outlet</td><td>364 KB</td></tr>
+<tr><td>ME Isolator -1</td><td>364 KB</td></tr>
+<tr><td>Oval Concentric Taper - Slip Joint</td><td>360 KB</td></tr>
+<tr><td>Rectangular - Oval Transformation - Slip Joint</td><td>360 KB</td></tr>
+<tr><td>Cable Tray Horizontal Cross</td><td>360 KB</td></tr>
+<tr><td>MEE_ExpansionVessel_Vertical</td><td>360 KB</td></tr>
+<tr><td>Ladder Horizontal Tee</td><td>360 KB</td></tr>
+<tr><td>ME Floor-Box</td><td>360 KB</td></tr>
+<tr><td>PIF_PE-HD double branch_Geberit</td><td>360 KB</td></tr>
+<tr><td>Ring Main Unit</td><td>356 KB</td></tr>
+<tr><td>ME_WATER_METER_15-50mm</td><td>356 KB</td></tr>
+<tr><td>ME_Intercom</td><td>356 KB</td></tr>
+<tr><td>MEE_Generic Socket Detail</td><td>356 KB</td></tr>
+<tr><td>Tee Branch Reduced - Soldered - CU</td><td>356 KB</td></tr>
+<tr><td>Rectangular Radiussed Twin Bend - Flanged</td><td>356 KB</td></tr>
+<tr><td>Cable Tray Horizontal Bend</td><td>352 KB</td></tr>
+<tr><td>Round Pressed Equal Tee - Slip Joint1</td><td>352 KB</td></tr>
+<tr><td>PIF_PE-HD screw cap_Geberit</td><td>352 KB</td></tr>
+<tr><td>Cable Tray Vertical Inside Bend</td><td>352 KB</td></tr>
+<tr><td>ME PIR</td><td>352 KB</td></tr>
+<tr><td>Rectangular Square Tee - Flanged</td><td>352 KB</td></tr>
+<tr><td>Cable Tray Vertical Outside Bend</td><td>352 KB</td></tr>
+<tr><td>Tee - Flanged - DI - PN 16</td><td>352 KB</td></tr>
+<tr><td>MEE_CableTray_HorizontalCross</td><td>352 KB</td></tr>
+<tr><td>MEE_UPVCSoil_BendSweptDoubleSocket</td><td>352 KB</td></tr>
+<tr><td>MEE_GMI_TeeReducedThreaded</td><td>352 KB</td></tr>
+<tr><td>MEE_Alarm_SounderBeacon</td><td>352 KB</td></tr>
+<tr><td>PIF_PE-HD double flange bushing_Geberit</td><td>352 KB</td></tr>
+<tr><td>Rectangular - Round Transformation - Slip Joint</td><td>352 KB</td></tr>
+<tr><td>Rectangular Square Tee - Slip Joint</td><td>352 KB</td></tr>
+<tr><td>M - Round Duct - Tee - Pressed Equal - DW144</td><td>348 KB</td></tr>
+<tr><td>Busbar Horizontal Bend</td><td>348 KB</td></tr>
+<tr><td>Motorised Damper - Round</td><td>348 KB</td></tr>
+<tr><td>Tee - Soldered - CU</td><td>348 KB</td></tr>
+<tr><td>Motorised Damper - Rectangular</td><td>348 KB</td></tr>
+<tr><td>PIF_PE-HD flange bushing_Geberit</td><td>348 KB</td></tr>
+<tr><td>MEE_Attenuator_RectangularRectangularConnections</td><td>348 KB</td></tr>
+<tr><td>MEE_CableTrunking_VerticalInsideBend</td><td>348 KB</td></tr>
+<tr><td>Reducer - Flanged - CS - PN 25</td><td>348 KB</td></tr>
+<tr><td>Plumbing-Long_Eccentric_Reducer-Valsir-HDPE-00</td><td>348 KB</td></tr>
+<tr><td>M_Round Cross</td><td>348 KB</td></tr>
+<tr><td>Tee Branch Reduced - Brazed - CU</td><td>344 KB</td></tr>
+<tr><td>Plumbing-Electro_Fusion_Coupling-Valsir-HDPE-00</td><td>344 KB</td></tr>
+<tr><td>Tee Branch Reduced - Flanged - CS - PN 16</td><td>344 KB</td></tr>
+<tr><td>Oval Square Tee - Slip Joint</td><td>344 KB</td></tr>
+<tr><td>Cross - Brazed - CU</td><td>344 KB</td></tr>
+<tr><td>Attenuator Rectangular</td><td>344 KB</td></tr>
+<tr><td>Sound Attenuator Rectangular</td><td>344 KB</td></tr>
+<tr><td>Tee - Brazed - CU</td><td>344 KB</td></tr>
+<tr><td>Ladder Union</td><td>344 KB</td></tr>
+<tr><td>MEE_CableBasket_VerticalInsideBend</td><td>344 KB</td></tr>
+<tr><td>MEE_CableBasket_VerticalOutsideBend</td><td>344 KB</td></tr>
+<tr><td>MEE_UPVCSoil_AccessCap</td><td>344 KB</td></tr>
+<tr><td>MEE_CableBasket_HorizontalBend</td><td>344 KB</td></tr>
+<tr><td>MEE_CableTray_HorizontalBend</td><td>344 KB</td></tr>
+<tr><td>MEE_CableTrunking_HorizontalBend</td><td>344 KB</td></tr>
+<tr><td>MEE_CableTrunking_VerticalOutsideBend</td><td>344 KB</td></tr>
+<tr><td>MEE_CableTray_VerticalInsideBend</td><td>344 KB</td></tr>
+<tr><td>MEE_CableTray_VerticalOutsideBend</td><td>344 KB</td></tr>
+<tr><td>Tee - Flanged - CS - PN 25</td><td>340 KB</td></tr>
+<tr><td>Socket Reducing - Threaded - MS</td><td>340 KB</td></tr>
+<tr><td>Rectangular Mitred Throat Bend - Flanged</td><td>340 KB</td></tr>
+<tr><td>Elbow - Soldered - CU</td><td>340 KB</td></tr>
+<tr><td>Rectangular - Round Transformation - Flanged</td><td>340 KB</td></tr>
+<tr><td>Plumbing-Bend-Valsir-HDPE-00</td><td>340 KB</td></tr>
+<tr><td>MEE_AirHeatingCoil_HotWaterRectangularRectangularConnections</td><td>340 KB</td></tr>
+<tr><td>MEE_Reducer - Generic steel1</td><td>340 KB</td></tr>
+<tr><td>ME_Thermostat</td><td>340 KB</td></tr>
+<tr><td>Distribution Board</td><td>340 KB</td></tr>
+<tr><td>PIF_PE-HD endcap extended_Geberit</td><td>340 KB</td></tr>
+<tr><td>Branch - Push-Fit - SS</td><td>340 KB</td></tr>
+<tr><td>Cable Tray Horizontal Tee</td><td>340 KB</td></tr>
+<tr><td>Bend - Flanged - DI - PN 16</td><td>336 KB</td></tr>
+<tr><td>PFC-Parallel Flange Channels</td><td>336 KB</td></tr>
+<tr><td>ME_Data Outlet</td><td>336 KB</td></tr>
+<tr><td>Oval Shoe Branch - Slip Joint</td><td>336 KB</td></tr>
+<tr><td>MEE_Rectangular_SquareTee</td><td>336 KB</td></tr>
+<tr><td>Manual Call Point Symbol</td><td>336 KB</td></tr>
+<tr><td>Oval Segmented Bend - Slip Joint</td><td>336 KB</td></tr>
+<tr><td>M_Round Takeoff</td><td>332 KB</td></tr>
+<tr><td>MEE_Channel_HeavyDutyDrain</td><td>332 KB</td></tr>
+<tr><td>Duct_Accessories-Damper-ATI-Fire-Smoke-Damper</td><td>332 KB</td></tr>
+<tr><td>Taper Concentric - Flanged - DI - PN 16</td><td>332 KB</td></tr>
+<tr><td>MEE_FloorOutlet_VerticalSpigot</td><td>332 KB</td></tr>
+<tr><td>MEE_CableBasket_HorizontalTee</td><td>332 KB</td></tr>
+<tr><td>MEE_RectangulartoRound_Transformation</td><td>332 KB</td></tr>
+<tr><td>MEE_CableTrunking_HorizontalTee</td><td>332 KB</td></tr>
+<tr><td>MEE_CableTray_HorizontalTee</td><td>332 KB</td></tr>
+<tr><td>Elbow - Flanged - CS - PN 25</td><td>328 KB</td></tr>
+<tr><td>Reducer Straight - Soldered - CU</td><td>328 KB</td></tr>
+<tr><td>Cross - Plain - PVC-C</td><td>328 KB</td></tr>
+<tr><td>M_Round Tee</td><td>328 KB</td></tr>
+<tr><td>M_Pipe Stubin - Generic</td><td>328 KB</td></tr>
+<tr><td>Taper Concentric - Plain - CI</td><td>328 KB</td></tr>
+<tr><td>Elbow - Flanged - CS - PN 16</td><td>328 KB</td></tr>
+<tr><td>MEE_Rectangular Transition2</td><td>328 KB</td></tr>
+<tr><td>MEE_GMI_SocketReducingThreaded</td><td>328 KB</td></tr>
+<tr><td>Rectangular Medium Radius Bend - Flanged</td><td>328 KB</td></tr>
+<tr><td>Oval Union</td><td>328 KB</td></tr>
+<tr><td>Elbow - Flanged - CS - PN 1</td><td>328 KB</td></tr>
+<tr><td>MEE_CPVC_Bend</td><td>328 KB</td></tr>
+<tr><td>MFSD - Rectangular</td><td>328 KB</td></tr>
+<tr><td>HL_Self_Sealing Waste Valve</td><td>328 KB</td></tr>
+<tr><td>Elbow - Soldered - CU1</td><td>328 KB</td></tr>
+<tr><td>Elbow - Soldered - CU1</td><td>328 KB</td></tr>
+<tr><td>M_Pipe Stubin - Generic1</td><td>328 KB</td></tr>
+<tr><td>Reducer Eccentric - Butt Welded - CS</td><td>328 KB</td></tr>
+<tr><td>M_Round Transition - Angle</td><td>324 KB</td></tr>
+<tr><td>Bend - Push-Fit - SS</td><td>324 KB</td></tr>
+<tr><td>MEE Small power Data notes - Energy Centre</td><td>324 KB</td></tr>
+<tr><td>Flue gas outlet</td><td>324 KB</td></tr>
+<tr><td>MEE_Builderswork Hole</td><td>324 KB</td></tr>
+<tr><td>MEE_Generic_Transition</td><td>324 KB</td></tr>
+<tr><td>Round Pressed Equal Tee - Slip Joint</td><td>324 KB</td></tr>
+<tr><td>Plumbing-Double_Flange_Bushing-Valsir-HDPE-00</td><td>324 KB</td></tr>
+<tr><td>Round Taper - Slip Joint1</td><td>324 KB</td></tr>
+<tr><td>Extract Fan.</td><td>320 KB</td></tr>
+<tr><td>Elbow - Brazed - CU1</td><td>320 KB</td></tr>
+<tr><td>Flue Fan.</td><td>320 KB</td></tr>
+<tr><td>Flamco_Flexcon_M600_Drukexpansievat_met_verwisselbaar_membraan_6</td><td>320 KB</td></tr>
+<tr><td>Elbow - Brazed - CU</td><td>320 KB</td></tr>
+<tr><td>MEE_CPVC_ReducerConcentric</td><td>320 KB</td></tr>
+<tr><td>MEE_Round_Taper</td><td>320 KB</td></tr>
+<tr><td>MEE_GMI_ElbowThreaded</td><td>320 KB</td></tr>
+<tr><td>Rectangular Shoe Branch - Slip Joint</td><td>320 KB</td></tr>
+<tr><td>M_Round Elbow</td><td>320 KB</td></tr>
+<tr><td>Round Mitred Branch - Slip Joint</td><td>316 KB</td></tr>
+<tr><td>M_Round Endcap</td><td>316 KB</td></tr>
+<tr><td>Rectangular Square Branch - Slip Joint</td><td>316 KB</td></tr>
+<tr><td>Branch 88.5 Deg Swept-Entry - Butt Welded - HDPE</td><td>316 KB</td></tr>
+<tr><td>Rectangular Eccentric Taper - Flanged</td><td>316 KB</td></tr>
+<tr><td>Coupling - CI</td><td>316 KB</td></tr>
+<tr><td>Coupling - DI1</td><td>316 KB</td></tr>
+<tr><td>Reducer Concentric - Push-Fit - SS</td><td>316 KB</td></tr>
+<tr><td>Branch Double - Butt Welded - HDPE</td><td>316 KB</td></tr>
+<tr><td>Rectangular Short Radius Bend - Slip Joint</td><td>316 KB</td></tr>
+<tr><td>MEE_SupplyGrille_WallRectangular</td><td>316 KB</td></tr>
+<tr><td>Rectangular Concentric Taper - Flanged</td><td>316 KB</td></tr>
+<tr><td>Builderswork Base</td><td>316 KB</td></tr>
+<tr><td>Submain Distribution Board</td><td>316 KB</td></tr>
+<tr><td>Coupling - Soldered - CU</td><td>316 KB</td></tr>
+<tr><td>Reducer Straight - Brazed - CU</td><td>316 KB</td></tr>
+<tr><td>Coupling - DI</td><td>316 KB</td></tr>
+<tr><td>M_Cross - Generic</td><td>316 KB</td></tr>
+<tr><td>Tee Branch Reduced - Threaded - MS1</td><td>316 KB</td></tr>
+<tr><td>Socket Sliding Ring Seal - Push-Fit - SS</td><td>312 KB</td></tr>
+<tr><td>Flange - Weld Neck Union - Steel - PN 16</td><td>312 KB</td></tr>
+<tr><td>Branch - Butt Welded - HDPE</td><td>312 KB</td></tr>
+<tr><td>Cable Tray Union</td><td>312 KB</td></tr>
+<tr><td>Attenuator</td><td>312 KB</td></tr>
+<tr><td>MEE-QuickFillPointTest Point</td><td>312 KB</td></tr>
+<tr><td>Rectangular Bell Mouth Branch - Flanged</td><td>312 KB</td></tr>
+<tr><td>Reducer Concentric - Butt Welded - HDPE</td><td>312 KB</td></tr>
+<tr><td>MEE_ExtractGrille_WallRectangular</td><td>312 KB</td></tr>
+<tr><td>MEE_Gauge_StraightSyphon</td><td>312 KB</td></tr>
+<tr><td>MEE_Generic_Bend</td><td>312 KB</td></tr>
+<tr><td>MEE_Rectangular_EccentricTaper</td><td>312 KB</td></tr>
+<tr><td>Round Shoe Branch - Slip Joint</td><td>312 KB</td></tr>
+<tr><td>Branch 90 Deg - Plain - CI</td><td>312 KB</td></tr>
+<tr><td>Rectangular Shoe Branch - Flanged</td><td>312 KB</td></tr>
+<tr><td>Rectangular Square Bend - Flanged</td><td>312 KB</td></tr>
+<tr><td>Socket - Threaded - GMI</td><td>308 KB</td></tr>
+<tr><td>Flange - Slip-on - Steel - PN 25</td><td>308 KB</td></tr>
+<tr><td>Reducer Concentric - Butt Welded - CS1</td><td>308 KB</td></tr>
+<tr><td>Stop End - Soldered - CU</td><td>308 KB</td></tr>
+<tr><td>Tee - Plain - PVC-C</td><td>308 KB</td></tr>
+<tr><td>Tee Branch Reduced - Butt Welded - CS</td><td>308 KB</td></tr>
+<tr><td>Bend - Butt Welded - HDPE</td><td>308 KB</td></tr>
+<tr><td>Elbow - Butt Welded - CS1</td><td>308 KB</td></tr>
+<tr><td>Pipe Tap In</td><td>308 KB</td></tr>
+<tr><td>Elbow - Threaded - MS</td><td>308 KB</td></tr>
+<tr><td>Rectangular Eccentric Taper - Slip Joint</td><td>308 KB</td></tr>
+<tr><td>Bend Slow - Brazed - CU</td><td>308 KB</td></tr>
+<tr><td>MEE_GMI_CapThreaded</td><td>308 KB</td></tr>
+<tr><td>MEE_CS_CapButtWelded</td><td>308 KB</td></tr>
+<tr><td>MEE_Round_PressedBend</td><td>308 KB</td></tr>
+<tr><td>MEE_CS_ElbowButtWelded</td><td>308 KB</td></tr>
+<tr><td>MEE_CS_ReducerConcentricButtWelded</td><td>308 KB</td></tr>
+<tr><td>MEE_ABS_ElbowPlain</td><td>308 KB</td></tr>
+<tr><td>MEE_CableBasket_Union</td><td>308 KB</td></tr>
+<tr><td>Test Point</td><td>308 KB</td></tr>
+<tr><td>Elbow - Plain - PVC-C</td><td>308 KB</td></tr>
+<tr><td>MEE_MDPE_BendButtWelded</td><td>308 KB</td></tr>
+<tr><td>MEE_Generic_Tee</td><td>308 KB</td></tr>
+<tr><td>MEE_CS_TeeReducedButtWelded</td><td>308 KB</td></tr>
+<tr><td>Elbow - Butt Welded - CS1</td><td>308 KB</td></tr>
+<tr><td>HC_Expansion Vessel_MEPcontent_Flamco_26806 Flexcon80 1-3</td><td>308 KB</td></tr>
+<tr><td>Elbow - Butt Welded - CS1</td><td>308 KB</td></tr>
+<tr><td>22118_flexcon-m2800_4-6bar</td><td>308 KB</td></tr>
+<tr><td>Round Pressed Branch - Slip Joint</td><td>304 KB</td></tr>
+<tr><td>Bend - Plain - CI</td><td>304 KB</td></tr>
+<tr><td>Elbow Long Radius - Butt Welded - CS</td><td>304 KB</td></tr>
+<tr><td>Flange - Weld Neck - Steel - PN 16</td><td>304 KB</td></tr>
+<tr><td>Round Angle Branch - Flanged</td><td>304 KB</td></tr>
+<tr><td>Reducer Concentric - Butt Welded - CS</td><td>304 KB</td></tr>
+<tr><td>Round Pressed Bend - Slip Joint</td><td>304 KB</td></tr>
+<tr><td>MEE_CableTrunking_Union</td><td>304 KB</td></tr>
+<tr><td>Elbow - Butt Welded - CS</td><td>304 KB</td></tr>
+<tr><td>Rectangular Bell Mouth Branch - Slip Joint</td><td>304 KB</td></tr>
+<tr><td>MEE_CableTray_Union</td><td>304 KB</td></tr>
+<tr><td>Cap - Plain - PVC-C</td><td>304 KB</td></tr>
+<tr><td>Cap - Butt Welded - CS</td><td>304 KB</td></tr>
+<tr><td>Tee - Butt Welded - CS</td><td>304 KB</td></tr>
+<tr><td>MEE_Builderswork Hole_CylinderH</td><td>304 KB</td></tr>
+<tr><td>Rectangular Square Bend - Slip Joint</td><td>300 KB</td></tr>
+<tr><td>PIF_PE-HD pipe weld_Geberit</td><td>300 KB</td></tr>
+<tr><td>Flange - Slip-on - Steel - PN 16</td><td>300 KB</td></tr>
+<tr><td>MEE_Rectangular_ShoeBranch</td><td>300 KB</td></tr>
+<tr><td>Reducer Concentric - Welded - SS</td><td>300 KB</td></tr>
+<tr><td>Bush Reducing - Plain - PVC-C</td><td>300 KB</td></tr>
+<tr><td>EF010-Double-Branch-With-EC002-Couplings</td><td>3.064 KB</td></tr>
+<tr><td>EF006-Single-Branch-With-EC002-Couplings</td><td>3.040 KB</td></tr>
+<tr><td>Flange - Blind - Steel - PN 16</td><td>296 KB</td></tr>
+<tr><td>Coupling - Brazed - CU1</td><td>296 KB</td></tr>
+<tr><td>MEE_Coupling - Generic Steel1</td><td>296 KB</td></tr>
+<tr><td>Round Segmented Bend - Slip Joint</td><td>296 KB</td></tr>
+<tr><td>Plumbing-Ventilation_Branch_Cap-Valsir-HDPE-00</td><td>296 KB</td></tr>
+<tr><td>Duct Transition End</td><td>296 KB</td></tr>
+<tr><td>MEE_Builderswork Hole_CylinderV</td><td>296 KB</td></tr>
+<tr><td>Cap - Threaded - MS</td><td>296 KB</td></tr>
+<tr><td>Socket - Plain - PVC-C</td><td>296 KB</td></tr>
+<tr><td>Rectangular Blank End Type 2</td><td>292 KB</td></tr>
+<tr><td>Stop End - Brazed - CU</td><td>292 KB</td></tr>
+<tr><td>Coupling - Brazed - CU</td><td>292 KB</td></tr>
+<tr><td>Gasmeter</td><td>292 KB</td></tr>
+<tr><td>MEE_Generic Cube</td><td>292 KB</td></tr>
+<tr><td>Rectangular Blank End</td><td>292 KB</td></tr>
+<tr><td>Rectangular Union</td><td>288 KB</td></tr>
+<tr><td>HC_Intermediate Vessel_MEPcontent_Flamco_23306 FlexconVSV 100 0-10</td><td>288 KB</td></tr>
+<tr><td>Round Union</td><td>288 KB</td></tr>
+<tr><td>M_Round Union</td><td>288 KB</td></tr>
+<tr><td>MEE_Rectangular_Union</td><td>288 KB</td></tr>
+<tr><td>MEE_BIM STAMP-18</td><td>280 KB</td></tr>
+<tr><td>MEE Lighting Notes - Energy Centre</td><td>276 KB</td></tr>
+<tr><td>MEE_Generic Combined Detector with Sounder and Beacon Symbol</td><td>276 KB</td></tr>
+<tr><td>M_Level Head - Circle</td><td>272 KB</td></tr>
+<tr><td>M_Level Head - Circle1</td><td>272 KB</td></tr>
+<tr><td>Elevation Mark Body_Circle-10mm</td><td>272 KB</td></tr>
+<tr><td>Elevation Mark Body_Circle-12mm</td><td>272 KB</td></tr>
+<tr><td>Concrete Round</td><td>272 KB</td></tr>
+<tr><td>MEE_Multi_Sensor_Presence and Absence Detecttion</td><td>272 KB</td></tr>
+<tr><td>MEE_Lighting Control Panel</td><td>272 KB</td></tr>
+<tr><td>HAP_Anno_Level_Head</td><td>268 KB</td></tr>
+<tr><td>Baluster - Square</td><td>268 KB</td></tr>
+<tr><td>MEE Genaral Legend 3</td><td>256 KB</td></tr>
+<tr><td>MEE Genaral Legend 4</td><td>256 KB</td></tr>
+<tr><td>MEE_Tag_DischargePipeSchematic</td><td>256 KB</td></tr>
+<tr><td>MEE_Generic PIR Detector Symbol</td><td>252 KB</td></tr>
+<tr><td>MEE Genaral Legend 1</td><td>252 KB</td></tr>
+<tr><td>MEE CHW Plantroom General notes</td><td>252 KB</td></tr>
+<tr><td>MEE Genaral Legend 2</td><td>252 KB</td></tr>
+<tr><td>Lighting Switch Annotation 1 - Solid Fill Red</td><td>252 KB</td></tr>
+<tr><td>Flex Duct Tag Round</td><td>248 KB</td></tr>
+<tr><td>Cable Tray Size Service Type & Us with Comments Tag</td><td>248 KB</td></tr>
+<tr><td>Cable Tray Size Type Name & Us with Comments Tag</td><td>248 KB</td></tr>
+<tr><td>ME PH Invert Pipe Tag</td><td>248 KB</td></tr>
+<tr><td>Elevation Mark Pointer_Circle-10mm</td><td>248 KB</td></tr>
+<tr><td>Elevation Mark Pointer_Circle-12mm</td><td>248 KB</td></tr>
+<tr><td>Anno_Level_Head_Tri</td><td>248 KB</td></tr>
+<tr><td>Mech FP General notes</td><td>248 KB</td></tr>
+<tr><td>MEE_SectionHead_Filled</td><td>248 KB</td></tr>
+<tr><td>Duct Trans Sq x Rnd Tag</td><td>248 KB</td></tr>
+<tr><td>MEE Genaral Legend 5</td><td>248 KB</td></tr>
+<tr><td>54 Series General notes</td><td>248 KB</td></tr>
+<tr><td>57 Series General notes</td><td>248 KB</td></tr>
+<tr><td>Mech Pipes General notes</td><td>248 KB</td></tr>
+<tr><td>View Title1</td><td>248 KB</td></tr>
+<tr><td>MEE_Scale_1_250</td><td>248 KB</td></tr>
+<tr><td>MEE_Scale_1_50</td><td>248 KB</td></tr>
+<tr><td>MEE_Scale_1_100</td><td>248 KB</td></tr>
+<tr><td>MEE_Scale_1_20</td><td>248 KB</td></tr>
+<tr><td>Cable Tray Size Service & Us with Comments Tag</td><td>248 KB</td></tr>
+<tr><td>MEE_Tag_RainwaterPipeSchematic</td><td>248 KB</td></tr>
+<tr><td>Exit Luminaire SymborRight</td><td>248 KB</td></tr>
+<tr><td>Gutter - Bevel</td><td>248 KB</td></tr>
+<tr><td>View Title</td><td>248 KB</td></tr>
+<tr><td>ME-Section Arrow</td><td>248 KB</td></tr>
+<tr><td>Section Head - NoDWG_No</td><td>248 KB</td></tr>
+<tr><td>MEE_Scale_1_200</td><td>248 KB</td></tr>
+<tr><td>MEE_Scale_1_500</td><td>248 KB</td></tr>
+<tr><td>MEE_Scale_1_25</td><td>248 KB</td></tr>
+<tr><td>Isolator Annotation</td><td>248 KB</td></tr>
+<tr><td>ME-Electrical Equip ref</td><td>244 KB</td></tr>
+<tr><td>Mechanical Equipment Tag</td><td>244 KB</td></tr>
+<tr><td>Pipe Size & System name</td><td>244 KB</td></tr>
+<tr><td>pipe Accessories Tag</td><td>244 KB</td></tr>
+<tr><td>Duct Trans Sq x Sq Tag</td><td>244 KB</td></tr>
+<tr><td>Pipe Slope</td><td>244 KB</td></tr>
+<tr><td>View Reference_18</td><td>244 KB</td></tr>
+<tr><td>Cable Tray Size Tag</td><td>244 KB</td></tr>
+<tr><td>Cable Tray Us Tag</td><td>244 KB</td></tr>
+<tr><td>Cable Tray Size & Service Tag</td><td>244 KB</td></tr>
+<tr><td>Plumbing Fixture Tag</td><td>244 KB</td></tr>
+<tr><td>Pipe Size & System name - System Type</td><td>244 KB</td></tr>
+<tr><td>Pipe Size & System name - Stacked</td><td>244 KB</td></tr>
+<tr><td>MEE_Callout_Head</td><td>244 KB</td></tr>
+<tr><td>ME-Electrical Equip ref Comments ONLY</td><td>244 KB</td></tr>
+<tr><td>Cable Tray Size & Service No Comments Tag</td><td>244 KB</td></tr>
+<tr><td>Cable Tray Size Service & Us No Comments Tag</td><td>244 KB</td></tr>
+<tr><td>ME Pipe Accessories Type Mark Tag</td><td>244 KB</td></tr>
+<tr><td>Mechanical Equipment Tag Comments ONLY</td><td>244 KB</td></tr>
+<tr><td>ME-Mechanical ref</td><td>244 KB</td></tr>
+<tr><td>M_Callout Head-Detail No. ONLY</td><td>244 KB</td></tr>
+<tr><td>MEE_Fire Alarm Sounder with Beacon Symbol</td><td>244 KB</td></tr>
+<tr><td>Brick - UK Standard</td><td>244 KB</td></tr>
+<tr><td>Circular Handrail</td><td>244 KB</td></tr>
+<tr><td>Spot Elevation - Target Filled</td><td>244 KB</td></tr>
+<tr><td>MEE_SectionHead_NoArrow</td><td>244 KB</td></tr>
+<tr><td>MEE_LevelHead_Circle</td><td>244 KB</td></tr>
+<tr><td>MEE_SectionTail_Filled</td><td>244 KB</td></tr>
+<tr><td>Light Switch_Annotation Symbol</td><td>244 KB</td></tr>
+<tr><td>MEE_SectionTail_FilledHorizontal</td><td>244 KB</td></tr>
+<tr><td>Duct Accessory Tag</td><td>244 KB</td></tr>
+<tr><td>Anno_Level_Head_Filled_Arrow</td><td>244 KB</td></tr>
+<tr><td>Pipe Size & System name - Stacked - Aligned</td><td>244 KB</td></tr>
+<tr><td>View Reference_16</td><td>244 KB</td></tr>
+<tr><td>Pipe Size & Comments - Stacked</td><td>244 KB</td></tr>
+<tr><td>Slab Edge-Thickened</td><td>244 KB</td></tr>
+<tr><td>Fascia-Flat</td><td>244 KB</td></tr>
+<tr><td>ME_Level_Head</td><td>244 KB</td></tr>
+<tr><td>Level Head - Circle2</td><td>244 KB</td></tr>
+<tr><td>Level Head - Circle1</td><td>244 KB</td></tr>
+<tr><td>Duct Size & System name (Stacked)</td><td>240 KB</td></tr>
+<tr><td>Pipe Custom Text ONLY</td><td>240 KB</td></tr>
+<tr><td>Mech Equipmnt Custom Text ONLY</td><td>240 KB</td></tr>
+<tr><td>Duct Custom Text ONLY</td><td>240 KB</td></tr>
+<tr><td>Cable Tray Custom Text ONLY</td><td>240 KB</td></tr>
+<tr><td>Mech Equipmente Custom Text ONLY</td><td>240 KB</td></tr>
+<tr><td>Pipe Size & System name -No Comments Stacked</td><td>240 KB</td></tr>
+<tr><td>Pipe Fitting Size Tag</td><td>240 KB</td></tr>
+<tr><td>View Reference_17</td><td>240 KB</td></tr>
+<tr><td>MEE General Mechanical notes</td><td>240 KB</td></tr>
+<tr><td>Pipe Comments ONLY - Stacked</td><td>240 KB</td></tr>
+<tr><td>Pipe Size Tagrfa</td><td>240 KB</td></tr>
+<tr><td>CL height</td><td>240 KB</td></tr>
+<tr><td>Duct Elevation BOD</td><td>240 KB</td></tr>
+<tr><td>MEE_SpotElevation</td><td>240 KB</td></tr>
+<tr><td>Section Head - Open</td><td>240 KB</td></tr>
+<tr><td>Rectangular Handrail</td><td>240 KB</td></tr>
+<tr><td>Spot Elevation - Crosshair</td><td>240 KB</td></tr>
+<tr><td>Grid Head - Circle</td><td>240 KB</td></tr>
+<tr><td>M_Grid Head - Circle</td><td>240 KB</td></tr>
+<tr><td>M_View Title_No Detail Number</td><td>240 KB</td></tr>
+<tr><td>Centreline</td><td>240 KB</td></tr>
+<tr><td>Plumbing Fixture Tag Comments</td><td>240 KB</td></tr>
+<tr><td>Pipe Size System name & CL</td><td>240 KB</td></tr>
+<tr><td>MEE_ViewTitle</td><td>240 KB</td></tr>
+<tr><td>MEE General Public Health notes</td><td>240 KB</td></tr>
+<tr><td>Duct Size & System name</td><td>240 KB</td></tr>
+<tr><td>Fabrication Pipe - Invert Elevation Tag</td><td>240 KB</td></tr>
+<tr><td>Pipe Fitting Comments ONLY Tag</td><td>240 KB</td></tr>
+<tr><td>MEE General notes</td><td>240 KB</td></tr>
+<tr><td>4.EC-T31-P-TPED 100-130-4</td><td>2.488 KB</td></tr>
+<tr><td>PIF_Silent-PP multireducer_Geberit</td><td>2.460 KB</td></tr>
+<tr><td>TPED 65-210-2-A-F-A-BQQE</td><td>2.404 KB</td></tr>
+<tr><td>Pipe-Valve-Hattersley-920_PN16_Y_Type_Strainer</td><td>2.120 KB</td></tr>
+<tr><td>Pipe-Valve-Hattersley-Hatts_100EXS_Threaded_DZR_Ball_Valve_with_EXT_Stem</td><td>2.064 KB</td></tr>
+<tr><td>Hoval-UltraGas Boiler</td><td>1.972 KB</td></tr>
+<tr><td>Hoval-UltraGas_250D-2300D</td><td>1.972 KB</td></tr>
+<tr><td>PIF_Silent-PP branch corner_Geberit</td><td>1.936 KB</td></tr>
+<tr><td>Rotary Gas Meter</td><td>1.932 KB</td></tr>
+<tr><td>EF028-Taper-Pipe-With-EC002-Couplings</td><td>1.908 KB</td></tr>
+<tr><td>PIF_Silent-PP branch equal with bend_Geberit</td><td>1.908 KB</td></tr>
+<tr><td>CAT5 Booster 500litre Tank Revit</td><td>1.904 KB</td></tr>
+<tr><td>Pipe-Valve-Hattersley-M651_Cast_Iron_Swing_Pattern_Check_Valve</td><td>1.904 KB</td></tr>
+<tr><td>MEE-SideStreamFiltration-EnwaEM1672</td><td>1.872 KB</td></tr>
+<tr><td>PIF_Silent-PP branch double_Geberit</td><td>1.852 KB</td></tr>
+<tr><td>Pipe-Valve-Hattersley-Hatt_113_Full_Bore_Broze_Ball_Valve</td><td>1.844 KB</td></tr>
+<tr><td>PIF_Silent-PP bend 2x 45º_Geberit</td><td>1.828 KB</td></tr>
+<tr><td>PIF_Silent-PP branch double swept_Geberit</td><td>1.808 KB</td></tr>
+<tr><td>MEE General Electrical notes - Containment</td><td>1.772 KB</td></tr>
+<tr><td>20014_ME_A0_TITLEBLOCK - JRL</td><td>1.752 KB</td></tr>
+<tr><td>Pipe-Valve-Hattersley-305F_Pressure_Independent_Control_Valve_DN50-DN100</td><td>1.724 KB</td></tr>
+<tr><td>EF002-Short-Radius-Bend-With-EC002-Coupling</td><td>1.716 KB</td></tr>
+<tr><td>TPE 100-390_2P_50Hz_GRUNDFOS_3ph_22kW</td><td>1.664 KB</td></tr>
+<tr><td>PIF_Silent-PP expansion socket_Geberit</td><td>1.660 KB</td></tr>
+<tr><td>PIF_Silent-PP connection to DB20_Geberit</td><td>1.660 KB</td></tr>
+<tr><td>PIF_Silent-PP access pipe round opening_Geberit</td><td>1.660 KB</td></tr>
+<tr><td>PIF_Silent-PP adapter to DB20_Geberit</td><td>1.656 KB</td></tr>
+<tr><td>PIF_Silent-PP branch swept_Geberit</td><td>1.652 KB</td></tr>
+<tr><td>PIF_Silent-PP branch parallel_Geberit</td><td>1.632 KB</td></tr>
+<tr><td>TPE2 D 50-240-N-A-F-A-BQQE - 98438135</td><td>1.612 KB</td></tr>
+<tr><td>TPE2 D 40-240-N-A-F-A-BQQE - 98438135</td><td>1.612 KB</td></tr>
+<tr><td>Pipe-Valve-Hattersley-305F_Pressure_Independent_Control_Valve_DN200-DN250</td><td>1.484 KB</td></tr>
+<tr><td>Pipe-Valve-Hattersley-305F_Pressure_Independent_Control_Valve_DN125-DN150</td><td>1.476 KB</td></tr>
+<tr><td>PIF_Silent-PP slip coupling_Geberit</td><td>1.456 KB</td></tr>
+<tr><td>PIF_Silent-PP double ring seal socket_Geberit</td><td>1.456 KB</td></tr>
+<tr><td>2. EC-T31-PU-01 - PHP C1</td><td>1.360 KB</td></tr>
+<tr><td>Daikin Air Cooled Chiller 4</td><td>1.348 KB</td></tr>
+<tr><td>Daikin Air Cooled Chiller 3</td><td>1.344 KB</td></tr>
+<tr><td>Daikin Air Cooled Chiller 2</td><td>1.340 KB</td></tr>
+<tr><td>Daikin Air Cooled Chiller 1</td><td>1.340 KB</td></tr>
+<tr><td>TPE 80-170_50Hz_GRUNDFOS_3ph_4kW</td><td>1.320 KB</td></tr>
+<tr><td>TPE 125-130_60Hz</td><td>1.288 KB</td></tr>
+<tr><td>20014_ME_A0_TITLEBLOCK - JRL-PB-Ground</td><td>1.264 KB</td></tr>
+<tr><td>EC002-Two-Piece-Ductile-Iron-Coupling</td><td>1.240 KB</td></tr>
+<tr><td>Pipe-Butterfly_Valve-Hattersley-971G_Fully_Lugged_Gearbox_Operated-Butterfly_Valve</td><td>1.204 KB</td></tr>
+<tr><td>Pipe-Butterfly_Valve-Hattersley-971G_Fully_Lugged_Gearbox_Operated-Butterfly_Valve.0001</td><td>1.184 KB</td></tr>
+<tr><td>PIF_Silent-PP branch combined swept_Geberit</td><td>1.184 KB</td></tr>
+<tr><td>Pipe-Butterfly_Valve-Hattersley-970_Fully_Lugged_Lever_Operated-Butterfly_Valve</td><td>1.172 KB</td></tr>
+<tr><td>PIF_Silent-PP branch_Geberit</td><td>1.148 KB</td></tr>
+<tr><td>PIF_Silent-PP branch equal_Geberit</td><td>1.148 KB</td></tr>
+<tr><td>PIF_Silent-PP branch duct swept_Geberit</td><td>1.148 KB</td></tr>
+<tr><td>MEE General Electrical notes</td><td>1.140 KB</td></tr>
+<tr><td>PIF_Silent-PP bend_Geberit</td><td>1.116 KB</td></tr>
+<tr><td>PIF_Silent-PP bend (nested)_Geberit</td><td>1.112 KB</td></tr>
+<tr><td>Hydro_MPC-E_2_CRIE10-3_2.2KW</td><td>1.108 KB</td></tr>
+<tr><td>PIF_Silent-PP reducer (nested)_Geberit</td><td>1.108 KB</td></tr>
+<tr><td>20014_ME_A0_TITLEBLOCK - JRL Energy Center - Grd Floor</td><td>1.080 KB</td></tr>
+<tr><td>VEXO X-POT XP GA</td><td>1.064 KB</td></tr>
+<tr><td>PIF_PE-HD branch equal with bend 45º_Geberit</td><td>1.056 KB</td></tr>
+<tr><td>20014_ME_A0_TITLEBLOCK - JRL Energy Center</td><td>1.048 KB</td></tr>
+<tr><td>Pipe-Butterfly_Valve-Crane-F611_Semi_Lugged_Lever_Operated-Butterfly_Valve</td><td>1.036 KB</td></tr>
+<tr><td>2800L EC-T31-PU-01 - PHP C1</td><td>1.036 KB</td></tr>
+<tr><td>MEE_Chiller_WaterCooled</td><td>1.036 KB</td></tr>
+<tr><td>PIF_Silent-PP access pipe oval opening_Geberit</td><td>1.036 KB</td></tr>
+<tr><td>Pipe-Butterfly_Valve-Hattersley-950_Semi_Lugged_Lever_Operated-Butterfly_Valve</td><td>1.028 KB</td></tr>
+<tr><td>PIF_PE-HD expansionsocket double flange_Geberit</td><td>1.004 KB</td></tr>
+<tr><td>Pipe-Butterfly_Valve-Crane-F611_Semi_Lugged_Lever_Operated-Butterfly_Valve.0005</td><td>1.000 KB</td></tr>
+<tr><td>PIF_Silent-PP reducer short (nested)_Geberit</td><td>1.000 KB</td></tr>
+<tr><td>Zone_Control_Valve</td><td>1.000 KB</td></tr>
+</table>
+</div>
+        <div class="portalHeadlineText" style="margin-top: 15px">Error</div><div class="portalStandardText" style="margin-top: 15px">Error getting file size from family '*DON'TT_USE*Plumbing-Bend-Valsir-HDPE-00_ForDouble45Bend': Illegal characters in path.
+Parameter name: pathError getting file size from family 'Flexible Connection': Loaded Family Editing failed.Error getting file size from family 'Cable Tray Size  Service & U/s Tag': The model could not be saved:  (COleException 0x80030002)</div>
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Unused Elements</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all elements that may be unused and therefore removed from a Revit model. A large number of unneeded elements can increase the model size with no benefit. Note that the count reported here may differ from the Purge Unused command in the Revit interface due to API restraints.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2.527</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Model Groups</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all model group elements in the model. Too many model groups can be an indication of improper modeling techniques.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Detail Groups</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all detail group elements in the model. Too many detail groups can be an indication of improper modeling techniques.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 32</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">In-Place Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all in-place family elements in the model. In-place families can signifcantly impact model size and performance and should be used sparingly.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Project Settings</div>
+        <div class="structureBreakdown">5 Checks, 5 Count/List</div>
+    </div>
+    <div class="portalStandardText">Checks in this section are related to settings that can be configured at a project level, which may need to be verified for compliance with standards defined for the project.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="CUSTOM RESULT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Revit Version</div>
+        <div class="portalStandardText" style="text-align: left">LIST of the version and build data of Revit running the check.</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: Autodesk Revit 2019 20210416_1515(x64)</div>
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Design Options</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all elements created in each design option of the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Elements Per Phase</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all elements in each phase of the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 15.728</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Count</th><th>Name</th></tr>
+<tr><td>15716</td><td>New Construction</td></tr>
+<tr><td>12</td><td>Existing</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Worksets</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all user worksets in the model or indicates '*Not Workshared*' if worksharing is not enabled.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 8</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Containemt Installed</td></tr>
+<tr><td>Future Services</td></tr>
+<tr><td>MEE-MEP-Services</td></tr>
+<tr><td>MEE-Revit Links</td></tr>
+<tr><td>MEE-Revit Structure</td></tr>
+<tr><td>MEE-Shared levels & Grids</td></tr>
+<tr><td>MEP Services Future Install</td></tr>
+<tr><td>M-Future Plant</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Project Coordinates</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of the coordinate values of the survey and project base points, elevation, and true north.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 5</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th><th>Value</th></tr>
+<tr><td>Project Base Point Coordinate</td><td>530116100 E/W  |  177588900 N/S</td></tr>
+<tr><td>Project Base Point Elevation</td><td>0</td></tr>
+<tr><td>Project Base Point Rotation</td><td>322°</td></tr>
+<tr><td>Survey Point Coordinate</td><td>529909250 E/W  |  177397210 N/S</td></tr>
+<tr><td>Survey Point Elevation</td><td>2625</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">External Files</div>
+        <div class="structureBreakdown">5 Checks, 5 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to linked and imported files in the model.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Linked Revit Files and Their Link Method</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of the link method (overlay vs. attach) for each Revit link in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Linked CAD Files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all linked CAD files in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Imported CAD files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all CAD files that were Imported and not Linked.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Imported SKP files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all imported SKP files in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Raster Images</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all raster images placed in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Raster Images : JRL-ARK.JPG (2)</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Levels and Grids</div>
+        <div class="structureBreakdown">2 Checks, 2 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to datum and location elements in the model.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Levels</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all level elements in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 11</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Grids</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all grid elements in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 29</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Views</div>
+        <div class="structureBreakdown">3 Checks, 3 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to views in the model.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Views</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all views.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>3D View - NWC IFC (Export)</td></tr>
+<tr><td>Elevation - Elevation 1 - a</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Sheets</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all sheets in the model. Sheets typically do not impact model size, but too many unmanaged views can impact user efficiency.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Schedules</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all schedules in the model. Schedules typically do not impact model size, but too many unmanaged views can impact user efficiency.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 63</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Model Elements</div>
+        <div class="structureBreakdown">25 Checks, 0 <Span Foreground="#DD2222">(0%)</Span> Pass, 4 Fail, 21 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to model elements in the model.</div>
+    <div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Arch System Families</div>
+        <div class="structureBreakdown">10 Checks, 10 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of architectural system families in the model</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Ceiling Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all ceiling family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 3</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ceilings : Type : 116Thick Ins</td></tr>
+<tr><td>Ceilings : Type : 600 x 600mm Grid</td></tr>
+<tr><td>Ceilings : Type : Generic</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Curtain System</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all architectural curtain system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Curtain Systems : Type : 1500 x 3000mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Curtain Wall Mullion Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all curtain wall mullion family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Floor Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all floor family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 14</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Floors : Type : 40mm Screed</td></tr>
+<tr><td>Floors : Type : Chiller Mounting Pads</td></tr>
+<tr><td>Floors : Type : Generic 1200mm</td></tr>
+<tr><td>Floors : Type : Generic 1500mm</td></tr>
+<tr><td>Floors : Type : Generic 1550mm</td></tr>
+<tr><td>Floors : Type : Generic 1750mm</td></tr>
+<tr><td>Floors : Type : Generic 1925mm</td></tr>
+<tr><td>Floors : Type : Generic 200mm</td></tr>
+<tr><td>Floors : Type : Generic 250mm</td></tr>
+<tr><td>Floors : Type : Generic 300mm</td></tr>
+<tr><td>Floors : Type : Generic 400mm</td></tr>
+<tr><td>Floors : Type : Generic 450mm</td></tr>
+<tr><td>Floors : Type : Generic 700mm</td></tr>
+<tr><td>Floors : Type : PLinth 300</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Railing Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all railing family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Railings : Type : 1100mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Ramp Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all ramp family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ramps : Type : Ramp 1</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Roof Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all roof family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Roofs : Type : Generic - 400mm</td></tr>
+<tr><td>Roofs : Type : Sloped Glazing</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Site Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all site family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Stair Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all stair family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 4</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Stairs : Type : 190mm max riser 250mm going</td></tr>
+<tr><td>Stairs : Type : 190mm max riser 250mm going</td></tr>
+<tr><td>Stairs : Type : Cast-In-Place Stair</td></tr>
+<tr><td>Stairs : Type : Precast Stair</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Wall Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all wall family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 25</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Walls : Type : Concrete Structural</td></tr>
+<tr><td>Walls : Type : Concrete Structural Wall - 1000mm Thk</td></tr>
+<tr><td>Walls : Type : Concrete Structural Wall - 1500mm Thk</td></tr>
+<tr><td>Walls : Type : Concrete Structural Wall - 200mm Thk</td></tr>
+<tr><td>Walls : Type : Concrete Structural Wall - 350mm Thk</td></tr>
+<tr><td>Walls : Type : Concrete Structural Wall - 400mm Thk</td></tr>
+<tr><td>Walls : Type : Concrete Structural Wall - 450mm Thk</td></tr>
+<tr><td>Walls : Type : Concrete Structural Wall - 500mm Thk</td></tr>
+<tr><td>Walls : Type : Exterior - Block on Mtl. Stud</td></tr>
+<tr><td>Walls : Type : Exterior - Blockwork - 140mm</td></tr>
+<tr><td>Walls : Type : Exterior - Blockwork - 215mm</td></tr>
+<tr><td>Walls : Type : Exterior - Blockwork - 225mm</td></tr>
+<tr><td>Walls : Type : Exterior - Blockwork - 450mm</td></tr>
+<tr><td>Walls : Type : Exterior - Blockwork - 525mm</td></tr>
+<tr><td>Walls : Type : Exterior - Brick on Mtl. Stud</td></tr>
+<tr><td>Walls : Type : Exterior Glazing</td></tr>
+<tr><td>Walls : Type : Generic - 100mm</td></tr>
+<tr><td>Walls : Type : Generic - 100mm Blockwork</td></tr>
+<tr><td>Walls : Type : Generic - 140mm</td></tr>
+<tr><td>Walls : Type : Generic - 140mm Blockwork</td></tr>
+<tr><td>Walls : Type : Generic - 200mm</td></tr>
+<tr><td>Walls : Type : Generic - 250</td></tr>
+<tr><td>Walls : Type : Generic - 300mm</td></tr>
+<tr><td>Walls : Type : Generic - 90mm Brick</td></tr>
+<tr><td>Walls : Type : Generic - Boxing out</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">MEP System Families</div>
+        <div class="structureBreakdown">9 Checks, 0 <Span Foreground="#DD2222">(0%)</Span> Pass, 3 Fail, 6 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of MEP system families in the model</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all duct family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 19</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ducts : Type : Boiler Flue</td></tr>
+<tr><td>Ducts : Type : Flanged Mitred Bend / Shoe Branch</td></tr>
+<tr><td>Ducts : Type : Flanged Radius Bend / Shoe Branch</td></tr>
+<tr><td>Ducts : Type : Flanged Square Bend / Tap</td></tr>
+<tr><td>Ducts : Type : Flanged Square Bend / Tee</td></tr>
+<tr><td>Ducts : Type : Flue</td></tr>
+<tr><td>Ducts : Type : MEE_OvalDuct</td></tr>
+<tr><td>Ducts : Type : MEE_RectangularDuct_DurasteelBox</td></tr>
+<tr><td>Ducts : Type : MEE_RectangularDuct_RadiusBend</td></tr>
+<tr><td>Ducts : Type : MEE_RectangularDuct_SquareBend</td></tr>
+<tr><td>Ducts : Type : Pressed Radius Bend / Shoe Branch</td></tr>
+<tr><td>Ducts : Type : Segmented Bend  / Shoe Branch</td></tr>
+<tr><td>Ducts : Type : Segmented Bend / Equal Tee</td></tr>
+<tr><td>Ducts : Type : Segmented Bend / shoe</td></tr>
+<tr><td>Ducts : Type : Segmented Bend / Tee</td></tr>
+<tr><td>Ducts : Type : Slip Joint Radius Bend / Tap</td></tr>
+<tr><td>Ducts : Type : Slip Joint Square Bend / Tap</td></tr>
+<tr><td>Ducts : Type : Slip Pressed Radius Bend / Shoe Branch</td></tr>
+<tr><td>Ducts : Type : Taps / Tees - Short Radius Bends</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct System Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all duct system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 18</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Duct Systems : Type : BOILER FLUE</td></tr>
+<tr><td>Duct Systems : Type : DURASTEEL</td></tr>
+<tr><td>Duct Systems : Type : EA</td></tr>
+<tr><td>Duct Systems : Type : FA</td></tr>
+<tr><td>Duct Systems : Type : FLUES</td></tr>
+<tr><td>Duct Systems : Type : KE</td></tr>
+<tr><td>Duct Systems : Type : KHE</td></tr>
+<tr><td>Duct Systems : Type : KS</td></tr>
+<tr><td>Duct Systems : Type : RA</td></tr>
+<tr><td>Duct Systems : Type : SA</td></tr>
+<tr><td>Duct Systems : Type : SE</td></tr>
+<tr><td>Duct Systems : Type : Ss_65_40_33_50 - Extract</td></tr>
+<tr><td>Duct Systems : Type : Ss_65_40_33_51 - Acoustic Louvre</td></tr>
+<tr><td>Duct Systems : Type : Ss_65_40_33_51 - Supply</td></tr>
+<tr><td>Duct Systems : Type : Ss_65_40_80_80 - Flue</td></tr>
+<tr><td>Duct Systems : Type : TE</td></tr>
+<tr><td>Duct Systems : Type : TS</td></tr>
+<tr><td>Duct Systems : Type : Zz_50_90 - Service Zone</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Fail_26.png" alt="FAIL" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any duct related elements that have a blank System Name.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">There are duct related elements that have a blank System Name.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 15</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Category</th><th>Family</th><th>Type</th><th>Name</th><th>ID</th></tr>
+<tr><td>Air Terminals</td><td>MEE_ExtractGrille_WallRectangular</td><td>HL_ExtractGrille_WallRectangular</td><td>Air Terminals : MEE_ExtractGrille_WallRectangular : HL_ExtractGrille_WallRectangular</td><td>7705787</td></tr>
+<tr><td>Duct Accessories</td><td>Motorised Damper - Round</td><td>NRD</td><td>Duct Accessories : Motorised Damper - Round : NRD</td><td>6938098</td></tr>
+<tr><td>Mechanical Equipment</td><td>Hoval-UltraGas Boiler</td><td>UltraGas 2300D</td><td>Mechanical Equipment : Hoval-UltraGas Boiler : UltraGas 2300D</td><td>6298259</td></tr>
+<tr><td>Mechanical Equipment</td><td>Hoval-UltraGas Boiler</td><td>UltraGas 2300D</td><td>Mechanical Equipment : Hoval-UltraGas Boiler : UltraGas 2300D</td><td>6298260</td></tr>
+<tr><td>Mechanical Equipment</td><td>Hoval-UltraGas Boiler</td><td>UltraGas 2300D</td><td>Mechanical Equipment : Hoval-UltraGas Boiler : UltraGas 2300D</td><td>6298847</td></tr>
+<tr><td>Mechanical Equipment</td><td>Hoval-UltraGas Boiler</td><td>UltraGas 2300D</td><td>Mechanical Equipment : Hoval-UltraGas Boiler : UltraGas 2300D</td><td>6298849</td></tr>
+<tr><td>Mechanical Equipment</td><td>Hoval-UltraGas Boiler</td><td>UltraGas 2300D</td><td>Mechanical Equipment : Hoval-UltraGas Boiler : UltraGas 2300D</td><td>6298850</td></tr>
+<tr><td>Mechanical Equipment</td><td>Hoval-UltraGas Boiler</td><td>UltraGas 2300D</td><td>Mechanical Equipment : Hoval-UltraGas Boiler : UltraGas 2300D</td><td>6298848</td></tr>
+<tr><td>Mechanical Equipment</td><td>Hoval-UltraGas Boiler</td><td>UltraGas 2300D</td><td>Mechanical Equipment : Hoval-UltraGas Boiler : UltraGas 2300D</td><td>6298261</td></tr>
+<tr><td>Mechanical Equipment</td><td>Hoval-UltraGas Boiler</td><td>UltraGas 2300D</td><td>Mechanical Equipment : Hoval-UltraGas Boiler : UltraGas 2300D</td><td>6297897</td></tr>
+<tr><td>Mechanical Equipment</td><td>Ventilation_System-Breathing_Buildings-Passive_Stack-14</td><td>PSS600 (Penthouse Louvre Terminal)</td><td>Mechanical Equipment : Ventilation_System-Breathing_Buildings-Passive_Stack-14 : PSS600 (Penthouse Louvre Terminal)</td><td>3293515</td></tr>
+<tr><td>Mechanical Equipment</td><td>Ventilation_System-Breathing_Buildings-Passive_Stack-14</td><td>PSS600 (Penthouse Louvre Terminal)</td><td>Mechanical Equipment : Ventilation_System-Breathing_Buildings-Passive_Stack-14 : PSS600 (Penthouse Louvre Terminal)</td><td>3292728</td></tr>
+<tr><td>Mechanical Equipment</td><td>Ventilation_System-Breathing_Buildings-Passive_Stack-14</td><td>PSS600 (Penthouse Louvre Terminal) 1000x1000</td><td>Mechanical Equipment : Ventilation_System-Breathing_Buildings-Passive_Stack-14 : PSS600 (Penthouse Louvre Terminal) 1000x1000</td><td>7592977</td></tr>
+<tr><td>Mechanical Equipment</td><td>Ventilation_System-Breathing_Buildings-Passive_Stack-14</td><td>PSS600 (Penthouse Louvre Terminal) 1000x1000</td><td>Mechanical Equipment : Ventilation_System-Breathing_Buildings-Passive_Stack-14 : PSS600 (Penthouse Louvre Terminal) 1000x1000</td><td>3297061</td></tr>
+<tr><td>Mechanical Equipment</td><td>Ventilation_System-Breathing_Buildings-Passive_Stack-14</td><td>PSS600 (Penthouse Louvre Terminal) 1000x1000</td><td>Mechanical Equipment : Ventilation_System-Breathing_Buildings-Passive_Stack-14 : PSS600 (Penthouse Louvre Terminal) 1000x1000</td><td>3297035</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Flex Duct Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all flex duct family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 4</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Flex Ducts : Type : Flex - Rectangular</td></tr>
+<tr><td>Flex Ducts : Type : Flex - Round</td></tr>
+<tr><td>Flex Ducts : Type : MEE_FlexibleRectangularDuct</td></tr>
+<tr><td>Flex Ducts : Type : MEE_FlexibleRoundDuct</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Flex Pipe Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all flex pipe family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Flex Pipes : Type : Flex - Round</td></tr>
+<tr><td>Flex Pipes : Type : MEE_FlexPipe</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Pipe Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all pipe family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 30</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Pipes : Type : BCWS</td></tr>
+<tr><td>Pipes : Type : Carbon Steel MS Black Welded & Threaded - Tap</td></tr>
+<tr><td>Pipes : Type : Carbon Steel MS Black Welded & Threaded - Tee</td></tr>
+<tr><td>Pipes : Type : Carbon Steel MS Black Welded & Threaded Flanged</td></tr>
+<tr><td>Pipes : Type : Cast Iron Drainage</td></tr>
+<tr><td>Pipes : Type : Copper</td></tr>
+<tr><td>Pipes : Type : Copper Soldered</td></tr>
+<tr><td>Pipes : Type : Default</td></tr>
+<tr><td>Pipes : Type : Ensign Soil Pipe</td></tr>
+<tr><td>Pipes : Type : Geberit PE-HD (DN sizes)</td></tr>
+<tr><td>Pipes : Type : Geberit PE-HD (OD sizes)</td></tr>
+<tr><td>Pipes : Type : Geberit Silent-PP (DN sizes)</td></tr>
+<tr><td>Pipes : Type : Geberit Silent-PP (OD sizes)</td></tr>
+<tr><td>Pipes : Type : HDPE</td></tr>
+<tr><td>Pipes : Type : HDPE Geberit</td></tr>
+<tr><td>Pipes : Type : HL Standard Steel</td></tr>
+<tr><td>Pipes : Type : MEE_Pipe_CarbonSteel - Galvanised</td></tr>
+<tr><td>Pipes : Type : MEE_Pipe_CarbonSteel - Medium</td></tr>
+<tr><td>Pipes : Type : MEE_Pipe_CarbonSteel - Steam</td></tr>
+<tr><td>Pipes : Type : MEE_Pipe_CarbonSteel - Thin Wall</td></tr>
+<tr><td>Pipes : Type : MEE_Pipe_CarbonSteel - Wet Riser</td></tr>
+<tr><td>Pipes : Type : MEE_Pipe_Copper - 6 Bar</td></tr>
+<tr><td>Pipes : Type : MEE_Pipe_CPVC</td></tr>
+<tr><td>Pipes : Type : MEE_Pipe_Generic</td></tr>
+<tr><td>Pipes : Type : MEE_Pipe_UPVC</td></tr>
+<tr><td>Pipes : Type : Plastic</td></tr>
+<tr><td>Pipes : Type : Standard</td></tr>
+<tr><td>Pipes : Type : Steel</td></tr>
+<tr><td>Pipes : Type : Valsir HDPE SDR26</td></tr>
+<tr><td>Pipes : Type : Valsir HDPE SDR33</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Piping System Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all piping system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 73</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Piping Systems : Type : -</td></tr>
+<tr><td>Piping Systems : Type : ASP</td></tr>
+<tr><td>Piping Systems : Type : BCWS</td></tr>
+<tr><td>Piping Systems : Type : BIS</td></tr>
+<tr><td>Piping Systems : Type : BMWS</td></tr>
+<tr><td>Piping Systems : Type : CHW F</td></tr>
+<tr><td>Piping Systems : Type : CHW R</td></tr>
+<tr><td>Piping Systems : Type : CON F</td></tr>
+<tr><td>Piping Systems : Type : CON R</td></tr>
+<tr><td>Piping Systems : Type : COND</td></tr>
+<tr><td>Piping Systems : Type : Condensate</td></tr>
+<tr><td>Piping Systems : Type : CWS</td></tr>
+<tr><td>Piping Systems : Type : DC F</td></tr>
+<tr><td>Piping Systems : Type : DC R</td></tr>
+<tr><td>Piping Systems : Type : DCWS</td></tr>
+<tr><td>Piping Systems : Type : DH F</td></tr>
+<tr><td>Piping Systems : Type : DH R</td></tr>
+<tr><td>Piping Systems : Type : Domestic Cold Water</td></tr>
+<tr><td>Piping Systems : Type : Domestic Hot Water</td></tr>
+<tr><td>Piping Systems : Type : DRY RISER</td></tr>
+<tr><td>Piping Systems : Type : ELV DUCT</td></tr>
+<tr><td>Piping Systems : Type : Exp' Line</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Dry</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Other</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Pre-Action</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Wet</td></tr>
+<tr><td>Piping Systems : Type : FWD</td></tr>
+<tr><td>Piping Systems : Type : GAS</td></tr>
+<tr><td>Piping Systems : Type : HR</td></tr>
+<tr><td>Piping Systems : Type : HV DUCT</td></tr>
+<tr><td>Piping Systems : Type : HWS F</td></tr>
+<tr><td>Piping Systems : Type : HWS R</td></tr>
+<tr><td>Piping Systems : Type : Hydronic Return</td></tr>
+<tr><td>Piping Systems : Type : Hydronic Supply</td></tr>
+<tr><td>Piping Systems : Type : IRR</td></tr>
+<tr><td>Piping Systems : Type : LTHW F</td></tr>
+<tr><td>Piping Systems : Type : LTHW R</td></tr>
+<tr><td>Piping Systems : Type : LTHWR</td></tr>
+<tr><td>Piping Systems : Type : LV DUCT</td></tr>
+<tr><td>Piping Systems : Type : MCWS</td></tr>
+<tr><td>Piping Systems : Type : MWS</td></tr>
+<tr><td>Piping Systems : Type : Other</td></tr>
+<tr><td>Piping Systems : Type : OVERFLOW</td></tr>
+<tr><td>Piping Systems : Type : Pree Unit Pipework</td></tr>
+<tr><td>Piping Systems : Type : RWP</td></tr>
+<tr><td>Piping Systems : Type : RWSP</td></tr>
+<tr><td>Piping Systems : Type : Sanitary</td></tr>
+<tr><td>Piping Systems : Type : Sanitry</td></tr>
+<tr><td>Piping Systems : Type : SP</td></tr>
+<tr><td>Piping Systems : Type : Sprink</td></tr>
+<tr><td>Piping Systems : Type : SS</td></tr>
+<tr><td>Piping Systems : Type : Ss_50_30_04_97 - Discharge</td></tr>
+<tr><td>Piping Systems : Type : Ss_50_30_04_97 - Vent</td></tr>
+<tr><td>Piping Systems : Type : Ss_55_20_15 - CA</td></tr>
+<tr><td>Piping Systems : Type : Ss_55_20_34_57 - Natural Gas</td></tr>
+<tr><td>Piping Systems : Type : Ss_55_30_35_10 - Gas Fire Extinguishing</td></tr>
+<tr><td>Piping Systems : Type : Ss_55_30_96_25 - Dry Riser</td></tr>
+<tr><td>Piping Systems : Type : Ss_55_30_96_85 - Sprinkler</td></tr>
+<tr><td>Piping Systems : Type : Ss_55_70_38_15 - BCWS</td></tr>
+<tr><td>Piping Systems : Type : Ss_55_70_38_15 - CAT 5</td></tr>
+<tr><td>Piping Systems : Type : Ss_55_70_38_20 - DHWSF</td></tr>
+<tr><td>Piping Systems : Type : Ss_60_40_17_12 - CHWF</td></tr>
+<tr><td>Piping Systems : Type : Ss_60_40_17_12 - CHWR</td></tr>
+<tr><td>Piping Systems : Type : Ss_60_40_37_48 - CT LTHWF</td></tr>
+<tr><td>Piping Systems : Type : Ss_60_40_37_48 - CT LTHWR</td></tr>
+<tr><td>Piping Systems : Type : STP</td></tr>
+<tr><td>Piping Systems : Type : SVP</td></tr>
+<tr><td>Piping Systems : Type : SWD</td></tr>
+<tr><td>Piping Systems : Type : Vent</td></tr>
+<tr><td>Piping Systems : Type : VP</td></tr>
+<tr><td>Piping Systems : Type : WP</td></tr>
+<tr><td>Piping Systems : Type : WR</td></tr>
+<tr><td>Piping Systems : Type : WVP</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Fail_26.png" alt="FAIL" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Piping Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any piping related elements that have a blank System Name.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">There are piping related elements that that have a blank System Name.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 48</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Category</th><th>Family</th><th>Type</th><th>Name</th><th>ID</th></tr>
+<tr><td>Pipe Accessories</td><td>Pipe-Valve-Hattersley-Hatt_113_Full_Bore_Broze_Ball_Valve</td><td>2"</td><td>Pipe Accessories : Pipe-Valve-Hattersley-Hatt_113_Full_Bore_Broze_Ball_Valve : 2"</td><td>5338216</td></tr>
+<tr><td>Pipe Accessories</td><td>Pipe-Valve-Hattersley-Hatt_113_Full_Bore_Broze_Ball_Valve</td><td>2"</td><td>Pipe Accessories : Pipe-Valve-Hattersley-Hatt_113_Full_Bore_Broze_Ball_Valve : 2"</td><td>5325492</td></tr>
+<tr><td>Pipe Accessories</td><td>Pipe-Valve-Hattersley-Hatt_113_Full_Bore_Broze_Ball_Valve</td><td>2"</td><td>Pipe Accessories : Pipe-Valve-Hattersley-Hatt_113_Full_Bore_Broze_Ball_Valve : 2"</td><td>5338361</td></tr>
+<tr><td>Pipe Accessories</td><td>Pipe-Valve-Hattersley-Hatt_113_Full_Bore_Broze_Ball_Valve</td><td>2"</td><td>Pipe Accessories : Pipe-Valve-Hattersley-Hatt_113_Full_Bore_Broze_Ball_Valve : 2"</td><td>5325209</td></tr>
+<tr><td>Pipe Accessories</td><td>Safety relief valve_Caleffi_527 DN32</td><td>DN125</td><td>Pipe Accessories : Safety relief valve_Caleffi_527 DN32 : DN125</td><td>7552095</td></tr>
+<tr><td>Pipe Accessories</td><td>Test Point</td><td>Test Point</td><td>Pipe Accessories : Test Point : Test Point</td><td>6515334</td></tr>
+<tr><td>Pipe Fittings</td><td>Elbow - Butt Welded - CS</td><td>Standard</td><td>Pipe Fittings : Elbow - Butt Welded - CS : Standard</td><td>3131995</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Blind - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Blind - Steel - PN 16 : Standard</td><td>5020375</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Blind - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Blind - Steel - PN 16 : Standard</td><td>5020373</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5735642</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5735577</td></tr>
+<tr><td>Pipe Fittings</td><td>Reducer Concentric - Butt Welded - CS</td><td>Standard</td><td>Pipe Fittings : Reducer Concentric - Butt Welded - CS : Standard</td><td>7081910</td></tr>
+<tr><td>Pipe Fittings</td><td>Tee - Butt Welded - CS</td><td>Standard</td><td>Pipe Fittings : Tee - Butt Welded - CS : Standard</td><td>3115997</td></tr>
+<tr><td>Pipe Fittings</td><td>Tee Branch Reduced - Butt Welded - CS</td><td>Standard</td><td>Pipe Fittings : Tee Branch Reduced - Butt Welded - CS : Standard</td><td>5624611</td></tr>
+<tr><td>Pipe Fittings</td><td>Victaulic-Grooved Coupling OGS-AGS</td><td>Standard</td><td>Pipe Fittings : Victaulic-Grooved Coupling OGS-AGS : Standard</td><td>2934884</td></tr>
+<tr><td>Pipe Fittings</td><td>Victaulic-Grooved Coupling OGS-AGS</td><td>Standard</td><td>Pipe Fittings : Victaulic-Grooved Coupling OGS-AGS : Standard</td><td>2934885</td></tr>
+<tr><td>Pipe Fittings</td><td>Victaulic-Grooved Coupling OGS-AGS</td><td>Standard</td><td>Pipe Fittings : Victaulic-Grooved Coupling OGS-AGS : Standard</td><td>2934883</td></tr>
+<tr><td>Pipes</td><td></td><td>Carbon Steel MS Black Welded & Threaded Flanged</td><td>Pipes : Carbon Steel MS Black Welded & Threaded Flanged</td><td>5020369</td></tr>
+<tr><td>Pipes</td><td></td><td>Carbon Steel MS Black Welded & Threaded Flanged</td><td>Pipes : Carbon Steel MS Black Welded & Threaded Flanged</td><td>5020367</td></tr>
+<tr><td>Pipes</td><td></td><td>HL Standard Steel</td><td>Pipes : HL Standard Steel</td><td>3042591</td></tr>
+<tr><td>Pipes</td><td></td><td>HL Standard Steel</td><td>Pipes : HL Standard Steel</td><td>2691075</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>6269828</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>6270165</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>6530530</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>6269962</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>5627273</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3584757</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3584765</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3584828</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3584838</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3585037</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3585055</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3585063</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3585136</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3585424</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3585485</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>5463322</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3585392</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3585047</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3584773</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3584657</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3584667</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3584705</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3584713</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3584641</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3584649</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3584633</td></tr>
+<tr><td>Plumbing Fixtures</td><td>MEE_FloorOutlet_VerticalSpigot</td><td>250x250 Grate 100 Connection</td><td>Plumbing Fixtures : MEE_FloorOutlet_VerticalSpigot : 250x250 Grate 100 Connection</td><td>3584400</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Fail_26.png" alt="FAIL" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Electrical Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any electrical related elements that have a blank Panel Name or Circuit Number.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">There are electrical related elements that have a blank Panel Name or Circuit Number.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 262</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Category</th><th>Family</th><th>Type</th><th>Name</th><th>ID</th></tr>
+<tr><td>Electrical Equipment</td><td>Submain Distribution Board</td><td>9WAY 630ATP+N</td><td>Electrical Equipment : Submain Distribution Board : 9WAY 630ATP+N</td><td>2974805</td></tr>
+<tr><td>Electrical Equipment</td><td>Submain Distribution Board</td><td>EC-FD-01</td><td>Electrical Equipment : Submain Distribution Board : EC-FD-01</td><td>7658706</td></tr>
+<tr><td>Electrical Equipment</td><td>Submain Distribution Board</td><td>EC-FD-01</td><td>Electrical Equipment : Submain Distribution Board : EC-FD-01</td><td>7526605</td></tr>
+<tr><td>Electrical Equipment</td><td>Submain Distribution Board</td><td>LTHW/BOILERS MCP</td><td>Electrical Equipment : Submain Distribution Board : LTHW/BOILERS MCP</td><td>4815979</td></tr>
+<tr><td>Electrical Equipment</td><td>Submain Distribution Board</td><td>MCP-CHW</td><td>Electrical Equipment : Submain Distribution Board : MCP-CHW</td><td>3126288</td></tr>
+<tr><td>Electrical Equipment</td><td>Submain Distribution Board</td><td>MCP-LTHW</td><td>Electrical Equipment : Submain Distribution Board : MCP-LTHW</td><td>7080287</td></tr>
+<tr><td>Electrical Equipment</td><td>Submain Distribution Board</td><td>MCP-SMOKE VENT</td><td>Electrical Equipment : Submain Distribution Board : MCP-SMOKE VENT</td><td>3240664</td></tr>
+<tr><td>Electrical Equipment</td><td>Submain Distribution Board</td><td>MCP-VENT - 1</td><td>Electrical Equipment : Submain Distribution Board : MCP-VENT - 1</td><td>5841570</td></tr>
+<tr><td>Electrical Equipment</td><td>Submain Distribution Board</td><td>MDB-CH</td><td>Electrical Equipment : Submain Distribution Board : MDB-CH</td><td>3240601</td></tr>
+<tr><td>Electrical Equipment</td><td>Submain Distribution Board</td><td>MDB-EC</td><td>Electrical Equipment : Submain Distribution Board : MDB-EC</td><td>3240599</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator(TBC)...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator(TBC)... : 3 Phase Isolator</td><td>7547024</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator(TBC)...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator(TBC)... : 3 Phase Isolator</td><td>7547358</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator(TBC)...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator(TBC)... : 3 Phase Isolator</td><td>7547272</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator(TBC)...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator(TBC)... : 3 Phase Isolator</td><td>7547001</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7541860</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7542288</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7541902</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7547433</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7547770</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7547634</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7547411</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7541890</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7541708</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7541522</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562566</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562589</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562618</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562649</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562712</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562717</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562715</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562711</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562708</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562699</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562697</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562695</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562652</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562646</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562645</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562636</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562635</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562634</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562617</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562613</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562602</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562600</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562599</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562587</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562581</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562577</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562575</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562570</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562568</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562553</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562552</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562551</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7547886</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7547862</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562721</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562733</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562742</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7563174</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7563385</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7563366</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7563281</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562913</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562793</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562739</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562736</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562734</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562730</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562728</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562723</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7562719</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>3 Phase Isolator</td><td>Electrical Fixtures : Isolator... : 3 Phase Isolator</td><td>7541017</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>No Rating</td><td>Electrical Fixtures : Isolator... : No Rating</td><td>7542235</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>Single Phase Isolator</td><td>Electrical Fixtures : Isolator... : Single Phase Isolator</td><td>7542913</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>Single Phase Isolator</td><td>Electrical Fixtures : Isolator... : Single Phase Isolator</td><td>7543047</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>Single Phase Isolator</td><td>Electrical Fixtures : Isolator... : Single Phase Isolator</td><td>7562743</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>Single Phase Isolator</td><td>Electrical Fixtures : Isolator... : Single Phase Isolator</td><td>7547572</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>Single Phase Isolator</td><td>Electrical Fixtures : Isolator... : Single Phase Isolator</td><td>7543293</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>Single Phase Isolator</td><td>Electrical Fixtures : Isolator... : Single Phase Isolator</td><td>7542999</td></tr>
+<tr><td>Electrical Fixtures</td><td>Isolator...</td><td>Single Phase Isolator</td><td>Electrical Fixtures : Isolator... : Single Phase Isolator</td><td>7542062</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6246147</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>7562639</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6910935</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>7562622</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>7562624</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>7562620</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6910965</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6910947</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6910923</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6910881</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6910869</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6910849</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>7700655</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>7700737</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>7700792</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>7700689</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>7700617</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>7700549</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>7698315</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>7565080</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>7562664</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>7562583</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6910833</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6910817</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6910754</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6245876</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6911243</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6955536</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6955517</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6911177</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6911131</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6911117</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6911044</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6911019</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Switched</td><td>Standard - Switched</td><td>Electrical Fixtures : ME Fused Switched : Standard - Switched</td><td>6245808</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Unswitched</td><td>Standard</td><td>Electrical Fixtures : ME Fused Unswitched : Standard</td><td>6276009</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Fused Unswitched</td><td>Standard</td><td>Electrical Fixtures : ME Fused Unswitched : Standard</td><td>6275958</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Isolator -1</td><td>400 V - Fusible 30 A</td><td>Electrical Fixtures : ME Isolator -1 : 400 V - Fusible 30 A</td><td>6906508</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034339</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034312</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034426</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034393</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034375</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034343</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034430</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034473</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034494</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5454520</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5454514</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5454488</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>7564175</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>7564298</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>7564260</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034492</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034490</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034488</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034480</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034478</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034463</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034458</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034445</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034439</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034437</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034435</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034433</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034428</td></tr>
+<tr><td>Electrical Fixtures</td><td>ME Twin Switched Socket Outlet</td><td>Standard</td><td>Electrical Fixtures : ME Twin Switched Socket Outlet : Standard</td><td>5034294</td></tr>
+<tr><td>Lighting Devices</td><td>Lighting Switches.0001</td><td>One Way Switch</td><td>Lighting Devices : Lighting Switches.0001 : One Way Switch</td><td>5462932</td></tr>
+<tr><td>Lighting Devices</td><td>Lighting Switches.0001</td><td>One Way Switch</td><td>Lighting Devices : Lighting Switches.0001 : One Way Switch</td><td>5463218</td></tr>
+<tr><td>Lighting Devices</td><td>Lighting Switches.0001</td><td>One Way Switch</td><td>Lighting Devices : Lighting Switches.0001 : One Way Switch</td><td>5463150</td></tr>
+<tr><td>Lighting Devices</td><td>Lighting Switches.0001</td><td>One Way Switch</td><td>Lighting Devices : Lighting Switches.0001 : One Way Switch</td><td>5463053</td></tr>
+<tr><td>Lighting Devices</td><td>Lighting Switches.0001</td><td>One Way Switch</td><td>Lighting Devices : Lighting Switches.0001 : One Way Switch</td><td>5462747</td></tr>
+<tr><td>Lighting Devices</td><td>Lighting Switches.0001</td><td>One Way Switch</td><td>Lighting Devices : Lighting Switches.0001 : One Way Switch</td><td>5462426</td></tr>
+<tr><td>Lighting Devices</td><td>Lighting Switches.0001</td><td>One Way Switch</td><td>Lighting Devices : Lighting Switches.0001 : One Way Switch</td><td>6443263</td></tr>
+<tr><td>Lighting Devices</td><td>Lighting Switches.0001</td><td>One Way Switch</td><td>Lighting Devices : Lighting Switches.0001 : One Way Switch</td><td>5461977</td></tr>
+<tr><td>Lighting Devices</td><td>Lighting Switches.0001</td><td>One Way Switch</td><td>Lighting Devices : Lighting Switches.0001 : One Way Switch</td><td>5461759</td></tr>
+<tr><td>Lighting Devices</td><td>MEE_1 Gang 1 Way Switch</td><td>1Gang-2way</td><td>Lighting Devices : MEE_1 Gang 1 Way Switch : 1Gang-2way</td><td>3426473</td></tr>
+<tr><td>Lighting Devices</td><td>MEE_1 Gang 1 Way Switch</td><td>1Gang-2way</td><td>Lighting Devices : MEE_1 Gang 1 Way Switch : 1Gang-2way</td><td>3037442</td></tr>
+<tr><td>Lighting Devices</td><td>MEE_1 Gang 1 Way Switch</td><td>1Gang-2way</td><td>Lighting Devices : MEE_1 Gang 1 Way Switch : 1Gang-2way</td><td>3037404</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Ceiling Mounted Exit Luminaire</td><td>HL_Ceiling Mounted Exit Luminaire</td><td>Lighting Fixtures : MEE_Ceiling Mounted Exit Luminaire : HL_Ceiling Mounted Exit Luminaire</td><td>3046443</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Ceiling Mounted Exit Luminaire</td><td>HL_Ceiling Mounted Exit Luminaire</td><td>Lighting Fixtures : MEE_Ceiling Mounted Exit Luminaire : HL_Ceiling Mounted Exit Luminaire</td><td>3019606</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Ceiling Mounted Exit Luminaire</td><td>HL_Ceiling Mounted Exit Luminaire</td><td>Lighting Fixtures : MEE_Ceiling Mounted Exit Luminaire : HL_Ceiling Mounted Exit Luminaire</td><td>6166292</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Ceiling Mounted Exit Luminaire</td><td>HL_Ceiling Mounted Exit Luminaire</td><td>Lighting Fixtures : MEE_Ceiling Mounted Exit Luminaire : HL_Ceiling Mounted Exit Luminaire</td><td>3023907</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Ceiling Mounted Exit Luminaire</td><td>HL_Ceiling Mounted Exit Luminaire</td><td>Lighting Fixtures : MEE_Ceiling Mounted Exit Luminaire : HL_Ceiling Mounted Exit Luminaire</td><td>6287267</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Ceiling Mounted Exit Luminaire</td><td>HL_Ceiling Mounted Exit Luminaire</td><td>Lighting Fixtures : MEE_Ceiling Mounted Exit Luminaire : HL_Ceiling Mounted Exit Luminaire</td><td>3004497</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1</td><td>2956004</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1</td><td>2989364</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1</td><td>2989143</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1</td><td>2956105</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1</td><td>2956003</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>2956106</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>2989204</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>2984799</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>2984798</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>3347239</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>5040696</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>3611187</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>3612130</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>3631423</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>3611784</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>3611311</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>3347238</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>6537813</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>6537815</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>6537647</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>3347235</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>3341992</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>2984797</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>2984795</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L1/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L1/E</td><td>2955902</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954267</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954594</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954226</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954596</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954598</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954599</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954616</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954618</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954639</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954641</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954642</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2984727</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2984762</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>3026093</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2984726</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>3026755</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>3609238</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>3609839</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>3609884</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>3609374</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>3347930</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2984774</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>3027990</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>3116371</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>3116373</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>3027023</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2984776</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954655</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954657</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954659</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954640</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954638</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954597</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2 - 1500</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2 - 1500</td><td>2954207</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2954615</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2984761</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>5042740</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2984768</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2984777</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2984778</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>3026094</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>3026490</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>3027021</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>3631336</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>3028065</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>3347770</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>3116372</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>3116374</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>3116365</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>3028158</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>3027022</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>3026491</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2984779</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2984781</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2984782</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2984780</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2984775</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2984766</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2954656</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2954660</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2954658</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2954654</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2954619</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2954617</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2954258</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2954234</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2954216</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_Generic Linear Surface Mounted Luminaire wall based</td><td>L2/E</td><td>Lighting Fixtures : MEE_Generic Linear Surface Mounted Luminaire wall based : L2/E</td><td>2949053</td></tr>
+<tr><td>Lighting Fixtures</td><td>MEE_LinearLuminaire_WallDirect</td><td>Reference</td><td>Lighting Fixtures : MEE_LinearLuminaire_WallDirect : Reference</td><td>3626490</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Structural System Families</div>
+        <div class="structureBreakdown">4 Checks, 4 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of structural system families in the model</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Floor Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all floor family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 14</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Floors : Type : 40mm Screed</td></tr>
+<tr><td>Floors : Type : Chiller Mounting Pads</td></tr>
+<tr><td>Floors : Type : Generic 1200mm</td></tr>
+<tr><td>Floors : Type : Generic 1500mm</td></tr>
+<tr><td>Floors : Type : Generic 1550mm</td></tr>
+<tr><td>Floors : Type : Generic 1750mm</td></tr>
+<tr><td>Floors : Type : Generic 1925mm</td></tr>
+<tr><td>Floors : Type : Generic 200mm</td></tr>
+<tr><td>Floors : Type : Generic 250mm</td></tr>
+<tr><td>Floors : Type : Generic 300mm</td></tr>
+<tr><td>Floors : Type : Generic 400mm</td></tr>
+<tr><td>Floors : Type : Generic 450mm</td></tr>
+<tr><td>Floors : Type : Generic 700mm</td></tr>
+<tr><td>Floors : Type : PLinth 300</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Foundation Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all foundation family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 3</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Structural Foundations : Type : 100mm Foundation Slab</td></tr>
+<tr><td>Structural Foundations : Type : 150mm Foundation Slab</td></tr>
+<tr><td>Structural Foundations : Type : Bearing Footing - 900 x 300</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Rebar Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all rebar family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Wall Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all wall family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 25</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Walls : Type : Concrete Structural</td></tr>
+<tr><td>Walls : Type : Concrete Structural Wall - 1000mm Thk</td></tr>
+<tr><td>Walls : Type : Concrete Structural Wall - 1500mm Thk</td></tr>
+<tr><td>Walls : Type : Concrete Structural Wall - 200mm Thk</td></tr>
+<tr><td>Walls : Type : Concrete Structural Wall - 350mm Thk</td></tr>
+<tr><td>Walls : Type : Concrete Structural Wall - 400mm Thk</td></tr>
+<tr><td>Walls : Type : Concrete Structural Wall - 450mm Thk</td></tr>
+<tr><td>Walls : Type : Concrete Structural Wall - 500mm Thk</td></tr>
+<tr><td>Walls : Type : Exterior - Block on Mtl. Stud</td></tr>
+<tr><td>Walls : Type : Exterior - Blockwork - 140mm</td></tr>
+<tr><td>Walls : Type : Exterior - Blockwork - 215mm</td></tr>
+<tr><td>Walls : Type : Exterior - Blockwork - 225mm</td></tr>
+<tr><td>Walls : Type : Exterior - Blockwork - 450mm</td></tr>
+<tr><td>Walls : Type : Exterior - Blockwork - 525mm</td></tr>
+<tr><td>Walls : Type : Exterior - Brick on Mtl. Stud</td></tr>
+<tr><td>Walls : Type : Exterior Glazing</td></tr>
+<tr><td>Walls : Type : Generic - 100mm</td></tr>
+<tr><td>Walls : Type : Generic - 100mm Blockwork</td></tr>
+<tr><td>Walls : Type : Generic - 140mm</td></tr>
+<tr><td>Walls : Type : Generic - 140mm Blockwork</td></tr>
+<tr><td>Walls : Type : Generic - 200mm</td></tr>
+<tr><td>Walls : Type : Generic - 250</td></tr>
+<tr><td>Walls : Type : Generic - 300mm</td></tr>
+<tr><td>Walls : Type : Generic - 90mm Brick</td></tr>
+<tr><td>Walls : Type : Generic - Boxing out</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Fail_26.png" alt="FAIL" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duplicate Modeled Elements</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any modeled elements that are duplicates (identical elements at the same location and base level). Check will Fail if any duplicate element is found.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">Element is a duplicate at the same location and base level.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 46</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Category</th><th>Family</th><th>Type</th><th>Name</th><th>ID</th></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>4601516</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>4601692</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>4648967</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>4841173</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5023266</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5067758</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5067848</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5357310</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5357407</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5357789</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5357854</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5358024</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5358237</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5415804</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5637130</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5673433</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5685897</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5827343</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5931191</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5936169</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>6244108</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>6244218</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>6244220</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>6244110</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5936171</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5931193</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5827345</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5685899</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5673435</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5637132</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5415806</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5358239</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5358026</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5357856</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5357791</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5357409</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5357312</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5067850</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5067760</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>5023268</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>4841176</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>4648969</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>4601694</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>4601518</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>4601487</td></tr>
+<tr><td>Pipe Fittings</td><td>Flange - Weld Neck - Steel - PN 16</td><td>Standard</td><td>Pipe Fittings : Flange - Weld Neck - Steel - PN 16 : Standard</td><td>4601485</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Worksets and Elements</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all user worksets for a Revit model or indicates '*Not Workshared*' if worksharing is not enabled.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 20.557</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Count</th><th>Name</th></tr>
+<tr><td>16031</td><td>MEE-MEP-Services</td></tr>
+<tr><td>2682</td><td>MEP Services Future Install</td></tr>
+<tr><td>920</td><td>MEE-Shared levels & Grids</td></tr>
+<tr><td>637</td><td>MEE-Revit Structure</td></tr>
+<tr><td>156</td><td>Containemt Installed</td></tr>
+<tr><td>90</td><td>MEE-Revit Links</td></tr>
+<tr><td>41</td><td>M-Future Plant</td></tr>
+<tr><td>0</td><td>Future Services</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div>
+</div>
+    </div>
+</div>
+</body>
+</html>
