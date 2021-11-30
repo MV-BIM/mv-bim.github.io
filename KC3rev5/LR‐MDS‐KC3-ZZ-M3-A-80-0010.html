@@ -1,0 +1,1646 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Model Checker Report</title>
+    <style type="text/css">
+        /*  Name-agnostic definitions.
+ *  These definitions are just a copy of the definitions further below given a generic name.
+ *  This allows publishers to make a reference to "the page's default font" without having to
+ *  update hundreds of custom pages/styles to match the new name.
+ */
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-style: normal;
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-style: normal;
+            font-weight: 700;
+        }
+
+
+        /*  Generic "Artifakt" definitions.
+         *  An attempt will be made to map styles to appropriate font-faces when these are used.
+         *  See the definitions below if you wish to use a specific font.
+         */
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-style: normal;
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-style: normal;
+            font-weight: 700;
+        }
+
+
+        /*  "Artifakt Legend" definitions.
+         *   These definitions are for the "Artifakt Legend" series of font faces.
+         */
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendLight.svg#ArtifaktLegendLight') format('svg');
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendRegular.svg#ArtifaktLegendRegular') format('svg');
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendMedium.svg#ArtifaktLegendMedium') format('svg');
+            font-weight: 700;
+        }
+
+
+        /*  "Artifakt Element" definitions.
+         *   These definitions are for the "Artifakt Element" series of font faces.
+         */
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-weight: 700;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-italic.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementItalic.svg#ArtifaktElementItalic') format('svg');
+            font-style: italic;
+            font-weight: 400;
+        }
+    </style>
+    <style type="text/css">
+        body {
+            font: 100%/1.4 ADSK-Default, Verdana, Arial, Helvetica, sans-serif;
+            background: #f1f1f1;
+            margin: 0;
+            padding: 0;
+            color: #000;
+        }
+
+        h1, h2, h3, h4, h5, h6, p {
+            margin-top: 0; /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+            margin-bottom: 0;
+            padding-right: 0;
+            padding-left: 0; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+        }
+
+        h1, h3 {
+            color: white;
+        }
+
+        h1 {
+            font-family: "Artifakt Legend", Arial, sans-serif;
+            font-size: 1.5em;
+            margin: 0px;
+        }
+
+        a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+            border: none;
+        }
+
+        /* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+        a:link {
+            color: #414958;
+        }
+
+        a:visited {
+            color: #4E5869;
+        }
+
+        a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+            text-decoration: none;
+        }
+
+        /* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */
+        .container {
+            width: 100%;
+            max-width: 1260px; /* a max-width may be desirable to keep this layout from getting too wide on a large monitor. This keeps line length more readable. IE6 does not respect this declaration. */
+            min-width: 780px; /* a min-width may be desirable to keep this layout from getting too narrow. This keeps line length more readable in the side columns. IE6 does not respect this declaration. */
+            background: #f1f1f1;
+            margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
+        }
+
+        /* ~~the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo~~ */
+        .header {
+            background-color: #3b4453;
+            border-bottom: 1px black;
+            padding: 15px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .configContainer {
+            padding: 25px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+		
+		.imageContainer{
+		    width: 125px;
+			height: 125px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.checksetImage{
+		    max-width: 100%;
+			height: auto;
+		}
+
+        .resultData {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .tabBar {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 0 25px;
+        }
+
+        .tabItem {
+            margin-right: 15px;
+            background: #f9f9f9;
+            font-family: "Artifakt Element", Arial, sans-serif;
+            padding: 15px;
+            color: #bb7a14;
+        }
+
+        .tabItem a, .tabItem a:visited {
+            text-decoration: none;
+            color: #bb7a14;
+        }
+
+        .tabItemActive {
+            margin-right: 15px;
+            padding: 15px;
+            background: white;
+            font-family: "Artifakt Element", Arial, sans-serif;
+            color: #bb7a14;
+        }
+
+        .tabItemActive a, .tabItemActive a:visited {
+            text-decoration: none;
+            color: #bb7a14;
+        }
+
+        .portalStandardText {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: lighter;
+        }
+
+        .portalHeadlineText {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .portal {
+            background: white;
+            margin: 0 25px 25px 25px;
+            padding: 15px;
+        }
+
+        .treeElement {
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+
+        .checkResult {
+            border: 1px black solid;
+            padding: 15px;
+            margin-top: 15px;
+            margin-left: 25px;
+            display: grid;
+            justify-content: flex-start;
+            grid-template-columns: auto 1fr;
+        }
+
+        .itemList {
+            width: 100%;
+        }
+
+        .itemList th {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: bold;
+            background: #f1f1f1;
+            padding: 0 10px;
+        }
+
+        .configData {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-column-gap: 15px;
+            margin-left: 15px
+        }
+
+        .passRate{
+            font-family: "Artifakt Legend", Arial, sans-serif;
+            font-weight: bold;
+            font-size: 4.5em;
+        }
+        .structureHeading{
+            display: flex;
+        }
+
+        .structureBreakdown{
+            flex: auto;
+            flex-grow: 0;
+            white-space: nowrap;
+            margin-left: 15px;
+        }
+
+        .structureHeadingText{
+            flex-grow: 1;
+        }
+
+        .overallShown{
+            display: grid;
+            grid-template-rows: auto auto auto;
+            margin: 0 25px;
+        }
+        .overallHidden{
+            display: none;
+        }
+
+        .resultLow {
+            color: rgb(221, 34, 34);
+        }
+
+        .resultHigh {
+            color: rgb(135, 188, 64);
+        }
+
+        .resultMedium {
+            color: rgb(250, 162, 77);
+        }
+
+        .tableScroll{
+            overflow: auto;
+            max-height: 350px;
+            margin-top: 15px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_ModelChecker_24.png" width="24" height="24" style="margin-right: 15px" alt="Autodesk Model Checker for Revit"/>
+        <h1>Autodesk Model Checker for Revit</h1>
+    </div>
+    <div class="configContainer">
+        <div class="imageContainer">
+		    <img src="H:\01_TECNICO_MVB-INT\03_LIBRARIES\BIM INTEROPERABILITY TOOLS\MDS Logo.PNG" class="checksetImage" 
+			onerror="this.src = 'https://www.biminteroperabilitytools.com/modelchecker/reports/HeroImage_ModelChecker.png';" 
+			alt="Checkset Image"/>
+		</div>
+        <div class="configData">
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Title</span><span class="portalStandardText">BIM Model Audit</span>
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Date</span><span class="portalStandardText">miércoles, 6 de octubre de 2021</span>
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Author</span><span class="portalStandardText">MV-BIM / MDS</span>
+            <span class="portalHeadlineText">Description</span><span
+                class="portalStandardText">Series of checks to review modeling best practices and integrity</span>
+        </div>
+    </div>
+    <div class="tabBar">
+        <div class="tabItemActive"><a href="LR‐MDS‐KC3-ZZ-M3-A-80-0010.html">LR‐MDS‐KC3-ZZ-M3-A-80-0010</a></div>
+    </div>
+    <div class="portal">
+        <div class="resultData">
+            <div class="overallShown">
+    <span class="passRate resultMedium" style="text-align: center">75%</span>
+</div>
+<div style="display: grid; grid-template-columns: auto auto; grid-column-gap: 15px; margin-left: 15px">
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Check Summary</span><span
+        class="portalStandardText">47 Checks, 3 <Span Foreground="#FAA24D">(75%)</Span> Pass, 1 Fail, 42 Count/List, <Span Foreground="#DD2222">1 Errors</Span></span>
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Report Date</span><span
+        class="portalStandardText">martes, 30 de noviembre de 2021 - 11:05:51</span>
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Revit Filepath</span><span
+        class="portalStandardText">H:\01_TECNICO_MVB-INT\01_PROJECTS\190820_Lots Road\Package 1\KC3\01_WIP\06_BIM Documents\02_BIM Audit Report\01_BIM Model Audit\05\01_Revit Models\LR‐MDS‐KC3-ZZ-M3-A-80-0010.rvt</span>
+    <span class="portalHeadlineText">Checkset File</span><span
+        class="portalStandardText">H:\01_TECNICO_MVB-INT\03_LIBRARIES\BIM INTEROPERABILITY TOOLS\BIM Model Audit.xml</span>
+</div>
+        </div>
+    </div>
+    <div class="portal" style="margin-top: 15px">
+        <div>
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">BIM Model Audit</div>
+        <div class="structureBreakdown">47 Checks, 3 <Span Foreground="#FAA24D">(75%)</Span> Pass, 1 Fail, 42 Count/List, <Span Foreground="#DD2222">1 Errors</Span></div>
+    </div>
+    <div class="portalStandardText"></div>
+    <div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Model Performance</div>
+        <div class="structureBreakdown">7 Checks, 6 Count/List, <Span Foreground="#DD2222">1 Errors</Span></div>
+    </div>
+    <div class="portalStandardText">Checks in this section help monitor the result of actions taken over the course of a model’s development, which can directly impact the model’s performance. Proper management of these items can improve model performance.</div>
+    <div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="CUSTOM RESULT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">File Size</div>
+        <div class="portalStandardText" style="text-align: left">RESULT of the file sizes for all reported Revit models in MB (megabytes).</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: 98,99 MB</div>
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Warnings</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all warnings in the model. Too many unresolved warnings can cause performance issues in a Revit model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 394</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Error_26.png" alt="ERROR" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Loadable Families</div>
+        <div class="portalStandardText" style="text-align: left">RESULT and LIST of the families in the project ordered by file size.</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: 33.968 KB</div>
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th><th>Value</th></tr>
+<tr><td>MVB_A_WIN_CW-Quadruple Glazed Swing</td><td>996 KB</td></tr>
+<tr><td>MVB_A_WIN_CW-Triple Glazed Swing</td><td>984 KB</td></tr>
+<tr><td>MVB_A_WIN_CW-Double Glazed Swing</td><td>972 KB</td></tr>
+<tr><td>MVB_A_WIN_W-Double atrium</td><td>888 KB</td></tr>
+<tr><td>MVB_A_WIN_W-Triple atrium</td><td>880 KB</td></tr>
+<tr><td>MVB_A_WIN_W-Stone Circular Window</td><td>868 KB</td></tr>
+<tr><td>MVB_A_WIN_W-Quadruple atrium</td><td>840 KB</td></tr>
+<tr><td>MVB_A_WIN_W-Circular Window</td><td>800 KB</td></tr>
+<tr><td>MVB_A_WIN_W-Single atrium</td><td>752 KB</td></tr>
+<tr><td>MVB_A_CUS_CW-LouverPanel</td><td>576 KB</td></tr>
+<tr><td>MVB_A_DOR_CW-Metal_Single Door</td><td>572 KB</td></tr>
+<tr><td>MVB_A_CUS_CW-LouverPanel_Roof</td><td>556 KB</td></tr>
+<tr><td>MVB_A_WIN_CW-Glazed Top Arch Panel</td><td>528 KB</td></tr>
+<tr><td>MVB_A_GEN_X-Roof Plate</td><td>496 KB</td></tr>
+<tr><td>MVB_DOR-Communal Door</td><td>496 KB</td></tr>
+<tr><td>MVB_A_GEN_X-Roof Plate Corner</td><td>496 KB</td></tr>
+<tr><td>MVB_WIN-Double Opening Window</td><td>488 KB</td></tr>
+<tr><td>MVB_A_WIN_W-Single Opening Window</td><td>472 KB</td></tr>
+<tr><td>MVB_WIN-Single Window</td><td>472 KB</td></tr>
+<tr><td>MVB_A_GEN_X-Historic Stelwork</td><td>452 KB</td></tr>
+<tr><td>MVB_A_CPS_CW-MVB Panel</td><td>436 KB</td></tr>
+<tr><td>MVB_A_CPS_CW-MVB Panel_no details items</td><td>436 KB</td></tr>
+<tr><td>MVB_A_WIN_CW-Vertical AOV</td><td>432 KB</td></tr>
+<tr><td>MVB_A_DOR_CW-Curtain Wall Revolving Door</td><td>428 KB</td></tr>
+<tr><td>MVB_CPS-Curtain Wall Single Door</td><td>404 KB</td></tr>
+<tr><td>MVB_A_DOR_CW-Curtain Wall Double Door</td><td>404 KB</td></tr>
+<tr><td>MVB_GEN-Corner Mullion</td><td>392 KB</td></tr>
+<tr><td>MVB_A_CPS_CW-MVB Opaque Panel</td><td>384 KB</td></tr>
+<tr><td>MVB_A_CPS_CW-Atrium Fascia</td><td>384 KB</td></tr>
+<tr><td>UC-Universal Columns</td><td>368 KB</td></tr>
+<tr><td>L-Unequal Leg Angles</td><td>368 KB</td></tr>
+<tr><td>MVB_A_CPS_CW-MVB Upper Opaque Window Panel_</td><td>360 KB</td></tr>
+<tr><td>MVB_A_GEN_X-Gutter Profile_Slope with angle</td><td>360 KB</td></tr>
+<tr><td>MVB_WIN- Panel</td><td>348 KB</td></tr>
+<tr><td>MVB_A_CPS_CW-Flat+Sloped Panel</td><td>348 KB</td></tr>
+<tr><td>MVB_A_GEN_X-Corner Mullion</td><td>340 KB</td></tr>
+<tr><td>MVB_A_WIN_F-AOV on Face</td><td>340 KB</td></tr>
+<tr><td>MVB_WIN - Window Opening-VOID_15mm from mullion</td><td>340 KB</td></tr>
+<tr><td>MVB_A_GEN_X-Gutter Profile with angle</td><td>340 KB</td></tr>
+<tr><td>MVB_WIN - Window Opening-VOID_10 & 9.8mm from mullion</td><td>340 KB</td></tr>
+<tr><td>MVB_WIN - Window Opening-VOID</td><td>340 KB</td></tr>
+<tr><td>MVB_WIN - Window Opening</td><td>336 KB</td></tr>
+<tr><td>MVB_TBL-MDS_SplashScreen</td><td>336 KB</td></tr>
+<tr><td>MVB_WIN - Window Opening Arch</td><td>336 KB</td></tr>
+<tr><td>MVB_A_GEN_X-Gutter Profile_Level08</td><td>328 KB</td></tr>
+<tr><td>Light Gauge-C Purlin</td><td>328 KB</td></tr>
+<tr><td>MVB_A_GEN_X-34_hole void</td><td>324 KB</td></tr>
+<tr><td>Rectangular Hollow Sections-Column</td><td>320 KB</td></tr>
+<tr><td>MVB_A_CPS_CW-Empty Panel</td><td>316 KB</td></tr>
+<tr><td>MVB_EMA-Elevation Detail</td><td>312 KB</td></tr>
+<tr><td>MVB_PRA-Stair Baluster</td><td>300 KB</td></tr>
+<tr><td>MVB_A_STR_X-Tie bar</td><td>300 KB</td></tr>
+<tr><td>MVB_A_PRO_Z-Capping Type05</td><td>292 KB</td></tr>
+<tr><td>MVB_A_PRO_Z-Capping Type04</td><td>292 KB</td></tr>
+<tr><td>MVB_PRO-Rectangular profile with trapezoidal capping piece</td><td>288 KB</td></tr>
+<tr><td>MVB_A_PRA-Railing U Channel</td><td>284 KB</td></tr>
+<tr><td>MVB_A_PRA-Railing U Handrail</td><td>284 KB</td></tr>
+<tr><td>MVB_A_PRO_Z-Capping Type03</td><td>284 KB</td></tr>
+<tr><td>MVB_A_PRO_Z-Capping Type01</td><td>284 KB</td></tr>
+<tr><td>MVB_PRO-Rectangular profile</td><td>284 KB</td></tr>
+<tr><td>MVB_A_PRA-Railing Rectangular</td><td>280 KB</td></tr>
+<tr><td>MVB_A_PRO_Z-Capping</td><td>280 KB</td></tr>
+<tr><td>MVB_PRO-Rectangular profile without capping piece</td><td>280 KB</td></tr>
+<tr><td>MVB_EMA-Elevation Detail pointer</td><td>280 KB</td></tr>
+<tr><td>MVB_A_PMU-Atrium Fin</td><td>280 KB</td></tr>
+<tr><td>MVB_PRO-Flashing Facade Atrium</td><td>276 KB</td></tr>
+<tr><td>MVB_SMA-Section Head</td><td>272 KB</td></tr>
+<tr><td>MVB_LEH- Levels</td><td>272 KB</td></tr>
+<tr><td>MVB_SES-Spot Symbol</td><td>272 KB</td></tr>
+<tr><td>MVB_DET-Brick</td><td>272 KB</td></tr>
+<tr><td>MVB_VTI-View Title_3.5mm</td><td>268 KB</td></tr>
+<tr><td>MVB_SMA-Section Tail - Filled</td><td>268 KB</td></tr>
+<tr><td>MVB_CAL-Callout Head</td><td>268 KB</td></tr>
+<tr><td>MVB_PRO-Circular Handrail</td><td>268 KB</td></tr>
+<tr><td>MVB_GRH-Grid Head</td><td>268 KB</td></tr>
+<tr><td>MVB_VTI-View Title w Sheet-Ref Sheet</td><td>264 KB</td></tr>
+<tr><td>MVB_A_GEN_X-Piece33_Historic Stelwork</td><td>1.188 KB</td></tr>
+<tr><td>MVB_A_WIN_CW-Glazed Panel</td><td>1.108 KB</td></tr>
+</table>
+</div>
+        <div class="portalHeadlineText" style="margin-top: 15px">Error</div><div class="portalStandardText" style="margin-top: 15px">Error getting file size from family 'MVB_WIN - Window Opening Arch E/W Facade': The model could not be saved:  (COleException 0x80030002)</div>
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Unused Elements</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all elements that may be unused and therefore removed from a Revit model. A large number of unneeded elements can increase the model size with no benefit. Note that the count reported here may differ from the Purge Unused command in the Revit interface due to API restraints.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 219</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Model Groups</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all model group elements in the model. Too many model groups can be an indication of improper modeling techniques.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 145</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Detail Groups</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all detail group elements in the model. Too many detail groups can be an indication of improper modeling techniques.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">In-Place Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all in-place family elements in the model. In-place families can signifcantly impact model size and performance and should be used sparingly.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 65</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Project Settings</div>
+        <div class="structureBreakdown">5 Checks, 5 Count/List</div>
+    </div>
+    <div class="portalStandardText">Checks in this section are related to settings that can be configured at a project level, which may need to be verified for compliance with standards defined for the project.</div>
+    <div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="CUSTOM RESULT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Revit Version</div>
+        <div class="portalStandardText" style="text-align: left">LIST of the version and build data of Revit running the check.</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: Autodesk Revit 2019 20190108_1515(x64)</div>
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Design Options</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all elements created in each design option of the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Elements Per Phase</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all elements in each phase of the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 63.027</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Count</th><th>Name</th></tr>
+<tr><td>63027</td><td>New Construction</td></tr>
+<tr><td>0</td><td>Existing</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Worksets</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all user worksets in the model or indicates '*Not Workshared*' if worksharing is not enabled.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 14</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>CTRL-M3-MVB-XX-Reference control</td></tr>
+<tr><td>CTRL-M3-MVB-XX-Scope boxes</td></tr>
+<tr><td>DTM-M3-MVB-XX-Grids</td></tr>
+<tr><td>DTM-M3-MVB-XX-Levels</td></tr>
+<tr><td>LNK-M3-MEP-XX-MEP</td></tr>
+<tr><td>LNK-M3-MVB-XX-Facade External</td></tr>
+<tr><td>LNK-M3-MVB-XX-Internal</td></tr>
+<tr><td>LNK-M3-STR-XX-Structure</td></tr>
+<tr><td>MDL-M3-MVB-XX-Facade Atrium</td></tr>
+<tr><td>MDL-M3-MVB-XX-Facade Existing</td></tr>
+<tr><td>MDL-M3-MVB-XX-Facade External</td></tr>
+<tr><td>MDL-M3-MVB-XX-Historical Steelwork</td></tr>
+<tr><td>MDL-M3-MVB-XX-Main Model</td></tr>
+<tr><td>MDL-M3-MVB-XX-Roof</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Project Coordinates</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of the coordinate values of the survey and project base points, elevation, and true north.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 5</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th><th>Value</th></tr>
+<tr><td>Project Base Point Coordinate</td><td>526318025 E/W  |  176997641 N/S</td></tr>
+<tr><td>Project Base Point Elevation</td><td>0</td></tr>
+<tr><td>Project Base Point Rotation</td><td>325.90°</td></tr>
+<tr><td>Survey Point Coordinate</td><td>0 E/W  |  0 N/S</td></tr>
+<tr><td>Survey Point Elevation</td><td>0</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">External Files</div>
+        <div class="structureBreakdown">5 Checks, 5 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to linked and imported files in the model.</div>
+    <div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Linked Revit Files and Their Link Method</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of the link method (overlay vs. attach) for each Revit link in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Linked CAD Files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all linked CAD files in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Imported CAD files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all CAD files that were Imported and not Linked.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Imported SKP files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all imported SKP files in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Raster Images</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all raster images placed in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Levels and Grids</div>
+        <div class="structureBreakdown">2 Checks, 2 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to datum and location elements in the model.</div>
+    <div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Levels</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all level elements in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 15</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Grids</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all grid elements in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 35</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Views</div>
+        <div class="structureBreakdown">3 Checks, 3 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to views in the model.</div>
+    <div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Views</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all views.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>3D View - FAC_GEN_Complete</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Sheets</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all sheets in the model. Sheets typically do not impact model size, but too many unmanaged views can impact user efficiency.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Schedules</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all schedules in the model. Schedules typically do not impact model size, but too many unmanaged views can impact user efficiency.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Model Elements</div>
+        <div class="structureBreakdown">25 Checks, 3 <Span Foreground="#FAA24D">(75%)</Span> Pass, 1 Fail, 21 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to model elements in the model.</div>
+    <div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Arch System Families</div>
+        <div class="structureBreakdown">10 Checks, 10 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of architectural system families in the model</div>
+    <div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Ceiling Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all ceiling family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 4</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ceilings : Type : Ceiling 1</td></tr>
+<tr><td>Ceilings : Type : MVB_A_CEI_X-S1 20mm_Atrium Soffit</td></tr>
+<tr><td>Ceilings : Type : MVB_A_CEI_X-XX- 20mm_South Balcony Soffit</td></tr>
+<tr><td>Ceilings : Type : MVB_A_CEI_X-XX- 80mm_Atrium Soffit</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Curtain System</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all architectural curtain system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Curtain Systems : Type : Standard</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Curtain Wall Mullion Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all curtain wall mullion family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 67</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : 150x3</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : 50X133</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-100x100 mm Offset</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-100x130 mm Offset -112</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-100x1318.74 mm Offset -0_Corner 3</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-100x196 mm Offset -0_Corner 2</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-120x196 mm Offset -0_Corner</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-150x130 mm Offset -112</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-150x130 mm Offset -75</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-15x70 mm Offset -35_Panel Gap</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-15x70 mm Offset -35_Panel Gap 2</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-20x196 mm Offset -0</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-45x197 mm Offset -98.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-45x308 mm Offset -26</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-50x176 mm Offset -198</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-50x182 mm Offset -195</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-50x300 mm Offset -22</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x147 mm Offset -58.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x150 mm Offset -107</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x152 mm Offset -56</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x153 mm Offset -107</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x165 mm Offset -26 2</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x1683 mm Offset 660</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x175 mm Offset -112.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x175 mm Offset -87.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x177 mm Offset -88.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x180 mm Offset -82</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x183 mm Offset -92.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x187 mm Offset -78.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x187 mm Offset -86.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x191.5 mm Offset -76</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x192 mm Offset -76</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x196 mm Offset - 0</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x196 mm Offset -0_Corner</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x197 mm Offset -98.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x200 mm Offset -112.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x2031 mm Offset 661</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x205 mm Offset -102.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x211 mm Offset -138</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x212 mm Offset -91.2</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x215 mm Offset -102.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x217 mm Offset -88.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x255 mm Offset 112.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x255 mm Offset -69</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x260 mm Offset -2</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x262 mm Offset -66</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x279 mm Offset -11.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x300 mm Offset +1353</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x300 mm Offset -22</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x300 mm Offset -22 Vertical</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x300 mm Offset 457.6</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x301 mm Offset -138</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x308 mm Offset 399</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x325 mm Offset -22</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x345 mm Offset 112.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x553 mm Offset 276.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-60x788 mm Offset 214</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-Capping 225x30 Type 02 Offset -152.5 2</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-Capping 225x30 Type 03 Offset -152.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-Capping 305x104 Type 05 Offset -152.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-Capping 305x111 Type 04 Offset -152.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-Capping 305x114 Type 04 Offset -152.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-Capping 305x114 Type 05 Offset -152.5</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-Capping 400x30 Offset -200</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-Capping 400x75 Offset -200</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-Fin 500x100 mm Offset 0</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : MVB_CVR-Fin 680x100 mm Offset 0</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Floor Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all floor family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 14</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Floors : Type : MVB_FLO-E2_70mm_Metal Grille-20mm</td></tr>
+<tr><td>Floors : Type : MVB_FLO-E2_70mm_Terrace</td></tr>
+<tr><td>Floors : Type : MVB_FLO-E2_82mm_Terrace</td></tr>
+<tr><td>Floors : Type : MVB_FLO-Insultaion 120mm</td></tr>
+<tr><td>Floors : Type : MVB_FLO-Insultaion 160mm</td></tr>
+<tr><td>Floors : Type : MVB_FLO-Insultaion Terrace LV08_75mm</td></tr>
+<tr><td>Floors : Type : MVB_FLO-R01_130mm_Balcony Floor</td></tr>
+<tr><td>Floors : Type : MVB_FLO-R02_305mm_Balcony Floor</td></tr>
+<tr><td>Floors : Type : MVB_FLO-R03_350mm_Balcony Floor</td></tr>
+<tr><td>Floors : Type : MVB_FLO-R10_350mm_Balcony Floor</td></tr>
+<tr><td>Floors : Type : MVB_FLO-R11_380mm_Chimney Floor</td></tr>
+<tr><td>Floors : Type : MVB_FLO-XX- Atrium_200mm</td></tr>
+<tr><td>Floors : Type : MVB_FLO-XX- Atrium_273mm</td></tr>
+<tr><td>Floors : Type : MVB_FLO-XX- Atrium_300mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Railing Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all railing family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Railings : Type : MVB_RAI-Handrail Glass 1100 mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Ramp Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all ramp family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ramps : Type : MVB_RAM_atrium</td></tr>
+<tr><td>Ramps : Type : MVB_RAM_atrium NE-1</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Roof Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all roof family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 10</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Roofs : Type : MVB_A_FLO_X-R10 Bronze 70mm</td></tr>
+<tr><td>Roofs : Type : MVB_A_ROO_X-305mm</td></tr>
+<tr><td>Roofs : Type : MVB_A_ROO_X-322mm</td></tr>
+<tr><td>Roofs : Type : MVB_A_ROO_X-379mm</td></tr>
+<tr><td>Roofs : Type : MVB_A_ROO_X-437 mm</td></tr>
+<tr><td>Roofs : Type : MVB_A_ROO_X-R09 mm</td></tr>
+<tr><td>Roofs : Type : MVB_A_ROOF_P4-234 mm</td></tr>
+<tr><td>Roofs : Type : MVB_A_ROOF_X-179 mm</td></tr>
+<tr><td>Roofs : Type : Roof Louvres Horizontal</td></tr>
+<tr><td>Roofs : Type : Sloped Glazing_Plant Room</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Site Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all site family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Stair Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all stair family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 4</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Stairs : Type : MVB_STA-Cast-In-Place Stair</td></tr>
+<tr><td>Stairs : Type : Precast Stair</td></tr>
+<tr><td>Stairs : Type : Stairs 1</td></tr>
+<tr><td>Stairs : Type : Stairs 1</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Wall Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all wall family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 92</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Walls : Type : MDS - Roof Louvres</td></tr>
+<tr><td>Walls : Type : MVB_A_WALL_N17-Plant Room Ext 225mm</td></tr>
+<tr><td>Walls : Type : MVB_A_WALL_N18-Plant Room Ext 320mm</td></tr>
+<tr><td>Walls : Type : MVB_CW-Atrium CW</td></tr>
+<tr><td>Walls : Type : MVB_CW-Atrium Fins</td></tr>
+<tr><td>Walls : Type : MVB_CW-Facade</td></tr>
+<tr><td>Walls : Type : MVB_CW-Facade Atrium Core</td></tr>
+<tr><td>Walls : Type : MVB_CW-Facade Atrium Core Top</td></tr>
+<tr><td>Walls : Type : MVB_CW-Facade Atrium Core_No fixed</td></tr>
+<tr><td>Walls : Type : MVB_CW-Facade External</td></tr>
+<tr><td>Walls : Type : MVB_CW-South Facade</td></tr>
+<tr><td>Walls : Type : MVB_WALL_82 mm_Terrace</td></tr>
+<tr><td>Walls : Type : MVB_WALL-124mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-187mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-Bronze Panel 165mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 280mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 340mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 370mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 470mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 490mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 520mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 535mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 560mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 580mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 590mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 620mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 690mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 750mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 920mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 925mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L11 323mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L13 293 mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L14 183mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L17 263mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L19 170mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L19 220mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L19 300mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L19 428mm With L54</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L19 435mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L19 439mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L20 278mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L20 285mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L20 289.05mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L22 350mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 111mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 131mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 132mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 151mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 151mm_glass coloured</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 171mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 175 mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 196mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 197mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L28 80mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L29 280mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L29 435mm with L54</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L30 300mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L33 345mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L48 350mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L5 323mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L54 278mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L54 285mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L7 350mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L8 350mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-N3 313mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-N5 325mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-N6 360mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-Perforated Panel 152mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-Perforated Panel 171mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-Perforated Panel 172mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-Perforated Panel 186mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-Perforated Panel 192mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-Perforated Panel 217mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-PS1 100mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX Alum panel 5mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX Bronze Alum panel 5mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX Corner Alum Panel 3mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX Corner Alum Panel 55mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX Glass Terrace Panel 30mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION CW SIDE 150mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION CW SIDE 172mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION HIDDEN CORNER 172mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION UNDER CW 132mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION UNDER CW 151mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION UNDER CW 172mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION UNDER CW 180mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION UNDER CW 197mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION UNDER CW 197mm - Offset 18 mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION UNDER CW 215mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX-Bulkhead Atrium Fascia Upstand ETFE Roof_Alum panel 145mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX-Bulkhead Atrium Fascia Upstand ETFE Roof_Alum panel 90mm</td></tr>
+<tr><td>Walls : Type : Wall 1</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">MEP System Families</div>
+        <div class="structureBreakdown">9 Checks, 3 <Span Foreground="#87BC40">(100%)</Span> Pass, 0 Fail, 6 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of MEP system families in the model</div>
+    <div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all duct family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 3</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ducts : Type : Default</td></tr>
+<tr><td>Ducts : Type : Default</td></tr>
+<tr><td>Ducts : Type : Default</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct System Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all duct system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 3</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Duct Systems : Type : Exhaust Air</td></tr>
+<tr><td>Duct Systems : Type : Return Air</td></tr>
+<tr><td>Duct Systems : Type : Supply Air</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Pass_26.png" alt="PASS" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any duct related elements that have a blank System Name.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Flex Duct Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all flex duct family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Flex Ducts : Type : Flex - Rectangular</td></tr>
+<tr><td>Flex Ducts : Type : Flex - Round</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Flex Pipe Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all flex pipe family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Flex Pipes : Type : Flex - Round</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Pipe Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all pipe family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Pipes : Type : Default</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Piping System Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all piping system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 10</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Piping Systems : Type : Domestic Cold Water</td></tr>
+<tr><td>Piping Systems : Type : Domestic Hot Water</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Dry</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Other</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Pre-Action</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Wet</td></tr>
+<tr><td>Piping Systems : Type : Hydronic Return</td></tr>
+<tr><td>Piping Systems : Type : Hydronic Supply</td></tr>
+<tr><td>Piping Systems : Type : Sanitary</td></tr>
+<tr><td>Piping Systems : Type : Vent</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Pass_26.png" alt="PASS" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Piping Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any piping related elements that have a blank System Name.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Pass_26.png" alt="PASS" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Electrical Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any electrical related elements that have a blank Panel Name or Circuit Number.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Structural System Families</div>
+        <div class="structureBreakdown">4 Checks, 4 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of structural system families in the model</div>
+    <div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Floor Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all floor family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 14</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Floors : Type : MVB_FLO-E2_70mm_Metal Grille-20mm</td></tr>
+<tr><td>Floors : Type : MVB_FLO-E2_70mm_Terrace</td></tr>
+<tr><td>Floors : Type : MVB_FLO-E2_82mm_Terrace</td></tr>
+<tr><td>Floors : Type : MVB_FLO-Insultaion 120mm</td></tr>
+<tr><td>Floors : Type : MVB_FLO-Insultaion 160mm</td></tr>
+<tr><td>Floors : Type : MVB_FLO-Insultaion Terrace LV08_75mm</td></tr>
+<tr><td>Floors : Type : MVB_FLO-R01_130mm_Balcony Floor</td></tr>
+<tr><td>Floors : Type : MVB_FLO-R02_305mm_Balcony Floor</td></tr>
+<tr><td>Floors : Type : MVB_FLO-R03_350mm_Balcony Floor</td></tr>
+<tr><td>Floors : Type : MVB_FLO-R10_350mm_Balcony Floor</td></tr>
+<tr><td>Floors : Type : MVB_FLO-R11_380mm_Chimney Floor</td></tr>
+<tr><td>Floors : Type : MVB_FLO-XX- Atrium_200mm</td></tr>
+<tr><td>Floors : Type : MVB_FLO-XX- Atrium_273mm</td></tr>
+<tr><td>Floors : Type : MVB_FLO-XX- Atrium_300mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Foundation Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all foundation family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Structural Foundations : Type : Foundation Slab 1</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Rebar Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all rebar family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Wall Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all wall family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 92</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Walls : Type : MDS - Roof Louvres</td></tr>
+<tr><td>Walls : Type : MVB_A_WALL_N17-Plant Room Ext 225mm</td></tr>
+<tr><td>Walls : Type : MVB_A_WALL_N18-Plant Room Ext 320mm</td></tr>
+<tr><td>Walls : Type : MVB_CW-Atrium CW</td></tr>
+<tr><td>Walls : Type : MVB_CW-Atrium Fins</td></tr>
+<tr><td>Walls : Type : MVB_CW-Facade</td></tr>
+<tr><td>Walls : Type : MVB_CW-Facade Atrium Core</td></tr>
+<tr><td>Walls : Type : MVB_CW-Facade Atrium Core Top</td></tr>
+<tr><td>Walls : Type : MVB_CW-Facade Atrium Core_No fixed</td></tr>
+<tr><td>Walls : Type : MVB_CW-Facade External</td></tr>
+<tr><td>Walls : Type : MVB_CW-South Facade</td></tr>
+<tr><td>Walls : Type : MVB_WALL_82 mm_Terrace</td></tr>
+<tr><td>Walls : Type : MVB_WALL-124mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-187mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-Bronze Panel 165mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 280mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 340mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 370mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 470mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 490mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 520mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 535mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 560mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 580mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 590mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 620mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 690mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 750mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 920mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-E1 925mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L11 323mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L13 293 mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L14 183mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L17 263mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L19 170mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L19 220mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L19 300mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L19 428mm With L54</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L19 435mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L19 439mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L20 278mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L20 285mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L20 289.05mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L22 350mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 111mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 131mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 132mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 151mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 151mm_glass coloured</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 171mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 175 mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 196mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L26 197mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L28 80mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L29 280mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L29 435mm with L54</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L30 300mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L33 345mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L48 350mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L5 323mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L54 278mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L54 285mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L7 350mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-L8 350mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-N3 313mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-N5 325mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-N6 360mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-Perforated Panel 152mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-Perforated Panel 171mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-Perforated Panel 172mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-Perforated Panel 186mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-Perforated Panel 192mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-Perforated Panel 217mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-PS1 100mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX Alum panel 5mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX Bronze Alum panel 5mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX Corner Alum Panel 3mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX Corner Alum Panel 55mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX Glass Terrace Panel 30mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION CW SIDE 150mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION CW SIDE 172mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION HIDDEN CORNER 172mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION UNDER CW 132mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION UNDER CW 151mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION UNDER CW 172mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION UNDER CW 180mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION UNDER CW 197mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION UNDER CW 197mm - Offset 18 mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX INSULATION UNDER CW 215mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX-Bulkhead Atrium Fascia Upstand ETFE Roof_Alum panel 145mm</td></tr>
+<tr><td>Walls : Type : MVB_WALL-XX-Bulkhead Atrium Fascia Upstand ETFE Roof_Alum panel 90mm</td></tr>
+<tr><td>Walls : Type : Wall 1</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Fail_26.png" alt="FAIL" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duplicate Modeled Elements</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any modeled elements that are duplicates (identical elements at the same location and base level). Check will Fail if any duplicate element is found.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">Element is a duplicate at the same location and base level.</div>
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 87</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Category</th><th>Family</th><th>Type</th><th>Name</th><th>ID</th></tr>
+<tr><td>Curtain Wall Mullions</td><td>Rectangular Mullion</td><td>MVB_CVR-60x325 mm Offset -22</td><td>Curtain Wall Mullions : Rectangular Mullion : MVB_CVR-60x325 mm Offset -22</td><td>17595268</td></tr>
+<tr><td>Curtain Wall Mullions</td><td>Rectangular Mullion</td><td>MVB_CVR-60x325 mm Offset -22</td><td>Curtain Wall Mullions : Rectangular Mullion : MVB_CVR-60x325 mm Offset -22</td><td>17592851</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 100x50x12.5x1.2</td><td>Structural Framing : Light Gauge-C Purlin : SFS 100x50x12.5x1.2</td><td>15985884</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 100x50x12.5x1.2</td><td>Structural Framing : Light Gauge-C Purlin : SFS 100x50x12.5x1.2</td><td>15965248</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14428997</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14428999</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14429001</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14661715</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16738621</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14987634</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14987636</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14987638</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14990393</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14990395</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14990397</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14990399</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14990401</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14990403</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14990405</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16206707</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16206705</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14995462</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14995464</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14995466</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14995470</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14996609</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14996613</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>15000941</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>15000943</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>15000945</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>15000947</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>15000949</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>15000951</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16701389</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16701387</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16701385</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16701383</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16701381</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16701379</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16206932</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16056955</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16386075</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16441977</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16691707</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16691705</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16386091</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16057617</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16206928</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16838215</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16714213</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16714211</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16714209</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16206703</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16206701</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16206699</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16206697</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16206695</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16062685</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16062683</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16062681</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16739695</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16739693</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16739691</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>16739689</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 200x50x12.5x1.6</td><td>Structural Framing : Light Gauge-C Purlin : SFS 200x50x12.5x1.6</td><td>14428995</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 300x65x15x2.5</td><td>Structural Framing : Light Gauge-C Purlin : SFS 300x65x15x2.5</td><td>16052199</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 300x65x15x2.5</td><td>Structural Framing : Light Gauge-C Purlin : SFS 300x65x15x2.5</td><td>16208244</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 300x65x15x2.5</td><td>Structural Framing : Light Gauge-C Purlin : SFS 300x65x15x2.5</td><td>16208242</td></tr>
+<tr><td>Structural Framing</td><td>Light Gauge-C Purlin</td><td>SFS 300x65x15x2.5</td><td>Structural Framing : Light Gauge-C Purlin : SFS 300x65x15x2.5</td><td>16052193</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>16207325</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>16016461</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>16207341</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>16016688</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>16207345</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>16016690</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>16016704</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>16207353</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>16207347</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>16206787</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>16206784</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>16016413</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>16016416</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>16207323</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>14991255</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>14991054</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>16775840</td></tr>
+<tr><td>Structural Framing</td><td>L-Unequal Leg Angles</td><td>L200x100x10</td><td>Structural Framing : L-Unequal Leg Angles : L200x100x10</td><td>14825459</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://www.biminteroperabilitytools.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Worksets and Elements</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all user worksets for a Revit model or indicates '*Not Workshared*' if worksharing is not enabled.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 83.763</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Count</th><th>Name</th></tr>
+<tr><td>34305</td><td>MDL-M3-MVB-XX-Facade External</td></tr>
+<tr><td>25883</td><td>MDL-M3-MVB-XX-Facade Atrium</td></tr>
+<tr><td>21550</td><td>MDL-M3-MVB-XX-Roof</td></tr>
+<tr><td>686</td><td>LNK-M3-STR-XX-Structure</td></tr>
+<tr><td>363</td><td>MDL-M3-MVB-XX-Main Model</td></tr>
+<tr><td>349</td><td>MDL-M3-MVB-XX-Historical Steelwork</td></tr>
+<tr><td>298</td><td>CTRL-M3-MVB-XX-Reference control</td></tr>
+<tr><td>173</td><td>LNK-M3-MVB-XX-Internal</td></tr>
+<tr><td>61</td><td>MDL-M3-MVB-XX-Facade Existing</td></tr>
+<tr><td>46</td><td>DTM-M3-MVB-XX-Grids</td></tr>
+<tr><td>46</td><td>DTM-M3-MVB-XX-Levels</td></tr>
+<tr><td>3</td><td>LNK-M3-MVB-XX-Facade External</td></tr>
+<tr><td>0</td><td>CTRL-M3-MVB-XX-Scope boxes</td></tr>
+<tr><td>0</td><td>LNK-M3-MEP-XX-MEP</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div>
+</div>
+    </div>
+</div>
+</body>
+</html>
