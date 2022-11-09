@@ -1,0 +1,2089 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Model Checker Report</title>
+    <style type="text/css">
+        /*  Name-agnostic definitions.
+ *  These definitions are just a copy of the definitions further below given a generic name.
+ *  This allows publishers to make a reference to "the page's default font" without having to
+ *  update hundreds of custom pages/styles to match the new name.
+ */
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-style: normal;
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'ADSK-Default';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-style: normal;
+            font-weight: 700;
+        }
+
+
+        /*  Generic "Artifakt" definitions.
+         *  An attempt will be made to map styles to appropriate font-faces when these are used.
+         *  See the definitions below if you wish to use a specific font.
+         */
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-style: normal;
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-style: normal;
+            font-weight: 700;
+        }
+
+
+        /*  "Artifakt Legend" definitions.
+         *   These definitions are for the "Artifakt Legend" series of font faces.
+         */
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendLight.svg#ArtifaktLegendLight') format('svg');
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendRegular.svg#ArtifaktLegendRegular') format('svg');
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt Legend';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Legend Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-legend-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktLegendMedium.svg#ArtifaktLegendMedium') format('svg');
+            font-weight: 700;
+        }
+
+
+        /*  "Artifakt Element" definitions.
+         *   These definitions are for the "Artifakt Element" series of font faces.
+         */
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Light.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-light.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementLight.svg#ArtifaktElementLight') format('svg');
+            font-weight: 300;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Regular.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-regular.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementRegular.svg#ArtifaktElementRegular') format('svg');
+            font-weight: 400;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Medium.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-medium.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementMedium.svg#ArtifaktElementMedium') format('svg');
+            font-weight: 700;
+        }
+
+        @font-face{
+            font-family:'Artifakt Element';
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.eot?#iefix');
+            src:url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.eot?#iefix') format('eot'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/Artifakt Element Italic.woff') format('woff'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/artifakt-element-italic.ttf') format('truetype'),
+            url('https://static-dc.autodesk.net/etc/designs/v201806182109/templates-general/structure/fonts/artifakt/clientlibs/fontfiles/ArtifaktElementItalic.svg#ArtifaktElementItalic') format('svg');
+            font-style: italic;
+            font-weight: 400;
+        }
+    </style>
+    <style type="text/css">
+        body {
+            font: 100%/1.4 ADSK-Default, Verdana, Arial, Helvetica, sans-serif;
+            background: #f1f1f1;
+            margin: 0;
+            padding: 0;
+            color: #000;
+        }
+
+        h1, h2, h3, h4, h5, h6, p {
+            margin-top: 0; /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+            margin-bottom: 0;
+            padding-right: 0;
+            padding-left: 0; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+        }
+
+        h1, h3 {
+            color: white;
+        }
+
+        h1 {
+            font-family: "Artifakt Legend", Arial, sans-serif;
+            font-size: 1.5em;
+            margin: 0px;
+        }
+
+        a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+            border: none;
+        }
+
+        /* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+        a:link {
+            color: #414958;
+        }
+
+        a:visited {
+            color: #4E5869;
+        }
+
+        a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+            text-decoration: none;
+        }
+
+        /* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */
+        .container {
+            width: 100%;
+            max-width: 1260px; /* a max-width may be desirable to keep this layout from getting too wide on a large monitor. This keeps line length more readable. IE6 does not respect this declaration. */
+            min-width: 780px; /* a min-width may be desirable to keep this layout from getting too narrow. This keeps line length more readable in the side columns. IE6 does not respect this declaration. */
+            background: #f1f1f1;
+            margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
+        }
+
+        /* ~~the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo~~ */
+        .header {
+            background-color: #3b4453;
+            border-bottom: 1px black;
+            padding: 15px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .configContainer {
+            padding: 25px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+		
+		.imageContainer{
+		    width: 125px;
+			height: 125px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.checksetImage{
+		    max-width: 100%;
+			height: auto;
+		}
+
+        .resultData {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .tabBar {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 0 25px;
+        }
+
+        .tabItem {
+            margin-right: 15px;
+            background: #f9f9f9;
+            font-family: "Artifakt Element", Arial, sans-serif;
+            padding: 15px;
+            color: #bb7a14;
+        }
+
+        .tabItem a, .tabItem a:visited {
+            text-decoration: none;
+            color: #bb7a14;
+        }
+
+        .tabItemActive {
+            margin-right: 15px;
+            padding: 15px;
+            background: white;
+            font-family: "Artifakt Element", Arial, sans-serif;
+            color: #bb7a14;
+        }
+
+        .tabItemActive a, .tabItemActive a:visited {
+            text-decoration: none;
+            color: #bb7a14;
+        }
+
+        .portalStandardText {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: lighter;
+        }
+
+        .portalHeadlineText {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .portal {
+            background: white;
+            margin: 0 25px 25px 25px;
+            padding: 15px;
+        }
+
+        .treeElement {
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+
+        .checkResult {
+            border: 1px black solid;
+            padding: 15px;
+            margin-top: 15px;
+            margin-left: 25px;
+            display: grid;
+            justify-content: flex-start;
+            grid-template-columns: auto 1fr;
+        }
+
+        .itemList {
+            width: 100%;
+        }
+
+        .itemList th {
+            font-family: "Artifakt Element", Arial, sans-serif;
+            font-weight: bold;
+            background: #f1f1f1;
+            padding: 0 10px;
+        }
+
+        .configData {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-column-gap: 15px;
+            margin-left: 15px
+        }
+
+        .passRate{
+            font-family: "Artifakt Legend", Arial, sans-serif;
+            font-weight: bold;
+            font-size: 4.5em;
+        }
+        .structureHeading{
+            display: flex;
+        }
+
+        .structureBreakdown{
+            flex: auto;
+            flex-grow: 0;
+            white-space: nowrap;
+            margin-left: 15px;
+        }
+
+        .structureHeadingText{
+            flex-grow: 1;
+        }
+
+        .overallShown{
+            display: grid;
+            grid-template-rows: auto auto auto;
+            margin: 0 25px;
+        }
+        .overallHidden{
+            display: none;
+        }
+
+        .resultLow {
+            color: rgb(221, 34, 34);
+        }
+
+        .resultHigh {
+            color: rgb(135, 188, 64);
+        }
+
+        .resultMedium {
+            color: rgb(250, 162, 77);
+        }
+
+        .tableScroll{
+            overflow: auto;
+            max-height: 350px;
+            margin-top: 15px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_ModelChecker_24.png" width="24" height="24" style="margin-right: 15px" alt="Autodesk Model Checker for Revit"/>
+        <h1>Autodesk Model Checker for Revit</h1>
+    </div>
+    <div class="configContainer">
+        <div class="imageContainer">
+		    <img src="H:\01_TECNICO_MVB-INT\03_LIBRARIES\BIM INTEROPERABILITY TOOLS\MDS Logo.PNG" class="checksetImage" 
+			onerror="this.src = 'https://interoperability.autodesk.com/modelchecker/reports/HeroImage_ModelChecker.png';" 
+			alt="Checkset Image"/>
+		</div>
+        <div class="configData">
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Title</span><span class="portalStandardText">BIM Model Audit</span>
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Date</span><span class="portalStandardText">miércoles, 6 de octubre de 2021</span>
+            <span class="portalHeadlineText" style="margin-bottom: 15px">Author</span><span class="portalStandardText">MV-BIM / MDS</span>
+            <span class="portalHeadlineText">Description</span><span
+                class="portalStandardText">Series of checks to review modeling best practices and integrity</span>
+        </div>
+    </div>
+    <div class="tabBar">
+        <div class="tabItemActive"><a href="TH-IS-00-001-S-451152-ZZ-100.html">TH-IS-00-001-S-451152-ZZ-100</a></div>
+    </div>
+    <div class="portal">
+        <div class="resultData">
+            <div class="overallHidden">
+    <span class="passRate resultHigh" style="text-align: center"></span>
+</div>
+<div style="display: grid; grid-template-columns: auto auto; grid-column-gap: 15px; margin-left: 15px">
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Check Summary</span><span
+        class="portalStandardText">47 Checks, 47 Count/List</span>
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Report Date</span><span
+        class="portalStandardText">martes, 8 de noviembre de 2022 - 13:48:03</span>
+    <span class="portalHeadlineText" style="margin-bottom: 15px">Revit Filepath</span><span
+        class="portalStandardText">C:\Users\marta.ruiz\Desktop\Ferry Island\221109_TH-IS Models Review\TH-IS-00-001-S-451152-ZZ-100.rvt</span>
+    <span class="portalHeadlineText">Checkset File</span><span
+        class="portalStandardText">H:\01_TECNICO_MVB-INT\03_LIBRARIES\BIM INTEROPERABILITY TOOLS\BIM Model Audit V2.xml</span>
+</div>
+        </div>
+    </div>
+    <div class="portal" style="margin-top: 15px">
+        <div>
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">BIM Model Audit</div>
+        <div class="structureBreakdown">47 Checks, 47 Count/List</div>
+    </div>
+    <div class="portalStandardText"></div>
+    <div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Model Performance</div>
+        <div class="structureBreakdown">7 Checks, 7 Count/List</div>
+    </div>
+    <div class="portalStandardText">Checks in this section help monitor the result of actions taken over the course of a model’s development, which can directly impact the model’s performance. Proper management of these items can improve model performance.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="CUSTOM RESULT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">File Size</div>
+        <div class="portalStandardText" style="text-align: left">RESULT of the file sizes for all reported Revit models in MB (megabytes).</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: 97,67 MB</div>
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Warnings</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all warnings in the model. Too many unresolved warnings can cause performance issues in a Revit model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 678</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Loadable Families</div>
+        <div class="portalStandardText" style="text-align: left">RESULT and LIST of the families in the project ordered by file size.</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: 110.084 KB</div>
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th><th>Value</th></tr>
+<tr><td>WW_A0V</td><td>980 KB</td></tr>
+<tr><td>CADS_Range Line</td><td>844 KB</td></tr>
+<tr><td>WW_A0H</td><td>824 KB</td></tr>
+<tr><td>WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm</td><td>768 KB</td></tr>
+<tr><td>WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b</td><td>768 KB</td></tr>
+<tr><td>WW_RC 3-Pile Cap Driven by Pile Diameter</td><td>768 KB</td></tr>
+<tr><td>WW_RC 3-Pile Cap, Standardised</td><td>760 KB</td></tr>
+<tr><td>WW_RC 5-Pile Cap, Standardised</td><td>756 KB</td></tr>
+<tr><td>WW_RC 1-Pile Cap</td><td>756 KB</td></tr>
+<tr><td>WW_RC 2-Pile Cap</td><td>756 KB</td></tr>
+<tr><td>WW_RC 5-Pile Cap Driven by Pile Diameter</td><td>756 KB</td></tr>
+<tr><td>WW_RC 2-Pile Cap Width Parameter Broken</td><td>756 KB</td></tr>
+<tr><td>WW_RC 2-Pile Cap-225mm</td><td>752 KB</td></tr>
+<tr><td>WW_RC 6-Pile Cap</td><td>752 KB</td></tr>
+<tr><td>WW_RC 4-Pile Cap-225mm</td><td>752 KB</td></tr>
+<tr><td>WW_RC 1-Pile Cap-250mm</td><td>752 KB</td></tr>
+<tr><td>WW_RC 1-Pile Cap-225mm</td><td>752 KB</td></tr>
+<tr><td>WW_RC 4-Pile Cap</td><td>752 KB</td></tr>
+<tr><td>WW_RC 2-Pile Cap-PC02b</td><td>752 KB</td></tr>
+<tr><td>WW_RC 1-Pile Cap-PC01d</td><td>752 KB</td></tr>
+<tr><td>M_Boundary Condition-Variable</td><td>560 KB</td></tr>
+<tr><td>Concrete-Rectangular-Column with Drop Caps</td><td>516 KB</td></tr>
+<tr><td>M_Path Reinforcement Symbol</td><td>496 KB</td></tr>
+<tr><td>Howe Flat Truss</td><td>484 KB</td></tr>
+<tr><td>WW_RC Pile</td><td>468 KB</td></tr>
+<tr><td>WW_RC Sq Pile</td><td>468 KB</td></tr>
+<tr><td>WW_A3V</td><td>456 KB</td></tr>
+<tr><td>WW_A3H</td><td>456 KB</td></tr>
+<tr><td>M_Area Reinforcement Symbol</td><td>448 KB</td></tr>
+<tr><td>UB-Universal Beams</td><td>444 KB</td></tr>
+<tr><td>UC-Universal Columns</td><td>444 KB</td></tr>
+<tr><td>CADS_Rebar_Tick_Tag</td><td>440 KB</td></tr>
+<tr><td>Square Hollow Sections</td><td>436 KB</td></tr>
+<tr><td>WW_Curtain Wall - Sheet Pile</td><td>436 KB</td></tr>
+<tr><td>WW_A4H</td><td>424 KB</td></tr>
+<tr><td>Door-Wall Opening</td><td>416 KB</td></tr>
+<tr><td>WW_SYNC_A1</td><td>412 KB</td></tr>
+<tr><td>Fabric Sheet Symbol C</td><td>396 KB</td></tr>
+<tr><td>Fabric Sheet Symbol B</td><td>392 KB</td></tr>
+<tr><td>Detail_Items_A325_Bolts_Side</td><td>392 KB</td></tr>
+<tr><td>UB-Universal Beams-Column</td><td>388 KB</td></tr>
+<tr><td>UC-Universal Columns-Column</td><td>384 KB</td></tr>
+<tr><td>COL-Concept-Concrete_Rectangular</td><td>380 KB</td></tr>
+<tr><td>WW_Curtain Wall - Pile</td><td>376 KB</td></tr>
+<tr><td>M_Boundary Condition-Fixed</td><td>376 KB</td></tr>
+<tr><td>Fabric Sheet Symbol D</td><td>372 KB</td></tr>
+<tr><td>WW_Pad Foundation-Rectangular</td><td>372 KB</td></tr>
+<tr><td>WW_Conceptual Beam - NOT DESIGNED</td><td>368 KB</td></tr>
+<tr><td>CADS_Temporary Line</td><td>368 KB</td></tr>
+<tr><td>BPO-Bracket-Wall_Mounted</td><td>368 KB</td></tr>
+<tr><td>Concrete-Rectangular Beam</td><td>368 KB</td></tr>
+<tr><td>M_Boundary Condition-Roller</td><td>368 KB</td></tr>
+<tr><td>Plate</td><td>368 KB</td></tr>
+<tr><td>W_DET_X-BreakLine_Normal</td><td>364 KB</td></tr>
+<tr><td>Circular Hollow Sections-Column</td><td>364 KB</td></tr>
+<tr><td>Circular Hollow Sections</td><td>364 KB</td></tr>
+<tr><td>M_Boundary Condition-Pinned</td><td>364 KB</td></tr>
+<tr><td>WW_Logo</td><td>360 KB</td></tr>
+<tr><td>ROD WITH THREADED BOLT ONE END</td><td>356 KB</td></tr>
+<tr><td>AHMM_BPO_XXX-000_Rectangular</td><td>356 KB</td></tr>
+<tr><td>W_DET_X-BreakLine_Circular</td><td>352 KB</td></tr>
+<tr><td>Detail_Items_Expansion_Bolts_Side</td><td>352 KB</td></tr>
+<tr><td>M_Window-Square Opening</td><td>348 KB</td></tr>
+<tr><td>M_Door-Opening</td><td>348 KB</td></tr>
+<tr><td>WW_A4V Rebar Schedule</td><td>348 KB</td></tr>
+<tr><td>WW_Elevation Mark Body 2.5mm_Circle-12mm</td><td>348 KB</td></tr>
+<tr><td>WW_Detail-Sheet Piling</td><td>344 KB</td></tr>
+<tr><td>WW_Step Symbol</td><td>344 KB</td></tr>
+<tr><td>Baluster - Square</td><td>344 KB</td></tr>
+<tr><td>WW_D_SW Existing</td><td>344 KB</td></tr>
+<tr><td>Concrete-Rectangular-Column</td><td>344 KB</td></tr>
+<tr><td>WW_Elevation Mark Body 1.8mm_Circle-9mm</td><td>344 KB</td></tr>
+<tr><td>WW_View Reference Cont</td><td>340 KB</td></tr>
+<tr><td>Fabric Sheet Symbol A</td><td>340 KB</td></tr>
+<tr><td>WW_Conceptual Column - NOT DESIGNED</td><td>336 KB</td></tr>
+<tr><td>WW_D_SW Proposed</td><td>336 KB</td></tr>
+<tr><td>AHMM_BPO_XXX-000_Square</td><td>336 KB</td></tr>
+<tr><td>Concrete-L Shape-Column</td><td>336 KB</td></tr>
+<tr><td>Concrete Round</td><td>336 KB</td></tr>
+<tr><td>Footing-Rectangular</td><td>336 KB</td></tr>
+<tr><td>WW_D_FW Existing</td><td>332 KB</td></tr>
+<tr><td>WW_Span Tag</td><td>328 KB</td></tr>
+<tr><td>WW_D_FW Proposed</td><td>328 KB</td></tr>
+<tr><td>33</td><td>328 KB</td></tr>
+<tr><td>Tapered Notch</td><td>328 KB</td></tr>
+<tr><td>WW_Traditional Title on Sheets</td><td>328 KB</td></tr>
+<tr><td>77</td><td>324 KB</td></tr>
+<tr><td>WW_Title on Sheets</td><td>324 KB</td></tr>
+<tr><td>PRO-STAIR-CYCLE CHANNEL(Rectilinear)_225x162.1</td><td>324 KB</td></tr>
+<tr><td>PRO-STAIR-CYCLE CHANNEL(Rectilinear)_225x162.9</td><td>324 KB</td></tr>
+<tr><td>WW_Span Symbol</td><td>324 KB</td></tr>
+<tr><td>Corus-ComFlor 46</td><td>324 KB</td></tr>
+<tr><td>Corus-ComFlor 70</td><td>324 KB</td></tr>
+<tr><td>13</td><td>320 KB</td></tr>
+<tr><td>12</td><td>320 KB</td></tr>
+<tr><td>14</td><td>320 KB</td></tr>
+<tr><td>26</td><td>320 KB</td></tr>
+<tr><td>21</td><td>320 KB</td></tr>
+<tr><td>11</td><td>320 KB</td></tr>
+<tr><td>64</td><td>320 KB</td></tr>
+<tr><td>63</td><td>320 KB</td></tr>
+<tr><td>75</td><td>320 KB</td></tr>
+<tr><td>01</td><td>320 KB</td></tr>
+<tr><td>22</td><td>320 KB</td></tr>
+<tr><td>27</td><td>320 KB</td></tr>
+<tr><td>WW_Void Opening Symbol</td><td>320 KB</td></tr>
+<tr><td>WW_Elevation Mark Pointer 2.5mm_Circle-12mm</td><td>320 KB</td></tr>
+<tr><td>WW_Batter Symbol</td><td>320 KB</td></tr>
+<tr><td>Detail_Items_Parallel_Flange_Channel</td><td>320 KB</td></tr>
+<tr><td>WW_Wall Elevation_hex Tag</td><td>320 KB</td></tr>
+<tr><td>WW_Level Head - Meters 2.5mm Text</td><td>320 KB</td></tr>
+<tr><td>34</td><td>320 KB</td></tr>
+<tr><td>28</td><td>320 KB</td></tr>
+<tr><td>35</td><td>320 KB</td></tr>
+<tr><td>WW_Level Head - Meters 1.8mm Text</td><td>320 KB</td></tr>
+<tr><td>46</td><td>320 KB</td></tr>
+<tr><td>15</td><td>320 KB</td></tr>
+<tr><td>Notch</td><td>320 KB</td></tr>
+<tr><td>24</td><td>320 KB</td></tr>
+<tr><td>29</td><td>320 KB</td></tr>
+<tr><td>25</td><td>320 KB</td></tr>
+<tr><td>M_Roof Deck</td><td>320 KB</td></tr>
+<tr><td>00</td><td>320 KB</td></tr>
+<tr><td>UB-Universal Beams-Profile</td><td>320 KB</td></tr>
+<tr><td>Angled Step</td><td>320 KB</td></tr>
+<tr><td>Corus-ComFlor 51</td><td>320 KB</td></tr>
+<tr><td>31</td><td>320 KB</td></tr>
+<tr><td>47</td><td>320 KB</td></tr>
+<tr><td>44</td><td>320 KB</td></tr>
+<tr><td>56</td><td>320 KB</td></tr>
+<tr><td>51</td><td>320 KB</td></tr>
+<tr><td>23</td><td>320 KB</td></tr>
+<tr><td>41</td><td>320 KB</td></tr>
+<tr><td>36</td><td>320 KB</td></tr>
+<tr><td>32</td><td>320 KB</td></tr>
+<tr><td>67</td><td>320 KB</td></tr>
+<tr><td>WW_SOP</td><td>316 KB</td></tr>
+<tr><td>WW_Structural Framing - Type Name - Stud Nos - 2line - Tag</td><td>316 KB</td></tr>
+<tr><td>WW_Trial Pit SOP</td><td>316 KB</td></tr>
+<tr><td>WW_Detail_PT Symbolic</td><td>316 KB</td></tr>
+<tr><td>WW_Door Tag</td><td>316 KB</td></tr>
+<tr><td>WW_FamilyLegendBlock</td><td>316 KB</td></tr>
+<tr><td>WW_Structural Framing - Comment - Tag</td><td>316 KB</td></tr>
+<tr><td>WW_Section Head 1.4mm Text</td><td>316 KB</td></tr>
+<tr><td>WW_Work Point Label</td><td>316 KB</td></tr>
+<tr><td>WW_Window Tag</td><td>316 KB</td></tr>
+<tr><td>WW_Work Point Coords</td><td>316 KB</td></tr>
+<tr><td>CADS_Rebar_Lap_Line</td><td>316 KB</td></tr>
+<tr><td>WW_2D Level - Triangle</td><td>316 KB</td></tr>
+<tr><td>M_Reveal-Brick Course</td><td>316 KB</td></tr>
+<tr><td>M_Rebar Tag</td><td>316 KB</td></tr>
+<tr><td>M_Connection-Column-Filled Triangle</td><td>316 KB</td></tr>
+<tr><td>M_Slab Edge-Thickened</td><td>316 KB</td></tr>
+<tr><td>Break Line</td><td>316 KB</td></tr>
+<tr><td>WW_2D Level - Target</td><td>316 KB</td></tr>
+<tr><td>Pipe Break Line</td><td>316 KB</td></tr>
+<tr><td>WW_Elevation Mark Pointer 1.8mm_Circle-9mm</td><td>316 KB</td></tr>
+<tr><td>WW_North Arrow LARGE</td><td>312 KB</td></tr>
+<tr><td>WW_Structural Foundation - LVL & Type Name Boxed - Tag</td><td>312 KB</td></tr>
+<tr><td>AHMM_GRH_Diamond</td><td>312 KB</td></tr>
+<tr><td>WW_Section Head 1.8mm Text1</td><td>312 KB</td></tr>
+<tr><td>WW_Section Head 1.8mm Text</td><td>312 KB</td></tr>
+<tr><td>LEH-Triangle Planning_AOD</td><td>312 KB</td></tr>
+<tr><td>WW_Wall - CLT</td><td>312 KB</td></tr>
+<tr><td>WW_Centreline</td><td>312 KB</td></tr>
+<tr><td>WW_Framing Tag-w-Start Forces</td><td>312 KB</td></tr>
+<tr><td>WW_Roof - CLT</td><td>312 KB</td></tr>
+<tr><td>WW_Slab - Type Name Boxed SSL Space</td><td>312 KB</td></tr>
+<tr><td>WW_Structural Foundation - Type Name Boxed SSL Space- Tag</td><td>312 KB</td></tr>
+<tr><td>WW_Title on Sheets2</td><td>312 KB</td></tr>
+<tr><td>WW_Structural Foundation - LVL & Type Name Boxed EXTRA LARGE - Tag</td><td>312 KB</td></tr>
+<tr><td>WW_Title on Sheets1</td><td>312 KB</td></tr>
+<tr><td>CADS_ScheduleRegion</td><td>312 KB</td></tr>
+<tr><td>LEH-Triangle Planning_FFL without value</td><td>312 KB</td></tr>
+<tr><td>LEH-Triangle_FFL</td><td>312 KB</td></tr>
+<tr><td>AHMM_PMD_XXX-000_CorusComFlor</td><td>312 KB</td></tr>
+<tr><td>AHMM_PWS_XXX-000_BrickSoldier</td><td>312 KB</td></tr>
+<tr><td>Anno_Tag_Room_XLarge</td><td>312 KB</td></tr>
+<tr><td>WW_Slab - LVL & Type Name Boxed LARGE - Tag</td><td>312 KB</td></tr>
+<tr><td>WW_Warning Triangle</td><td>312 KB</td></tr>
+<tr><td>WW_Structural Foundation - LVL & Type Name Boxed LARGE - Tag</td><td>312 KB</td></tr>
+<tr><td>Structural MRA Rebar Section</td><td>312 KB</td></tr>
+<tr><td>M_Rectangular Handrail</td><td>312 KB</td></tr>
+<tr><td>Structural MRA Rebar</td><td>312 KB</td></tr>
+<tr><td>WW_Spot Level - Triangular Datum 1.8mm Text</td><td>312 KB</td></tr>
+<tr><td>M_Slab Edge-Thickened1</td><td>312 KB</td></tr>
+<tr><td>M_Level Head - Circle</td><td>312 KB</td></tr>
+<tr><td>M_Stair Nosing - Radius</td><td>312 KB</td></tr>
+<tr><td>M_Connection-Moment-Not Filled</td><td>312 KB</td></tr>
+<tr><td>M_Structural Beam System Tag</td><td>312 KB</td></tr>
+<tr><td>M_Connection-Moment-Filled</td><td>312 KB</td></tr>
+<tr><td>WW_View Title_Underline</td><td>312 KB</td></tr>
+<tr><td>WW_Section Tail - Triangle</td><td>312 KB</td></tr>
+<tr><td>WW_Work Point 18</td><td>312 KB</td></tr>
+<tr><td>WW_Framing Tag-w-End Forces</td><td>312 KB</td></tr>
+<tr><td>WW_Work Point 25</td><td>312 KB</td></tr>
+<tr><td>WW_Spot Level - Triangular Datum 3.5mm Text</td><td>312 KB</td></tr>
+<tr><td>WW_Spot Level - Triangular Datum 2.5mm Text</td><td>312 KB</td></tr>
+<tr><td>WW_ColumnUpDownSymbol</td><td>312 KB</td></tr>
+<tr><td>WW_North Arrow</td><td>312 KB</td></tr>
+<tr><td>WW_Door Rough Tag</td><td>312 KB</td></tr>
+<tr><td>WW_Structural Framing - Mark - Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Framing - Mark 45 Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Framing - Type Mark 45 Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Framing - Type Name 45 Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Framing - Type Mark -45 Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Foundation - Type Name - 45 Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Foundation - Type Mark - Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Foundation - Type Name - Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Framing - Beam Start Load - Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Framing - Beam End Load - Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Wall - Type Name</td><td>308 KB</td></tr>
+<tr><td>WW_Wall - Type Mark</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Column - Type Mark - 45 Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Column - Type Comment - 45 Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Column - Mark - Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Framing - Type Name - Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Framing - Type Name -45 Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Framing - Type Name Mark 45 Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Wall - Type Comment Mark</td><td>308 KB</td></tr>
+<tr><td>WW_Wall - Mark</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Foundation - Type Mark - 45 Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Floor - Type Mark - 45 Tag</td><td>308 KB</td></tr>
+<tr><td>AHMM_PRA_XXX-000_RectangularHandrail</td><td>308 KB</td></tr>
+<tr><td>WW_Slab - LVL & Type Name Boxed - Tag</td><td>308 KB</td></tr>
+<tr><td>M_Path Reinforcement Tag</td><td>308 KB</td></tr>
+<tr><td>AHMM_GRH_Circle</td><td>308 KB</td></tr>
+<tr><td>CADS_Range Dot</td><td>308 KB</td></tr>
+<tr><td>WW_Callout Head 1.8mm Text</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Framing - Type Mark - Tag</td><td>308 KB</td></tr>
+<tr><td>PRA-Circular_Handrail</td><td>308 KB</td></tr>
+<tr><td>Circular Handrail (1)</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Column - Type Name - 45 Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Column - Type Name & Comment - Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Column - Type Name - Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Foundation - Mark - Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Foundation - Mark - 45 Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Slab - CLT</td><td>308 KB</td></tr>
+<tr><td>M_Area Reinforcement Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Slab - Type Name</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Column - Type Mark - Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Slab - Type Name Boxed</td><td>308 KB</td></tr>
+<tr><td>WW_Callout Head 1.4mm Text</td><td>308 KB</td></tr>
+<tr><td>M_Material Tag</td><td>308 KB</td></tr>
+<tr><td>M_Keynote Tag</td><td>308 KB</td></tr>
+<tr><td>M_Connection-Column-Default</td><td>308 KB</td></tr>
+<tr><td>M_Connection-Column-Plate</td><td>308 KB</td></tr>
+<tr><td>M_View Reference</td><td>308 KB</td></tr>
+<tr><td>Fabric Sheet Tag</td><td>308 KB</td></tr>
+<tr><td>Arrows</td><td>308 KB</td></tr>
+<tr><td>M_Structural Truss Tag</td><td>308 KB</td></tr>
+<tr><td>M_Spot Elevation - Crosshair</td><td>308 KB</td></tr>
+<tr><td>M_Connection-Column-Vertical Plates</td><td>308 KB</td></tr>
+<tr><td>M_Spot Elevation - Target Filled</td><td>308 KB</td></tr>
+<tr><td>M_Spot Elevation - Exterior Filled</td><td>308 KB</td></tr>
+<tr><td>WW_Hazard Symbol</td><td>308 KB</td></tr>
+<tr><td>M_View Title</td><td>308 KB</td></tr>
+<tr><td>M_Revision Tag</td><td>308 KB</td></tr>
+<tr><td>M_Connection-Brace-Kicker</td><td>308 KB</td></tr>
+<tr><td>M_Connection-Brace-Angle</td><td>308 KB</td></tr>
+<tr><td>M_Level Head - No Bubble</td><td>308 KB</td></tr>
+<tr><td>M_Connection-Brace-Parallel</td><td>308 KB</td></tr>
+<tr><td>WW_Section Tail - Filled</td><td>308 KB</td></tr>
+<tr><td>WW_Spot Level - Crosshair</td><td>308 KB</td></tr>
+<tr><td>WW_Revision Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Schedule Column Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Column Tag-w-Reactions_CSC</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Framing Tag-w-Start Reactions_CSC</td><td>308 KB</td></tr>
+<tr><td>WW_View Reference</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Framing - Number Of Studs - Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Structural Framing Tag-w-End Reactions_CSC</td><td>308 KB</td></tr>
+<tr><td>WW_Callout Head CONNECTION</td><td>308 KB</td></tr>
+<tr><td>WW_Cross 18</td><td>308 KB</td></tr>
+<tr><td>WW_Cross 25</td><td>308 KB</td></tr>
+<tr><td>WW_Blank Leader</td><td>308 KB</td></tr>
+<tr><td>WW_Column Shear Reinf Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Dot</td><td>308 KB</td></tr>
+<tr><td>WW_Generic Model - Type Mark - Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Grid Head</td><td>308 KB</td></tr>
+<tr><td>WW_Generic Model - Grid - Mark - Tag</td><td>308 KB</td></tr>
+<tr><td>WW_Generic Model - Type Mark - 45 Tag</td><td>308 KB</td></tr>
+<tr><td>WW_A1V-LOADINGPLAN</td><td>2.392 KB</td></tr>
+<tr><td>WW_A1V</td><td>2.388 KB</td></tr>
+<tr><td>WW_A1V-piles</td><td>2.388 KB</td></tr>
+<tr><td>WW_A1H</td><td>1.180 KB</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Unused Elements</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all elements that may be unused and therefore removed from a Revit model. A large number of unneeded elements can increase the model size with no benefit. Note that the count reported here may differ from the Purge Unused command in the Revit interface due to API restraints.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1.878</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Model Groups</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all model group elements in the model. Too many model groups can be an indication of improper modeling techniques.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 104</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Detail Groups</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all detail group elements in the model. Too many detail groups can be an indication of improper modeling techniques.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">In-Place Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all in-place family elements in the model. In-place families can signifcantly impact model size and performance and should be used sparingly.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Project Settings</div>
+        <div class="structureBreakdown">5 Checks, 5 Count/List</div>
+    </div>
+    <div class="portalStandardText">Checks in this section are related to settings that can be configured at a project level, which may need to be verified for compliance with standards defined for the project.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="CUSTOM RESULT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Revit Version</div>
+        <div class="portalStandardText" style="text-align: left">LIST of the version and build data of Revit running the check.</div>
+        
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Result: Autodesk Revit 2022 22.1.21.13</div>
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Design Options</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all elements created in each design option of the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Elements Per Phase</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all elements in each phase of the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 10.483</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Count</th><th>Name</th></tr>
+<tr><td>10483</td><td>New Construction</td></tr>
+<tr><td>0</td><td>Existing</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Worksets</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all user worksets in the model or indicates '*Not Workshared*' if worksharing is not enabled.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 11</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Architectural Links</td></tr>
+<tr><td>MEP Links</td></tr>
+<tr><td>Shared Levels and Grids</td></tr>
+<tr><td>Tunnels Links</td></tr>
+<tr><td>Utilities Links</td></tr>
+<tr><td>Workset1</td></tr>
+<tr><td>WW_B1 Super-Structure</td></tr>
+<tr><td>WW_B1-B2 Sub-Structure</td></tr>
+<tr><td>WW_B2 Super-Structure</td></tr>
+<tr><td>WW_B3 Sub-Structure</td></tr>
+<tr><td>WW_B3 Super-Structure</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Project Coordinates</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of the coordinate values of the survey and project base points, elevation, and true north.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 5</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th><th>Value</th></tr>
+<tr><td>Project Base Point Coordinate</td><td>534240000 E/W  |  189460000 N/S</td></tr>
+<tr><td>Project Base Point Elevation</td><td>0</td></tr>
+<tr><td>Project Base Point Rotation</td><td>0.00°</td></tr>
+<tr><td>Survey Point Coordinate</td><td>0 E/W  |  0 N/S</td></tr>
+<tr><td>Survey Point Elevation</td><td>0</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">External Files</div>
+        <div class="structureBreakdown">5 Checks, 5 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to linked and imported files in the model.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Linked Revit Files and Their Link Method</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of the link method (overlay vs. attach) for each Revit link in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 10</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th><th>Value</th></tr>
+<tr><td>RVT Links : Type : 16092-AHMM-00-ZZ-M3-A-0001-MainModel.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : 16092-AHMM-00-ZZ-M3-A-0001-Site_Context_detached.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : 16092-AHMM-00-ZZ-M3-A-Shared_Coordinates.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : C12721-BHE-XXX-XXX-M3-C-00002_Proposed DEN Only (for Revit Users).ifc</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : P450040-TOTTENHAM SITES-V20-TUNNELS & SEWERS.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : THF-SWE-B1-ZZ-M-Z-0001.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : THF-SWE-B2-ZZ-M-Z-0001.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : THF-SWE-ZZ-ZZ-M-Z-0001.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : TH-IS-ZZ-001-A-22061-20-100.rvt</td><td>Overlay</td></tr>
+<tr><td>RVT Links : Type : Tottenham Hale Combined Utilities & Drainage_Rev2.RVT</td><td>Overlay</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Linked CAD Files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all linked CAD files in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Imported CAD files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all CAD files that were Imported and not Linked.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Imported SKP files</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all imported SKP files in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Raster Images</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all raster images placed in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Levels and Grids</div>
+        <div class="structureBreakdown">2 Checks, 2 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to datum and location elements in the model.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Levels</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all level elements in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 58</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Grids</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all grid elements in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 76</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Views</div>
+        <div class="structureBreakdown">3 Checks, 3 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to views in the model.</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Views</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all views.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>3D View - {3D - r.camoccio}</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Sheets</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all sheets in the model. Sheets typically do not impact model size, but too many unmanaged views can impact user efficiency.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Schedules</div>
+        <div class="portalStandardText" style="text-align: left">COUNT of all schedules in the model. Schedules typically do not impact model size, but too many unmanaged views can impact user efficiency.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Model Elements</div>
+        <div class="structureBreakdown">25 Checks, 25 Count/List</div>
+    </div>
+    <div class="portalStandardText">A series of checks related to model elements in the model.</div>
+    <div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Arch System Families</div>
+        <div class="structureBreakdown">10 Checks, 10 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of architectural system families in the model</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Ceiling Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all ceiling family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ceilings : Type : Ceiling 1</td></tr>
+<tr><td>Ceilings : Type : Ceiling 1</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Curtain System</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all architectural curtain system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Curtain Systems : Type : 1500 x 3000mm</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Curtain Wall Mullion Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all curtain wall mullion family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 6</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Curtain Wall Mullions : Type : Circular Mullion : Circular Mullion 1</td></tr>
+<tr><td>Curtain Wall Mullions : Type : L Corner Mullion : L Mullion 1</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Quad Corner Mullion : Quad Mullion 1</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Rectangular Mullion : Rectangular Mullion 1</td></tr>
+<tr><td>Curtain Wall Mullions : Type : Trapezoid Corner Mullion : Trapezoid Mullion 1</td></tr>
+<tr><td>Curtain Wall Mullions : Type : V Corner Mullion : V Mullion 1</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Floor Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all floor family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 33</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Floors : Type : 100DP CLT AA</td></tr>
+<tr><td>Floors : Type : 100DP CLT AB</td></tr>
+<tr><td>Floors : Type : 100DP CLT BC</td></tr>
+<tr><td>Floors : Type : 100DP CLT HC</td></tr>
+<tr><td>Floors : Type : 100DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 160mm Concrete with Corus-ComFlor 46</td></tr>
+<tr><td>Floors : Type : 160mm Concrete with Corus-ComFlor 51</td></tr>
+<tr><td>Floors : Type : 160mm Concrete with Corus-ComFlor 70</td></tr>
+<tr><td>Floors : Type : 1860DP RC CRANE BASE</td></tr>
+<tr><td>Floors : Type : 200DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 225DP PT SLAB</td></tr>
+<tr><td>Floors : Type : 225DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 250DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 2750DP VOID FORMER</td></tr>
+<tr><td>Floors : Type : 275DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 2780DP VOID FORMER</td></tr>
+<tr><td>Floors : Type : 2900DP RC CRANE BASE</td></tr>
+<tr><td>Floors : Type : 2950DP MASS CONCRETE</td></tr>
+<tr><td>Floors : Type : 300DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 325DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 350DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 3775DP VOID FORMER</td></tr>
+<tr><td>Floors : Type : 450DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 500DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 600DP RC COLUMN HEAD</td></tr>
+<tr><td>Floors : Type : 620DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 75mm Metal Roof Deck</td></tr>
+<tr><td>Floors : Type : Beam and Block 200mm</td></tr>
+<tr><td>Floors : Type : Concrete-Commercial 362mm</td></tr>
+<tr><td>Floors : Type : Concrete-Domestic 425mm</td></tr>
+<tr><td>Floors : Type : Generic 300mm</td></tr>
+<tr><td>Floors : Type : Insitu Concrete 225mm</td></tr>
+<tr><td>Floors : Type : Standard Timber-Wood Finish</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Railing Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all railing family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 3</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Railings : Type : 900mm</td></tr>
+<tr><td>Railings : Type : AHMM_RAI_XXX-000_Wall</td></tr>
+<tr><td>Railings : Type : AHMM_RAI_XXX-001_Interior_continuous</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Ramp Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all ramp family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ramps : Type : Ramp 1</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Roof Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all roof family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 11</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Roofs : Type : CLT AA 100</td></tr>
+<tr><td>Roofs : Type : CLT AB 100</td></tr>
+<tr><td>Roofs : Type : CLT BC 100</td></tr>
+<tr><td>Roofs : Type : CLT HC 100</td></tr>
+<tr><td>Roofs : Type : Cold Roof - Concrete</td></tr>
+<tr><td>Roofs : Type : Generic - 125mm</td></tr>
+<tr><td>Roofs : Type : Generic - 400mm</td></tr>
+<tr><td>Roofs : Type : Sloped Glazing</td></tr>
+<tr><td>Roofs : Type : Steel Bar Joist - Steel Deck - EPDM Membrane</td></tr>
+<tr><td>Roofs : Type : Warm Roof - Concrete</td></tr>
+<tr><td>Roofs : Type : Warm Roof - Timber</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Site Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all site family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Stair Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all stair family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 14</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Stairs : Type : 190mm max riser 250mm going</td></tr>
+<tr><td>Stairs : Type : 190mm max riser 250mm going</td></tr>
+<tr><td>Stairs : Type : AHMM_STA_XXX-000_Basement</td></tr>
+<tr><td>Stairs : Type : Industrial and Assembly</td></tr>
+<tr><td>Stairs : Type : Industrial and Assembly</td></tr>
+<tr><td>Stairs : Type : Monolithic Stair</td></tr>
+<tr><td>Stairs : Type : Monolithic Stair</td></tr>
+<tr><td>Stairs : Type : Part M (Disabled)</td></tr>
+<tr><td>Stairs : Type : Part M (Disabled)</td></tr>
+<tr><td>Stairs : Type : Precast Stair</td></tr>
+<tr><td>Stairs : Type : Private</td></tr>
+<tr><td>Stairs : Type : Private</td></tr>
+<tr><td>Stairs : Type : STA-001B-Cycle Stair - Precast</td></tr>
+<tr><td>Stairs : Type : STA-B2 Cycle Stair</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Wall Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all wall family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 43</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Walls : Type : 1000Ø RC PILED WALL</td></tr>
+<tr><td>Walls : Type : 100THK CLT AA</td></tr>
+<tr><td>Walls : Type : 100THK CLT AB</td></tr>
+<tr><td>Walls : Type : 100THK CLT BC</td></tr>
+<tr><td>Walls : Type : 100THK CLT HC</td></tr>
+<tr><td>Walls : Type : 100THK RC WALL</td></tr>
+<tr><td>Walls : Type : 1350THK RC WALL</td></tr>
+<tr><td>Walls : Type : 200THK RC WALL</td></tr>
+<tr><td>Walls : Type : 215THK RC WALL</td></tr>
+<tr><td>Walls : Type : 225THK RC WALL</td></tr>
+<tr><td>Walls : Type : 250THK RC WALL</td></tr>
+<tr><td>Walls : Type : 275THK RC WALL</td></tr>
+<tr><td>Walls : Type : 300THK RC WALL</td></tr>
+<tr><td>Walls : Type : 320THK RC WALL</td></tr>
+<tr><td>Walls : Type : 350Ø RC PILED WALL</td></tr>
+<tr><td>Walls : Type : 350THK RC WALL</td></tr>
+<tr><td>Walls : Type : 400Ø RC PILED WALL</td></tr>
+<tr><td>Walls : Type : 450Ø RC PILED WALL</td></tr>
+<tr><td>Walls : Type : 450THK RC WALL</td></tr>
+<tr><td>Walls : Type : 500Ø RC PILED WALL</td></tr>
+<tr><td>Walls : Type : 500THK RC WALL</td></tr>
+<tr><td>Walls : Type : 550Ø RC PILED WALL</td></tr>
+<tr><td>Walls : Type : 600Ø RC PILED WALL</td></tr>
+<tr><td>Walls : Type : 750Ø RC PILED WALL</td></tr>
+<tr><td>Walls : Type : 800THK ZONE</td></tr>
+<tr><td>Walls : Type : Curtain Wall</td></tr>
+<tr><td>Walls : Type : CW 102-50-100p</td></tr>
+<tr><td>Walls : Type : CW 102-85-100p</td></tr>
+<tr><td>Walls : Type : CYCLE STAIR WALL CUT : CYCLE STAIR WALL CUT</td></tr>
+<tr><td>Walls : Type : Exterior - 225mm Concrete</td></tr>
+<tr><td>Walls : Type : Exterior - 300mm Concrete</td></tr>
+<tr><td>Walls : Type : Exterior - Brick on Mtl. Stud</td></tr>
+<tr><td>Walls : Type : Exterior - Render on Brick on Block</td></tr>
+<tr><td>Walls : Type : Foundation - 300mm Concrete</td></tr>
+<tr><td>Walls : Type : Generic - 200mm</td></tr>
+<tr><td>Walls : Type : Generic - 225mm Masonry</td></tr>
+<tr><td>Walls : Type : Generic - 300mm</td></tr>
+<tr><td>Walls : Type : Interior - 135mm Partition (2-hr)</td></tr>
+<tr><td>Walls : Type : Interior - 138mm Partition (1-hr)</td></tr>
+<tr><td>Walls : Type : Interior - Blockwork 100</td></tr>
+<tr><td>Walls : Type : Retaining - 300mm Concrete</td></tr>
+<tr><td>Walls : Type : SHEET PILE WALL</td></tr>
+<tr><td>Walls : Type : Walls 1 : Walls 1</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">MEP System Families</div>
+        <div class="structureBreakdown">9 Checks, 9 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of MEP system families in the model</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all duct family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 3</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Ducts : Type : Default</td></tr>
+<tr><td>Ducts : Type : Default</td></tr>
+<tr><td>Ducts : Type : Default</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct System Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all duct system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 3</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Duct Systems : Type : Exhaust Air</td></tr>
+<tr><td>Duct Systems : Type : Return Air</td></tr>
+<tr><td>Duct Systems : Type : Supply Air</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duct Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any duct related elements that have a blank System Name.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Flex Duct Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all flex duct family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 2</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Flex Ducts : Type : Flex - Rectangular</td></tr>
+<tr><td>Flex Ducts : Type : Flex - Round</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Flex Pipe Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all flex pipe family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Flex Pipes : Type : Flex - Round</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Pipe Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all pipe family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 1</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Pipes : Type : Default</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Piping System Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all piping system family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 11</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Piping Systems : Type : Domestic Cold Water</td></tr>
+<tr><td>Piping Systems : Type : Domestic Hot Water</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Dry</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Other</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Pre-Action</td></tr>
+<tr><td>Piping Systems : Type : Fire Protection Wet</td></tr>
+<tr><td>Piping Systems : Type : Hydronic Return</td></tr>
+<tr><td>Piping Systems : Type : Hydronic Supply</td></tr>
+<tr><td>Piping Systems : Type : Other</td></tr>
+<tr><td>Piping Systems : Type : Sanitary</td></tr>
+<tr><td>Piping Systems : Type : Vent</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Piping Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any piping related elements that have a blank System Name.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Electrical Systems That Are Not Connected</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any electrical related elements that have a blank Panel Name or Circuit Number.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 0</div>
+        
+        
+        
+    </div>
+</div>
+</div><div class="treeElement">
+    <div class="structureHeading">
+        <div class="portalHeadlineText structureHeadingText">Structural System Families</div>
+        <div class="structureBreakdown">4 Checks, 4 Count/List</div>
+    </div>
+    <div class="portalStandardText">Reports of structural system families in the model</div>
+    <div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Floor Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all floor family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 33</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Floors : Type : 100DP CLT AA</td></tr>
+<tr><td>Floors : Type : 100DP CLT AB</td></tr>
+<tr><td>Floors : Type : 100DP CLT BC</td></tr>
+<tr><td>Floors : Type : 100DP CLT HC</td></tr>
+<tr><td>Floors : Type : 100DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 160mm Concrete with Corus-ComFlor 46</td></tr>
+<tr><td>Floors : Type : 160mm Concrete with Corus-ComFlor 51</td></tr>
+<tr><td>Floors : Type : 160mm Concrete with Corus-ComFlor 70</td></tr>
+<tr><td>Floors : Type : 1860DP RC CRANE BASE</td></tr>
+<tr><td>Floors : Type : 200DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 225DP PT SLAB</td></tr>
+<tr><td>Floors : Type : 225DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 250DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 2750DP VOID FORMER</td></tr>
+<tr><td>Floors : Type : 275DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 2780DP VOID FORMER</td></tr>
+<tr><td>Floors : Type : 2900DP RC CRANE BASE</td></tr>
+<tr><td>Floors : Type : 2950DP MASS CONCRETE</td></tr>
+<tr><td>Floors : Type : 300DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 325DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 350DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 3775DP VOID FORMER</td></tr>
+<tr><td>Floors : Type : 450DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 500DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 600DP RC COLUMN HEAD</td></tr>
+<tr><td>Floors : Type : 620DP RC SLAB</td></tr>
+<tr><td>Floors : Type : 75mm Metal Roof Deck</td></tr>
+<tr><td>Floors : Type : Beam and Block 200mm</td></tr>
+<tr><td>Floors : Type : Concrete-Commercial 362mm</td></tr>
+<tr><td>Floors : Type : Concrete-Domestic 425mm</td></tr>
+<tr><td>Floors : Type : Generic 300mm</td></tr>
+<tr><td>Floors : Type : Insitu Concrete 225mm</td></tr>
+<tr><td>Floors : Type : Standard Timber-Wood Finish</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Foundation Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all foundation family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 331</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Structural Foundations : Type : 1000DP RC PILECAP</td></tr>
+<tr><td>Structural Foundations : Type : 1100DP RC SLAB</td></tr>
+<tr><td>Structural Foundations : Type : 1165DP RC SLAB</td></tr>
+<tr><td>Structural Foundations : Type : 1200DP RC SLAB</td></tr>
+<tr><td>Structural Foundations : Type : 1250DP RC PILECAP</td></tr>
+<tr><td>Structural Foundations : Type : 1250DP RC SLAB</td></tr>
+<tr><td>Structural Foundations : Type : 1350DP RC SLAB</td></tr>
+<tr><td>Structural Foundations : Type : 1365DP RC SLAB</td></tr>
+<tr><td>Structural Foundations : Type : 1500DP RC SLAB</td></tr>
+<tr><td>Structural Foundations : Type : 150mm Foundation Slab</td></tr>
+<tr><td>Structural Foundations : Type : 1800DP RC PILE-CAP</td></tr>
+<tr><td>Structural Foundations : Type : 200mm Foundation Slab</td></tr>
+<tr><td>Structural Foundations : Type : 250mm Foundation Slab</td></tr>
+<tr><td>Structural Foundations : Type : 300DP RC SLAB</td></tr>
+<tr><td>Structural Foundations : Type : 300mm Foundation Slab</td></tr>
+<tr><td>Structural Foundations : Type : 300x600x300DP RC RETAINING FOOTING</td></tr>
+<tr><td>Structural Foundations : Type : 500DP MASS CONCRETE PAD</td></tr>
+<tr><td>Structural Foundations : Type : 600DP RC COLUMN HEAD</td></tr>
+<tr><td>Structural Foundations : Type : 900x300DP RC BEARING FOOTING</td></tr>
+<tr><td>Structural Foundations : Type : Bearing Footing - 900 x 300</td></tr>
+<tr><td>Structural Foundations : Type : Footing-Rectangular : 1800 x 1200 x 450mm</td></tr>
+<tr><td>Structural Foundations : Type : Footing-Rectangular : 2400 x 1800 x 450mm</td></tr>
+<tr><td>Structural Foundations : Type : Retaining Footing - 300 x 600 x 300</td></tr>
+<tr><td>Structural Foundations : Type : WW_Pad Foundation-Rectangular : 1000x1000x500</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap : 1000Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap : 1000Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap : 350 Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap : 350Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap : 400Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap : 400Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap : 450Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap : 450Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap : 500Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap : 500Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap : 550Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap : 550Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap : 600Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap : 600Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap : 750Ø R.C. 1-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap : 750Ø R.C. 1-PILE 1800DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap : 750Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-225mm : 1000Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-225mm : 1000Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-225mm : 350 Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-225mm : 350Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-225mm : 400Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-225mm : 400Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-225mm : 450Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-225mm : 450Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-225mm : 500Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-225mm : 500Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-225mm : 550Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-225mm : 550Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-225mm : 600Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-225mm : 600Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-225mm : 750Ø R.C. 1-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-225mm : 750Ø R.C. 1-PILE 1800DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-225mm : 750Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-250mm : 1000Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-250mm : 1000Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-250mm : 350 Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-250mm : 350Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-250mm : 400Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-250mm : 400Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-250mm : 450Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-250mm : 450Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-250mm : 500Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-250mm : 500Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-250mm : 550Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-250mm : 550Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-250mm : 600Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-250mm : 600Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-250mm : 750Ø R.C. 1-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-250mm : 750Ø R.C. 1-PILE 1800DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-250mm : 750Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-PC01d : 1000Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-PC01d : 1000Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-PC01d : 350 Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-PC01d : 350Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-PC01d : 400Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-PC01d : 400Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-PC01d : 450Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-PC01d : 450Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-PC01d : 500Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-PC01d : 500Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-PC01d : 550Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-PC01d : 550Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-PC01d : 600Ø R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-PC01d : 600Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-PC01d : 750Ø R.C. 1-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-PC01d : 750Ø R.C. 1-PILE 1800DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 1-Pile Cap-PC01d : 750Sq R.C. 1-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 1000Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 1000Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 350Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 350Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 400Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 400Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 450Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 450Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 500Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 500Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 550Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 550Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 600Ø R.C. 2-PILE 1000DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 600Ø R.C. 2-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 600Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 750Ø R.C. 2-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 750Ø R.C. 2-PILE 1250DP CAP PC02a</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap : 750Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap Width Parameter Broken : 1000Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap Width Parameter Broken : 1000Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap Width Parameter Broken : 350Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap Width Parameter Broken : 350Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap Width Parameter Broken : 400Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap Width Parameter Broken : 400Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap Width Parameter Broken : 450Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap Width Parameter Broken : 450Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap Width Parameter Broken : 500Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap Width Parameter Broken : 500Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap Width Parameter Broken : 550Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap Width Parameter Broken : 550Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap Width Parameter Broken : 600Ø R.C. 2-PILE 1000DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap Width Parameter Broken : 600Ø R.C. 2-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap Width Parameter Broken : 600Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap Width Parameter Broken : 750Ø R.C. 2-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap Width Parameter Broken : 750Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 1000Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 1000Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 350Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 350Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 400Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 400Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 450Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 450Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 500Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 500Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 550Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 550Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 600Ø R.C. 2-PILE 1000DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 600Ø R.C. 2-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 600Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 750Ø R.C. 2-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 750Ø R.C. 2-PILE 1250DP CAP PC02a</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-225mm : 750Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 1000Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 1000Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 350Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 350Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 400Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 400Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 450Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 450Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 500Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 500Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 550Ø R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 550Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 600Ø R.C. 2-PILE 1000DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 600Ø R.C. 2-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 600Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 750Ø R.C. 2-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 750Ø R.C. 2-PILE 1250DP CAP PC02a</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 2-Pile Cap-PC02b : 750Sq R.C. 2-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 1000Ø  R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 1000Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 350Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 350Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 400Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 400Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 450Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 450Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 500Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 500Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 550Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 550Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 600Ø R.C. 3-PILE 1000DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 600Ø R.C. 3-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 600Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 750Ø R.C. 3-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 750Ø R.C. 3-PILE 1250DP CAP PC03a</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter - 225mm : 750Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 1000Ø  R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 1000Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 350Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 350Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 400Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 400Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 450Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 450Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 500Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 500Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 550Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 550Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 600Ø R.C. 3-PILE 1000DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 600Ø R.C. 3-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 600Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 750Ø R.C. 3-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 750Ø R.C. 3-PILE 1250DP CAP PC03a</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter : 750Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 1000Ø  R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 1000Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 350Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 350Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 400Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 400Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 450Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 450Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 500Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 500Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 550Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 550Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 600Ø R.C. 3-PILE 1000DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 600Ø R.C. 3-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 600Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 750Ø R.C. 3-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 750Ø R.C. 3-PILE 1250DP CAP PC03a</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap Driven by Pile Diameter -PC03b : 750Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap, Standardised : 1000Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap, Standardised : 1000Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap, Standardised : 350Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap, Standardised : 350Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap, Standardised : 400Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap, Standardised : 400Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap, Standardised : 450Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap, Standardised : 450Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap, Standardised : 500Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap, Standardised : 500Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap, Standardised : 550Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap, Standardised : 550Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap, Standardised : 600Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap, Standardised : 600Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap, Standardised : 750Ø R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 3-Pile Cap, Standardised : 750Sq R.C. 3-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap : 1000Ø R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap : 1000Sq R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap : 350Ø R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap : 350Sq R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap : 400Ø R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap : 400Sq R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap : 450Ø R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap : 450Sq R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap : 500Ø R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap : 500Sq R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap : 550Ø R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap : 550Sq R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap : 600Ø R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap : 600Sq R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap : 750Ø R.C. 4-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap : 750Sq R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap-225mm : 1000Ø R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap-225mm : 1000Sq R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap-225mm : 350Ø R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap-225mm : 350Sq R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap-225mm : 400Ø R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap-225mm : 400Sq R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap-225mm : 450Ø R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap-225mm : 450Sq R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap-225mm : 500Ø R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap-225mm : 500Sq R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap-225mm : 550Ø R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap-225mm : 550Sq R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap-225mm : 600Ø R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap-225mm : 600Sq R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap-225mm : 750Ø R.C. 4-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 4-Pile Cap-225mm : 750Sq R.C. 4-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap Driven by Pile Diameter : 1000Ø R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap Driven by Pile Diameter : 1000Sq R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap Driven by Pile Diameter : 350Ø R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap Driven by Pile Diameter : 350Sq R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap Driven by Pile Diameter : 400Ø R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap Driven by Pile Diameter : 400Sq R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap Driven by Pile Diameter : 450Ø R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap Driven by Pile Diameter : 450Sq R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap Driven by Pile Diameter : 500Ø R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap Driven by Pile Diameter : 500Sq R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap Driven by Pile Diameter : 550Ø R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap Driven by Pile Diameter : 550Sq R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap Driven by Pile Diameter : 600Ø R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap Driven by Pile Diameter : 600Sq R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap Driven by Pile Diameter : 750Ø R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap Driven by Pile Diameter : 750Sq R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap, Standardised : 1000Ø R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap, Standardised : 1000Sq R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap, Standardised : 350Ø R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap, Standardised : 350Sq R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap, Standardised : 400Ø R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap, Standardised : 400Sq R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap, Standardised : 450Ø R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap, Standardised : 450Sq R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap, Standardised : 500Ø R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap, Standardised : 500Sq R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap, Standardised : 550Ø R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap, Standardised : 550Sq R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap, Standardised : 600Ø R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap, Standardised : 600Sq R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap, Standardised : 750Ø R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 5-Pile Cap, Standardised : 750Sq R.C. 5-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 6-Pile Cap : 1000Ø R.C. 6-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 6-Pile Cap : 1000Sq R.C. 6-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 6-Pile Cap : 350Ø R.C. 6-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 6-Pile Cap : 350Sq R.C. 6-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 6-Pile Cap : 400Ø R.C. 6-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 6-Pile Cap : 400Sq R.C. 6-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 6-Pile Cap : 450Ø R.C. 6-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 6-Pile Cap : 450Sq R.C. 6-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 6-Pile Cap : 500Ø R.C. 6-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 6-Pile Cap : 500Sq R.C. 6-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 6-Pile Cap : 550Ø R.C. 6-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 6-Pile Cap : 550Sq R.C. 6-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 6-Pile Cap : 600Ø R.C. 6-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 6-Pile Cap : 600Sq R.C. 6-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 6-Pile Cap : 750Ø R.C. 6-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC 6-Pile Cap : 750Sq R.C. 6-PILE CAP</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Pile : 1000Ø R.C. PILE</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Pile : 350Ø R.C. PILE</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Pile : 400Ø R.C. PILE</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Pile : 450Ø R.C. PILE</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Pile : 500Ø R.C. PILE</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Pile : 550Ø R.C. PILE</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Pile : 600Ø R.C. PILE</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Pile : 750Ø R.C. PILE</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Pile : 750Ø R.C. PILE SW</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Pile : 900Ø R.C. PILE</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Sq Pile : 1000Sq R.C. PILE</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Sq Pile : 350Sq R.C. PILE</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Sq Pile : 400Sq R.C. PILE</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Sq Pile : 450Sq R.C. PILE</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Sq Pile : 500Sq R.C. PILE</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Sq Pile : 550Sq R.C. PILE</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Sq Pile : 600Sq R.C. PILE</td></tr>
+<tr><td>Structural Foundations : Type : WW_RC Sq Pile : 750Sq R.C. PILE</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Rebar Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all rebar family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 75</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Structural Rebar : Type : 00</td></tr>
+<tr><td>Structural Rebar : Type : 01</td></tr>
+<tr><td>Structural Rebar : Type : 10R</td></tr>
+<tr><td>Structural Rebar : Type : 10T</td></tr>
+<tr><td>Structural Rebar : Type : 11</td></tr>
+<tr><td>Structural Rebar : Type : 12</td></tr>
+<tr><td>Structural Rebar : Type : 12R</td></tr>
+<tr><td>Structural Rebar : Type : 12T</td></tr>
+<tr><td>Structural Rebar : Type : 13</td></tr>
+<tr><td>Structural Rebar : Type : 14</td></tr>
+<tr><td>Structural Rebar : Type : 14R</td></tr>
+<tr><td>Structural Rebar : Type : 14T</td></tr>
+<tr><td>Structural Rebar : Type : 15</td></tr>
+<tr><td>Structural Rebar : Type : 16R</td></tr>
+<tr><td>Structural Rebar : Type : 16T</td></tr>
+<tr><td>Structural Rebar : Type : 20R</td></tr>
+<tr><td>Structural Rebar : Type : 20T</td></tr>
+<tr><td>Structural Rebar : Type : 21</td></tr>
+<tr><td>Structural Rebar : Type : 22</td></tr>
+<tr><td>Structural Rebar : Type : 23</td></tr>
+<tr><td>Structural Rebar : Type : 24</td></tr>
+<tr><td>Structural Rebar : Type : 25</td></tr>
+<tr><td>Structural Rebar : Type : 25R</td></tr>
+<tr><td>Structural Rebar : Type : 25T</td></tr>
+<tr><td>Structural Rebar : Type : 26</td></tr>
+<tr><td>Structural Rebar : Type : 27</td></tr>
+<tr><td>Structural Rebar : Type : 28</td></tr>
+<tr><td>Structural Rebar : Type : 29</td></tr>
+<tr><td>Structural Rebar : Type : 31</td></tr>
+<tr><td>Structural Rebar : Type : 32</td></tr>
+<tr><td>Structural Rebar : Type : 32R</td></tr>
+<tr><td>Structural Rebar : Type : 32T</td></tr>
+<tr><td>Structural Rebar : Type : 33</td></tr>
+<tr><td>Structural Rebar : Type : 34</td></tr>
+<tr><td>Structural Rebar : Type : 35</td></tr>
+<tr><td>Structural Rebar : Type : 36</td></tr>
+<tr><td>Structural Rebar : Type : 40R</td></tr>
+<tr><td>Structural Rebar : Type : 40T</td></tr>
+<tr><td>Structural Rebar : Type : 41</td></tr>
+<tr><td>Structural Rebar : Type : 44</td></tr>
+<tr><td>Structural Rebar : Type : 46</td></tr>
+<tr><td>Structural Rebar : Type : 47</td></tr>
+<tr><td>Structural Rebar : Type : 51</td></tr>
+<tr><td>Structural Rebar : Type : 56</td></tr>
+<tr><td>Structural Rebar : Type : 63</td></tr>
+<tr><td>Structural Rebar : Type : 64</td></tr>
+<tr><td>Structural Rebar : Type : 67</td></tr>
+<tr><td>Structural Rebar : Type : 6R</td></tr>
+<tr><td>Structural Rebar : Type : 6T</td></tr>
+<tr><td>Structural Rebar : Type : 75</td></tr>
+<tr><td>Structural Rebar : Type : 77</td></tr>
+<tr><td>Structural Rebar : Type : 8R</td></tr>
+<tr><td>Structural Rebar : Type : 8T</td></tr>
+<tr><td>Structural Rebar : Type : H10</td></tr>
+<tr><td>Structural Rebar : Type : H12</td></tr>
+<tr><td>Structural Rebar : Type : H16</td></tr>
+<tr><td>Structural Rebar : Type : H20</td></tr>
+<tr><td>Structural Rebar : Type : H25</td></tr>
+<tr><td>Structural Rebar : Type : H32</td></tr>
+<tr><td>Structural Rebar : Type : H40</td></tr>
+<tr><td>Structural Rebar : Type : H50</td></tr>
+<tr><td>Structural Rebar : Type : H6</td></tr>
+<tr><td>Structural Rebar : Type : H8</td></tr>
+<tr><td>Structural Rebar : Type : Standard - 135 deg.</td></tr>
+<tr><td>Structural Rebar : Type : Standard - 180 deg.</td></tr>
+<tr><td>Structural Rebar : Type : Standard - 90 deg.</td></tr>
+<tr><td>Structural Rebar : Type : Standard Hook - 180 deg.</td></tr>
+<tr><td>Structural Rebar : Type : Standard Hook - 90 deg.</td></tr>
+<tr><td>Structural Rebar : Type : Stirrup/Tie - 135 deg.</td></tr>
+<tr><td>Structural Rebar : Type : Stirrup/Tie - 180 deg.</td></tr>
+<tr><td>Structural Rebar : Type : Stirrup/Tie - 90 deg.</td></tr>
+<tr><td>Structural Rebar : Type : Stirrup/Tie Hook - 135 deg.</td></tr>
+<tr><td>Structural Rebar : Type : Stirrup/Tie Hook - 90 deg.</td></tr>
+<tr><td>Structural Rebar : Type : Stirrup/Tie Seismic - 135 deg.</td></tr>
+<tr><td>Structural Rebar : Type : Stirrup/Tie Seismic Hook - 135 deg.</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Wall Families</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all wall family types in the model.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 43</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Walls : Type : 1000Ø RC PILED WALL</td></tr>
+<tr><td>Walls : Type : 100THK CLT AA</td></tr>
+<tr><td>Walls : Type : 100THK CLT AB</td></tr>
+<tr><td>Walls : Type : 100THK CLT BC</td></tr>
+<tr><td>Walls : Type : 100THK CLT HC</td></tr>
+<tr><td>Walls : Type : 100THK RC WALL</td></tr>
+<tr><td>Walls : Type : 1350THK RC WALL</td></tr>
+<tr><td>Walls : Type : 200THK RC WALL</td></tr>
+<tr><td>Walls : Type : 215THK RC WALL</td></tr>
+<tr><td>Walls : Type : 225THK RC WALL</td></tr>
+<tr><td>Walls : Type : 250THK RC WALL</td></tr>
+<tr><td>Walls : Type : 275THK RC WALL</td></tr>
+<tr><td>Walls : Type : 300THK RC WALL</td></tr>
+<tr><td>Walls : Type : 320THK RC WALL</td></tr>
+<tr><td>Walls : Type : 350Ø RC PILED WALL</td></tr>
+<tr><td>Walls : Type : 350THK RC WALL</td></tr>
+<tr><td>Walls : Type : 400Ø RC PILED WALL</td></tr>
+<tr><td>Walls : Type : 450Ø RC PILED WALL</td></tr>
+<tr><td>Walls : Type : 450THK RC WALL</td></tr>
+<tr><td>Walls : Type : 500Ø RC PILED WALL</td></tr>
+<tr><td>Walls : Type : 500THK RC WALL</td></tr>
+<tr><td>Walls : Type : 550Ø RC PILED WALL</td></tr>
+<tr><td>Walls : Type : 600Ø RC PILED WALL</td></tr>
+<tr><td>Walls : Type : 750Ø RC PILED WALL</td></tr>
+<tr><td>Walls : Type : 800THK ZONE</td></tr>
+<tr><td>Walls : Type : Curtain Wall</td></tr>
+<tr><td>Walls : Type : CW 102-50-100p</td></tr>
+<tr><td>Walls : Type : CW 102-85-100p</td></tr>
+<tr><td>Walls : Type : CYCLE STAIR WALL CUT : CYCLE STAIR WALL CUT</td></tr>
+<tr><td>Walls : Type : Exterior - 225mm Concrete</td></tr>
+<tr><td>Walls : Type : Exterior - 300mm Concrete</td></tr>
+<tr><td>Walls : Type : Exterior - Brick on Mtl. Stud</td></tr>
+<tr><td>Walls : Type : Exterior - Render on Brick on Block</td></tr>
+<tr><td>Walls : Type : Foundation - 300mm Concrete</td></tr>
+<tr><td>Walls : Type : Generic - 200mm</td></tr>
+<tr><td>Walls : Type : Generic - 225mm Masonry</td></tr>
+<tr><td>Walls : Type : Generic - 300mm</td></tr>
+<tr><td>Walls : Type : Interior - 135mm Partition (2-hr)</td></tr>
+<tr><td>Walls : Type : Interior - 138mm Partition (1-hr)</td></tr>
+<tr><td>Walls : Type : Interior - Blockwork 100</td></tr>
+<tr><td>Walls : Type : Retaining - 300mm Concrete</td></tr>
+<tr><td>Walls : Type : SHEET PILE WALL</td></tr>
+<tr><td>Walls : Type : Walls 1 : Walls 1</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Duplicate Modeled Elements</div>
+        <div class="portalStandardText" style="text-align: left">PASS/FAIL check to determine if there are any modeled elements that are duplicates (identical elements at the same location and base level). Check will Fail if any duplicate element is found.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 16</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Name</th></tr>
+<tr><td>Structural Foundations : WW_RC 3-Pile Cap Driven by Pile Diameter : 750Ø R.C. 3-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : WW_RC 3-Pile Cap Driven by Pile Diameter : 750Ø R.C. 3-PILE 1250DP CAP</td></tr>
+<tr><td>Structural Foundations : WW_RC Pile : 750Ø R.C. PILE</td></tr>
+<tr><td>Structural Foundations : WW_RC Pile : 750Ø R.C. PILE</td></tr>
+<tr><td>Structural Foundations : WW_RC Pile : 750Ø R.C. PILE</td></tr>
+<tr><td>Structural Foundations : WW_RC Pile : 750Ø R.C. PILE</td></tr>
+<tr><td>Structural Foundations : WW_RC Pile : 750Ø R.C. PILE</td></tr>
+<tr><td>Structural Foundations : WW_RC Pile : 750Ø R.C. PILE</td></tr>
+<tr><td>Structural Framing : Plate : 180 x 60</td></tr>
+<tr><td>Structural Framing : Plate : 180 x 60</td></tr>
+<tr><td>Structural Framing : Plate : 180 x 60</td></tr>
+<tr><td>Structural Framing : Plate : 180 x 60</td></tr>
+<tr><td>Structural Framing : Plate : 180 x 60</td></tr>
+<tr><td>Structural Framing : Plate : 180 x 60</td></tr>
+<tr><td>Structural Framing : Plate : 180 x 60</td></tr>
+<tr><td>Structural Framing : Plate : 180 x 60</td></tr>
+</table>
+</div>
+        
+    </div>
+</div><div class="checkResult">
+    <img src="https://interoperability.autodesk.com/modelchecker/reports/Icon_Report_Report_26.png" alt="COUNT AND LIST" width="26" height="26"/>
+    <div style="margin-left: 15px; margin-top: 5px">
+        <div class="portalHeadlineText" style="text-align: left">Worksets and Elements</div>
+        <div class="portalStandardText" style="text-align: left">COUNT and LIST of all user worksets for a Revit model or indicates '*Not Workshared*' if worksharing is not enabled.</div>
+        
+        <div class="portalHeadlineText" style="margin - top: 15px">Count: 44.176</div>
+        
+        <div class="tableScroll">
+<table class="itemList">
+<tr><th>Count</th><th>Name</th></tr>
+<tr><td>43666</td><td>Workset1</td></tr>
+<tr><td>307</td><td>WW_B1 Super-Structure</td></tr>
+<tr><td>165</td><td>Shared Levels and Grids</td></tr>
+<tr><td>31</td><td>WW_B2 Super-Structure</td></tr>
+<tr><td>7</td><td>WW_B1-B2 Sub-Structure</td></tr>
+<tr><td>0</td><td>Architectural Links</td></tr>
+<tr><td>0</td><td>MEP Links</td></tr>
+<tr><td>0</td><td>Tunnels Links</td></tr>
+<tr><td>0</td><td>Utilities Links</td></tr>
+<tr><td>0</td><td>WW_B3 Sub-Structure</td></tr>
+<tr><td>0</td><td>WW_B3 Super-Structure</td></tr>
+</table>
+</div>
+        
+    </div>
+</div>
+</div>
+</div>
+    </div>
+</div>
+</body>
+</html>
